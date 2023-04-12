@@ -1,5 +1,6 @@
 {
     "name": "lei/openapi",
+    "version": "0.0.1",
     "description": "Api for lei.net",
     "keywords": [
         "openapitools",
