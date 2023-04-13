@@ -98,7 +98,7 @@ class ValidationResponseStringLeiOrderValidationErrorTest extends TestCase
     }
 
     /**
-     * Test attribute "validation_error_list"
+     * Test attribute "validationErrorList"
      */
     public function testPropertyValidationErrorList()
     {
@@ -107,7 +107,7 @@ class ValidationResponseStringLeiOrderValidationErrorTest extends TestCase
     }
 
     /**
-     * Test attribute "error_message"
+     * Test attribute "errorMessage"
      */
     public function testPropertyErrorMessage()
     {

@@ -125,7 +125,7 @@ class AddressDataTest extends TestCase
     }
 
     /**
-     * Test attribute "street_nr"
+     * Test attribute "streetNr"
      */
     public function testPropertyStreetNr()
     {
@@ -134,7 +134,7 @@ class AddressDataTest extends TestCase
     }
 
     /**
-     * Test attribute "nr_in_building"
+     * Test attribute "nrInBuilding"
      */
     public function testPropertyNrInBuilding()
     {
@@ -143,7 +143,7 @@ class AddressDataTest extends TestCase
     }
 
     /**
-     * Test attribute "mail_route"
+     * Test attribute "mailRoute"
      */
     public function testPropertyMailRoute()
     {
@@ -152,7 +152,7 @@ class AddressDataTest extends TestCase
     }
 
     /**
-     * Test attribute "additional_info1"
+     * Test attribute "additionalInfo1"
      */
     public function testPropertyAdditionalInfo1()
     {
@@ -161,7 +161,7 @@ class AddressDataTest extends TestCase
     }
 
     /**
-     * Test attribute "additional_info2"
+     * Test attribute "additionalInfo2"
      */
     public function testPropertyAdditionalInfo2()
     {
@@ -170,7 +170,7 @@ class AddressDataTest extends TestCase
     }
 
     /**
-     * Test attribute "additional_info3"
+     * Test attribute "additionalInfo3"
      */
     public function testPropertyAdditionalInfo3()
     {

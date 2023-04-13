@@ -80,7 +80,7 @@ class InvoiceContactTest extends TestCase
     }
 
     /**
-     * Test attribute "invoice_to_contact_address"
+     * Test attribute "invoiceToContactAddress"
      */
     public function testPropertyInvoiceToContactAddress()
     {
@@ -116,7 +116,7 @@ class InvoiceContactTest extends TestCase
     }
 
     /**
-     * Test attribute "phone_nr"
+     * Test attribute "phoneNr"
      */
     public function testPropertyPhoneNr()
     {
@@ -125,7 +125,7 @@ class InvoiceContactTest extends TestCase
     }
 
     /**
-     * Test attribute "area_code"
+     * Test attribute "areaCode"
      */
     public function testPropertyAreaCode()
     {

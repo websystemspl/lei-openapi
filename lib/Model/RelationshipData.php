@@ -57,9 +57,9 @@ class RelationshipData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ultimate_mother' => '\OpenAPI\Client\Model\Mother',
-        'no_mother' => 'bool',
-        'direct_mother' => '\OpenAPI\Client\Model\Mother'
+        'ultimateMother' => '\OpenAPI\Client\Model\Mother',
+        'noMother' => 'bool',
+        'directMother' => '\OpenAPI\Client\Model\Mother'
     ];
 
     /**
@@ -70,9 +70,9 @@ class RelationshipData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ultimate_mother' => null,
-        'no_mother' => null,
-        'direct_mother' => null
+        'ultimateMother' => null,
+        'noMother' => null,
+        'directMother' => null
     ];
 
     /**
@@ -81,9 +81,9 @@ class RelationshipData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ultimate_mother' => false,
-		'no_mother' => false,
-		'direct_mother' => false
+        'ultimateMother' => false,
+		'noMother' => false,
+		'directMother' => false
     ];
 
     /**
@@ -172,9 +172,9 @@ class RelationshipData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'ultimate_mother' => 'ultimateMother',
-        'no_mother' => 'noMother',
-        'direct_mother' => 'directMother'
+        'ultimateMother' => 'ultimateMother',
+        'noMother' => 'noMother',
+        'directMother' => 'directMother'
     ];
 
     /**
@@ -183,9 +183,9 @@ class RelationshipData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'ultimate_mother' => 'setUltimateMother',
-        'no_mother' => 'setNoMother',
-        'direct_mother' => 'setDirectMother'
+        'ultimateMother' => 'setUltimateMother',
+        'noMother' => 'setNoMother',
+        'directMother' => 'setDirectMother'
     ];
 
     /**
@@ -194,9 +194,9 @@ class RelationshipData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'ultimate_mother' => 'getUltimateMother',
-        'no_mother' => 'getNoMother',
-        'direct_mother' => 'getDirectMother'
+        'ultimateMother' => 'getUltimateMother',
+        'noMother' => 'getNoMother',
+        'directMother' => 'getDirectMother'
     ];
 
     /**
@@ -256,9 +256,9 @@ class RelationshipData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('ultimate_mother', $data ?? [], null);
-        $this->setIfExists('no_mother', $data ?? [], null);
-        $this->setIfExists('direct_mother', $data ?? [], null);
+        $this->setIfExists('ultimateMother', $data ?? [], null);
+        $this->setIfExists('noMother', $data ?? [], null);
+        $this->setIfExists('directMother', $data ?? [], null);
     }
 
     /**
@@ -304,82 +304,82 @@ class RelationshipData implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets ultimate_mother
+     * Gets ultimateMother
      *
      * @return \OpenAPI\Client\Model\Mother|null
      */
     public function getUltimateMother()
     {
-        return $this->container['ultimate_mother'];
+        return $this->container['ultimateMother'];
     }
 
     /**
-     * Sets ultimate_mother
+     * Sets ultimateMother
      *
-     * @param \OpenAPI\Client\Model\Mother|null $ultimate_mother ultimate_mother
+     * @param \OpenAPI\Client\Model\Mother|null $ultimateMother ultimateMother
      *
      * @return self
      */
-    public function setUltimateMother($ultimate_mother)
+    public function setUltimateMother($ultimateMother)
     {
-        if (is_null($ultimate_mother)) {
-            throw new \InvalidArgumentException('non-nullable ultimate_mother cannot be null');
+        if (is_null($ultimateMother)) {
+            throw new \InvalidArgumentException('non-nullable ultimateMother cannot be null');
         }
-        $this->container['ultimate_mother'] = $ultimate_mother;
+        $this->container['ultimateMother'] = $ultimateMother;
 
         return $this;
     }
 
     /**
-     * Gets no_mother
+     * Gets noMother
      *
      * @return bool|null
      */
     public function getNoMother()
     {
-        return $this->container['no_mother'];
+        return $this->container['noMother'];
     }
 
     /**
-     * Sets no_mother
+     * Sets noMother
      *
-     * @param bool|null $no_mother Set to TRUE if no MOTHER information is available.
+     * @param bool|null $noMother Set to TRUE if no MOTHER information is available.
      *
      * @return self
      */
-    public function setNoMother($no_mother)
+    public function setNoMother($noMother)
     {
-        if (is_null($no_mother)) {
-            throw new \InvalidArgumentException('non-nullable no_mother cannot be null');
+        if (is_null($noMother)) {
+            throw new \InvalidArgumentException('non-nullable noMother cannot be null');
         }
-        $this->container['no_mother'] = $no_mother;
+        $this->container['noMother'] = $noMother;
 
         return $this;
     }
 
     /**
-     * Gets direct_mother
+     * Gets directMother
      *
      * @return \OpenAPI\Client\Model\Mother|null
      */
     public function getDirectMother()
     {
-        return $this->container['direct_mother'];
+        return $this->container['directMother'];
     }
 
     /**
-     * Sets direct_mother
+     * Sets directMother
      *
-     * @param \OpenAPI\Client\Model\Mother|null $direct_mother direct_mother
+     * @param \OpenAPI\Client\Model\Mother|null $directMother directMother
      *
      * @return self
      */
-    public function setDirectMother($direct_mother)
+    public function setDirectMother($directMother)
     {
-        if (is_null($direct_mother)) {
-            throw new \InvalidArgumentException('non-nullable direct_mother cannot be null');
+        if (is_null($directMother)) {
+            throw new \InvalidArgumentException('non-nullable directMother cannot be null');
         }
-        $this->container['direct_mother'] = $direct_mother;
+        $this->container['directMother'] = $directMother;
 
         return $this;
     }

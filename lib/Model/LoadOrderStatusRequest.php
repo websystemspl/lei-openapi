@@ -57,8 +57,8 @@ class LoadOrderStatusRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'api_token' => 'string',
-        'order_number' => 'string'
+        'apiToken' => 'string',
+        'orderNumber' => 'string'
     ];
 
     /**
@@ -69,8 +69,8 @@ class LoadOrderStatusRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'api_token' => null,
-        'order_number' => null
+        'apiToken' => null,
+        'orderNumber' => null
     ];
 
     /**
@@ -79,8 +79,8 @@ class LoadOrderStatusRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'api_token' => false,
-		'order_number' => false
+        'apiToken' => false,
+		'orderNumber' => false
     ];
 
     /**
@@ -169,8 +169,8 @@ class LoadOrderStatusRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_token' => 'apiToken',
-        'order_number' => 'orderNumber'
+        'apiToken' => 'apiToken',
+        'orderNumber' => 'orderNumber'
     ];
 
     /**
@@ -179,8 +179,8 @@ class LoadOrderStatusRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'api_token' => 'setApiToken',
-        'order_number' => 'setOrderNumber'
+        'apiToken' => 'setApiToken',
+        'orderNumber' => 'setOrderNumber'
     ];
 
     /**
@@ -189,8 +189,8 @@ class LoadOrderStatusRequest implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'api_token' => 'getApiToken',
-        'order_number' => 'getOrderNumber'
+        'apiToken' => 'getApiToken',
+        'orderNumber' => 'getOrderNumber'
     ];
 
     /**
@@ -250,8 +250,8 @@ class LoadOrderStatusRequest implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('api_token', $data ?? [], null);
-        $this->setIfExists('order_number', $data ?? [], null);
+        $this->setIfExists('apiToken', $data ?? [], null);
+        $this->setIfExists('orderNumber', $data ?? [], null);
     }
 
     /**
@@ -297,55 +297,55 @@ class LoadOrderStatusRequest implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets api_token
+     * Gets apiToken
      *
      * @return string|null
      */
     public function getApiToken()
     {
-        return $this->container['api_token'];
+        return $this->container['apiToken'];
     }
 
     /**
-     * Sets api_token
+     * Sets apiToken
      *
-     * @param string|null $api_token A token, which should be used as a security login
+     * @param string|null $apiToken A token, which should be used as a security login
      *
      * @return self
      */
-    public function setApiToken($api_token)
+    public function setApiToken($apiToken)
     {
-        if (is_null($api_token)) {
-            throw new \InvalidArgumentException('non-nullable api_token cannot be null');
+        if (is_null($apiToken)) {
+            throw new \InvalidArgumentException('non-nullable apiToken cannot be null');
         }
-        $this->container['api_token'] = $api_token;
+        $this->container['apiToken'] = $apiToken;
 
         return $this;
     }
 
     /**
-     * Gets order_number
+     * Gets orderNumber
      *
      * @return string|null
      */
     public function getOrderNumber()
     {
-        return $this->container['order_number'];
+        return $this->container['orderNumber'];
     }
 
     /**
-     * Sets order_number
+     * Sets orderNumber
      *
-     * @param string|null $order_number Order number for the current process for the client
+     * @param string|null $orderNumber Order number for the current process for the client
      *
      * @return self
      */
-    public function setOrderNumber($order_number)
+    public function setOrderNumber($orderNumber)
     {
-        if (is_null($order_number)) {
-            throw new \InvalidArgumentException('non-nullable order_number cannot be null');
+        if (is_null($orderNumber)) {
+            throw new \InvalidArgumentException('non-nullable orderNumber cannot be null');
         }
-        $this->container['order_number'] = $order_number;
+        $this->container['orderNumber'] = $orderNumber;
 
         return $this;
     }

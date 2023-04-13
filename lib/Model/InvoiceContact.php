@@ -58,7 +58,7 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'invoice_to_contact_address' => 'bool',
+        'invoiceToContactAddress' => 'bool',
         'salutation' => 'string',
         'firstname' => 'string',
         'lastname' => 'string',
@@ -76,7 +76,7 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'invoice_to_contact_address' => null,
+        'invoiceToContactAddress' => null,
         'salutation' => null,
         'firstname' => null,
         'lastname' => null,
@@ -92,7 +92,7 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'invoice_to_contact_address' => false,
+        'invoiceToContactAddress' => false,
 		'salutation' => false,
 		'firstname' => false,
 		'lastname' => false,
@@ -188,7 +188,7 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'invoice_to_contact_address' => 'invoiceToContactAddress',
+        'invoiceToContactAddress' => 'invoiceToContactAddress',
         'salutation' => 'salutation',
         'firstname' => 'firstname',
         'lastname' => 'lastname',
@@ -204,12 +204,12 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'invoice_to_contact_address' => 'setInvoiceToContactAddress',
+        'invoiceToContactAddress' => 'setInvoiceToContactAddress',
         'salutation' => 'setSalutation',
         'firstname' => 'setFirstname',
         'lastname' => 'setLastname',
-        'phone_nr' => 'setPhoneNr',
-        'area_code' => 'setAreaCode',
+        'phone_nr' => 'setphone_nr',
+        'area_code' => 'setarea_code',
         'sign' => 'setSign',
         'mail' => 'setMail'
     ];
@@ -220,12 +220,12 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'invoice_to_contact_address' => 'getInvoiceToContactAddress',
+        'invoiceToContactAddress' => 'getInvoiceToContactAddress',
         'salutation' => 'getSalutation',
         'firstname' => 'getFirstname',
         'lastname' => 'getLastname',
-        'phone_nr' => 'getPhoneNr',
-        'area_code' => 'getAreaCode',
+        'phone_nr' => 'getphone_nr',
+        'area_code' => 'getarea_code',
         'sign' => 'getSign',
         'mail' => 'getMail'
     ];
@@ -287,7 +287,7 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('invoice_to_contact_address', $data ?? [], null);
+        $this->setIfExists('invoiceToContactAddress', $data ?? [], null);
         $this->setIfExists('salutation', $data ?? [], null);
         $this->setIfExists('firstname', $data ?? [], null);
         $this->setIfExists('lastname', $data ?? [], null);
@@ -340,28 +340,28 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets invoice_to_contact_address
+     * Gets invoiceToContactAddress
      *
      * @return bool|null
      */
     public function getInvoiceToContactAddress()
     {
-        return $this->container['invoice_to_contact_address'];
+        return $this->container['invoiceToContactAddress'];
     }
 
     /**
-     * Sets invoice_to_contact_address
+     * Sets invoiceToContactAddress
      *
-     * @param bool|null $invoice_to_contact_address If True the other attributes of InvoiceContact arent necessary and can be NULL
+     * @param bool|null $invoiceToContactAddress If True the other attributes of InvoiceContact arent necessary and can be NULL
      *
      * @return self
      */
-    public function setInvoiceToContactAddress($invoice_to_contact_address)
+    public function setInvoiceToContactAddress($invoiceToContactAddress)
     {
-        if (is_null($invoice_to_contact_address)) {
-            throw new \InvalidArgumentException('non-nullable invoice_to_contact_address cannot be null');
+        if (is_null($invoiceToContactAddress)) {
+            throw new \InvalidArgumentException('non-nullable invoiceToContactAddress cannot be null');
         }
-        $this->container['invoice_to_contact_address'] = $invoice_to_contact_address;
+        $this->container['invoiceToContactAddress'] = $invoiceToContactAddress;
 
         return $this;
     }
@@ -452,7 +452,7 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getPhoneNr()
+    public function getphone_nr()
     {
         return $this->container['phone_nr'];
     }
@@ -464,7 +464,7 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setPhoneNr($phone_nr)
+    public function setphone_nr($phone_nr)
     {
         if (is_null($phone_nr)) {
             throw new \InvalidArgumentException('non-nullable phone_nr cannot be null');
@@ -479,7 +479,7 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getAreaCode()
+    public function getarea_code()
     {
         return $this->container['area_code'];
     }
@@ -491,7 +491,7 @@ class InvoiceContact implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setAreaCode($area_code)
+    public function setarea_code($area_code)
     {
         if (is_null($area_code)) {
             throw new \InvalidArgumentException('non-nullable area_code cannot be null');

@@ -80,7 +80,7 @@ class InvoiceAddressTest extends TestCase
     }
 
     /**
-     * Test attribute "to_legal_address"
+     * Test attribute "toLegalAddress"
      */
     public function testPropertyToLegalAddress()
     {
@@ -89,7 +89,7 @@ class InvoiceAddressTest extends TestCase
     }
 
     /**
-     * Test attribute "entity_name"
+     * Test attribute "entityName"
      */
     public function testPropertyEntityName()
     {
@@ -143,7 +143,7 @@ class InvoiceAddressTest extends TestCase
     }
 
     /**
-     * Test attribute "street_nr"
+     * Test attribute "streetNr"
      */
     public function testPropertyStreetNr()
     {
@@ -152,7 +152,7 @@ class InvoiceAddressTest extends TestCase
     }
 
     /**
-     * Test attribute "additional_address"
+     * Test attribute "additionalAddress"
      */
     public function testPropertyAdditionalAddress()
     {

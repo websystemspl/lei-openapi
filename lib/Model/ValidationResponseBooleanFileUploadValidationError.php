@@ -59,8 +59,8 @@ class ValidationResponseBooleanFileUploadValidationError implements ModelInterfa
     protected static $openAPITypes = [
         'status' => 'string',
         'data' => 'bool',
-        'validation_error_list' => 'string[]',
-        'error_message' => 'string',
+        'validationErrorList' => 'string[]',
+        'errorMessage' => 'string',
         'successful' => 'bool'
     ];
 
@@ -74,8 +74,8 @@ class ValidationResponseBooleanFileUploadValidationError implements ModelInterfa
     protected static $openAPIFormats = [
         'status' => null,
         'data' => null,
-        'validation_error_list' => null,
-        'error_message' => null,
+        'validationErrorList' => null,
+        'errorMessage' => null,
         'successful' => null
     ];
 
@@ -87,8 +87,8 @@ class ValidationResponseBooleanFileUploadValidationError implements ModelInterfa
     protected static array $openAPINullables = [
         'status' => false,
 		'data' => false,
-		'validation_error_list' => false,
-		'error_message' => false,
+		'validationErrorList' => false,
+		'errorMessage' => false,
 		'successful' => false
     ];
 
@@ -180,8 +180,8 @@ class ValidationResponseBooleanFileUploadValidationError implements ModelInterfa
     protected static $attributeMap = [
         'status' => 'status',
         'data' => 'data',
-        'validation_error_list' => 'validationErrorList',
-        'error_message' => 'errorMessage',
+        'validationErrorList' => 'validationErrorList',
+        'errorMessage' => 'errorMessage',
         'successful' => 'successful'
     ];
 
@@ -193,8 +193,8 @@ class ValidationResponseBooleanFileUploadValidationError implements ModelInterfa
     protected static $setters = [
         'status' => 'setStatus',
         'data' => 'setData',
-        'validation_error_list' => 'setValidationErrorList',
-        'error_message' => 'setErrorMessage',
+        'validationErrorList' => 'setValidationErrorList',
+        'errorMessage' => 'setErrorMessage',
         'successful' => 'setSuccessful'
     ];
 
@@ -206,8 +206,8 @@ class ValidationResponseBooleanFileUploadValidationError implements ModelInterfa
     protected static $getters = [
         'status' => 'getStatus',
         'data' => 'getData',
-        'validation_error_list' => 'getValidationErrorList',
-        'error_message' => 'getErrorMessage',
+        'validationErrorList' => 'getValidationErrorList',
+        'errorMessage' => 'getErrorMessage',
         'successful' => 'getSuccessful'
     ];
 
@@ -308,8 +308,8 @@ class ValidationResponseBooleanFileUploadValidationError implements ModelInterfa
     {
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('validation_error_list', $data ?? [], null);
-        $this->setIfExists('error_message', $data ?? [], null);
+        $this->setIfExists('validationErrorList', $data ?? [], null);
+        $this->setIfExists('errorMessage', $data ?? [], null);
         $this->setIfExists('successful', $data ?? [], null);
     }
 
@@ -429,66 +429,66 @@ class ValidationResponseBooleanFileUploadValidationError implements ModelInterfa
     }
 
     /**
-     * Gets validation_error_list
+     * Gets validationErrorList
      *
      * @return string[]|null
      */
     public function getValidationErrorList()
     {
-        return $this->container['validation_error_list'];
+        return $this->container['validationErrorList'];
     }
 
     /**
-     * Sets validation_error_list
+     * Sets validationErrorList
      *
-     * @param string[]|null $validation_error_list validation_error_list
+     * @param string[]|null $validationErrorList validationErrorList
      *
      * @return self
      */
-    public function setValidationErrorList($validation_error_list)
+    public function setValidationErrorList($validationErrorList)
     {
-        if (is_null($validation_error_list)) {
-            throw new \InvalidArgumentException('non-nullable validation_error_list cannot be null');
+        if (is_null($validationErrorList)) {
+            throw new \InvalidArgumentException('non-nullable validationErrorList cannot be null');
         }
         $allowedValues = $this->getValidationErrorListAllowableValues();
-        if (array_diff($validation_error_list, $allowedValues)) {
+        if (array_diff($validationErrorList, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'validation_error_list', must be one of '%s'",
+                    "Invalid value for 'validationErrorList', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
 
 
-        $this->container['validation_error_list'] = $validation_error_list;
+        $this->container['validationErrorList'] = $validationErrorList;
 
         return $this;
     }
 
     /**
-     * Gets error_message
+     * Gets errorMessage
      *
      * @return string|null
      */
     public function getErrorMessage()
     {
-        return $this->container['error_message'];
+        return $this->container['errorMessage'];
     }
 
     /**
-     * Sets error_message
+     * Sets errorMessage
      *
-     * @param string|null $error_message error_message
+     * @param string|null $errorMessage errorMessage
      *
      * @return self
      */
-    public function setErrorMessage($error_message)
+    public function setErrorMessage($errorMessage)
     {
-        if (is_null($error_message)) {
-            throw new \InvalidArgumentException('non-nullable error_message cannot be null');
+        if (is_null($errorMessage)) {
+            throw new \InvalidArgumentException('non-nullable errorMessage cannot be null');
         }
-        $this->container['error_message'] = $error_message;
+        $this->container['errorMessage'] = $errorMessage;
 
         return $this;
     }

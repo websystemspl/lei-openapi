@@ -59,7 +59,7 @@ class ResponseString implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'status' => 'string',
         'data' => 'string',
-        'error_message' => 'string',
+        'errorMessage' => 'string',
         'successful' => 'bool'
     ];
 
@@ -73,7 +73,7 @@ class ResponseString implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'status' => null,
         'data' => null,
-        'error_message' => null,
+        'errorMessage' => null,
         'successful' => null
     ];
 
@@ -85,7 +85,7 @@ class ResponseString implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'status' => false,
 		'data' => false,
-		'error_message' => false,
+		'errorMessage' => false,
 		'successful' => false
     ];
 
@@ -177,7 +177,7 @@ class ResponseString implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'status' => 'status',
         'data' => 'data',
-        'error_message' => 'errorMessage',
+        'errorMessage' => 'errorMessage',
         'successful' => 'successful'
     ];
 
@@ -189,7 +189,7 @@ class ResponseString implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'status' => 'setStatus',
         'data' => 'setData',
-        'error_message' => 'setErrorMessage',
+        'errorMessage' => 'setErrorMessage',
         'successful' => 'setSuccessful'
     ];
 
@@ -201,7 +201,7 @@ class ResponseString implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'status' => 'getStatus',
         'data' => 'getData',
-        'error_message' => 'getErrorMessage',
+        'errorMessage' => 'getErrorMessage',
         'successful' => 'getSuccessful'
     ];
 
@@ -279,7 +279,7 @@ class ResponseString implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('error_message', $data ?? [], null);
+        $this->setIfExists('errorMessage', $data ?? [], null);
         $this->setIfExists('successful', $data ?? [], null);
     }
 
@@ -399,28 +399,28 @@ class ResponseString implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets error_message
+     * Gets errorMessage
      *
      * @return string|null
      */
     public function getErrorMessage()
     {
-        return $this->container['error_message'];
+        return $this->container['errorMessage'];
     }
 
     /**
-     * Sets error_message
+     * Sets errorMessage
      *
-     * @param string|null $error_message error_message
+     * @param string|null $errorMessage errorMessage
      *
      * @return self
      */
-    public function setErrorMessage($error_message)
+    public function setErrorMessage($errorMessage)
     {
-        if (is_null($error_message)) {
-            throw new \InvalidArgumentException('non-nullable error_message cannot be null');
+        if (is_null($errorMessage)) {
+            throw new \InvalidArgumentException('non-nullable errorMessage cannot be null');
         }
-        $this->container['error_message'] = $error_message;
+        $this->container['errorMessage'] = $errorMessage;
 
         return $this;
     }

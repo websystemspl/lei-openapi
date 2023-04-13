@@ -63,12 +63,12 @@ class AddressData implements ModelInterface, ArrayAccess, \JsonSerializable
         'city' => 'string',
         'zip' => 'string',
         'street' => 'string',
-        'street_nr' => 'string',
-        'nr_in_building' => 'string',
-        'mail_route' => 'string',
-        'additional_info1' => 'string',
-        'additional_info2' => 'string',
-        'additional_info3' => 'string'
+        'streetNr' => 'string',
+        'nrInBuilding' => 'string',
+        'mailRoute' => 'string',
+        'additionalInfo1' => 'string',
+        'additionalInfo2' => 'string',
+        'additionalInfo3' => 'string'
     ];
 
     /**
@@ -84,12 +84,12 @@ class AddressData implements ModelInterface, ArrayAccess, \JsonSerializable
         'city' => null,
         'zip' => null,
         'street' => null,
-        'street_nr' => null,
-        'nr_in_building' => null,
-        'mail_route' => null,
-        'additional_info1' => null,
-        'additional_info2' => null,
-        'additional_info3' => null
+        'streetNr' => null,
+        'nrInBuilding' => null,
+        'mailRoute' => null,
+        'additionalInfo1' => null,
+        'additionalInfo2' => null,
+        'additionalInfo3' => null
     ];
 
     /**
@@ -103,12 +103,12 @@ class AddressData implements ModelInterface, ArrayAccess, \JsonSerializable
 		'city' => false,
 		'zip' => false,
 		'street' => false,
-		'street_nr' => false,
-		'nr_in_building' => false,
-		'mail_route' => false,
-		'additional_info1' => false,
-		'additional_info2' => false,
-		'additional_info3' => false
+		'streetNr' => false,
+		'nrInBuilding' => false,
+		'mailRoute' => false,
+		'additionalInfo1' => false,
+		'additionalInfo2' => false,
+		'additionalInfo3' => false
     ];
 
     /**
@@ -202,12 +202,12 @@ class AddressData implements ModelInterface, ArrayAccess, \JsonSerializable
         'city' => 'city',
         'zip' => 'zip',
         'street' => 'street',
-        'street_nr' => 'streetNr',
-        'nr_in_building' => 'nrInBuilding',
-        'mail_route' => 'mailRoute',
-        'additional_info1' => 'additionalInfo1',
-        'additional_info2' => 'additionalInfo2',
-        'additional_info3' => 'additionalInfo3'
+        'streetNr' => 'streetNr',
+        'nrInBuilding' => 'nrInBuilding',
+        'mailRoute' => 'mailRoute',
+        'additionalInfo1' => 'additionalInfo1',
+        'additionalInfo2' => 'additionalInfo2',
+        'additionalInfo3' => 'additionalInfo3'
     ];
 
     /**
@@ -221,12 +221,12 @@ class AddressData implements ModelInterface, ArrayAccess, \JsonSerializable
         'city' => 'setCity',
         'zip' => 'setZip',
         'street' => 'setStreet',
-        'street_nr' => 'setStreetNr',
-        'nr_in_building' => 'setNrInBuilding',
-        'mail_route' => 'setMailRoute',
-        'additional_info1' => 'setAdditionalInfo1',
-        'additional_info2' => 'setAdditionalInfo2',
-        'additional_info3' => 'setAdditionalInfo3'
+        'streetNr' => 'setStreetNr',
+        'nrInBuilding' => 'setNrInBuilding',
+        'mailRoute' => 'setMailRoute',
+        'additionalInfo1' => 'setAdditionalInfo1',
+        'additionalInfo2' => 'setAdditionalInfo2',
+        'additionalInfo3' => 'setAdditionalInfo3'
     ];
 
     /**
@@ -240,12 +240,12 @@ class AddressData implements ModelInterface, ArrayAccess, \JsonSerializable
         'city' => 'getCity',
         'zip' => 'getZip',
         'street' => 'getStreet',
-        'street_nr' => 'getStreetNr',
-        'nr_in_building' => 'getNrInBuilding',
-        'mail_route' => 'getMailRoute',
-        'additional_info1' => 'getAdditionalInfo1',
-        'additional_info2' => 'getAdditionalInfo2',
-        'additional_info3' => 'getAdditionalInfo3'
+        'streetNr' => 'getStreetNr',
+        'nrInBuilding' => 'getNrInBuilding',
+        'mailRoute' => 'getMailRoute',
+        'additionalInfo1' => 'getAdditionalInfo1',
+        'additionalInfo2' => 'getAdditionalInfo2',
+        'additionalInfo3' => 'getAdditionalInfo3'
     ];
 
     /**
@@ -310,12 +310,12 @@ class AddressData implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('city', $data ?? [], null);
         $this->setIfExists('zip', $data ?? [], null);
         $this->setIfExists('street', $data ?? [], null);
-        $this->setIfExists('street_nr', $data ?? [], null);
-        $this->setIfExists('nr_in_building', $data ?? [], null);
-        $this->setIfExists('mail_route', $data ?? [], null);
-        $this->setIfExists('additional_info1', $data ?? [], null);
-        $this->setIfExists('additional_info2', $data ?? [], null);
-        $this->setIfExists('additional_info3', $data ?? [], null);
+        $this->setIfExists('streetNr', $data ?? [], null);
+        $this->setIfExists('nrInBuilding', $data ?? [], null);
+        $this->setIfExists('mailRoute', $data ?? [], null);
+        $this->setIfExists('additionalInfo1', $data ?? [], null);
+        $this->setIfExists('additionalInfo2', $data ?? [], null);
+        $this->setIfExists('additionalInfo3', $data ?? [], null);
     }
 
     /**
@@ -496,163 +496,163 @@ class AddressData implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets street_nr
+     * Gets streetNr
      *
      * @return string|null
      */
     public function getStreetNr()
     {
-        return $this->container['street_nr'];
+        return $this->container['streetNr'];
     }
 
     /**
-     * Sets street_nr
+     * Sets streetNr
      *
-     * @param string|null $street_nr House number of the legal company address
+     * @param string|null $streetNr House number of the legal company address
      *
      * @return self
      */
-    public function setStreetNr($street_nr)
+    public function setStreetNr($streetNr)
     {
-        if (is_null($street_nr)) {
-            throw new \InvalidArgumentException('non-nullable street_nr cannot be null');
+        if (is_null($streetNr)) {
+            throw new \InvalidArgumentException('non-nullable streetNr cannot be null');
         }
-        $this->container['street_nr'] = $street_nr;
+        $this->container['streetNr'] = $streetNr;
 
         return $this;
     }
 
     /**
-     * Gets nr_in_building
+     * Gets nrInBuilding
      *
      * @return string|null
      */
     public function getNrInBuilding()
     {
-        return $this->container['nr_in_building'];
+        return $this->container['nrInBuilding'];
     }
 
     /**
-     * Sets nr_in_building
+     * Sets nrInBuilding
      *
-     * @param string|null $nr_in_building Number within the building of the legal company address || Can be NULL
+     * @param string|null $nrInBuilding Number within the building of the legal company address || Can be NULL
      *
      * @return self
      */
-    public function setNrInBuilding($nr_in_building)
+    public function setNrInBuilding($nrInBuilding)
     {
-        if (is_null($nr_in_building)) {
-            throw new \InvalidArgumentException('non-nullable nr_in_building cannot be null');
+        if (is_null($nrInBuilding)) {
+            throw new \InvalidArgumentException('non-nullable nrInBuilding cannot be null');
         }
-        $this->container['nr_in_building'] = $nr_in_building;
+        $this->container['nrInBuilding'] = $nrInBuilding;
 
         return $this;
     }
 
     /**
-     * Gets mail_route
+     * Gets mailRoute
      *
      * @return string|null
      */
     public function getMailRoute()
     {
-        return $this->container['mail_route'];
+        return $this->container['mailRoute'];
     }
 
     /**
-     * Sets mail_route
+     * Sets mailRoute
      *
-     * @param string|null $mail_route Mail routing of the legal company address || Can be NULL
+     * @param string|null $mailRoute Mail routing of the legal company address || Can be NULL
      *
      * @return self
      */
-    public function setMailRoute($mail_route)
+    public function setMailRoute($mailRoute)
     {
-        if (is_null($mail_route)) {
-            throw new \InvalidArgumentException('non-nullable mail_route cannot be null');
+        if (is_null($mailRoute)) {
+            throw new \InvalidArgumentException('non-nullable mailRoute cannot be null');
         }
-        $this->container['mail_route'] = $mail_route;
+        $this->container['mailRoute'] = $mailRoute;
 
         return $this;
     }
 
     /**
-     * Gets additional_info1
+     * Gets additionalInfo1
      *
      * @return string|null
      */
     public function getAdditionalInfo1()
     {
-        return $this->container['additional_info1'];
+        return $this->container['additionalInfo1'];
     }
 
     /**
-     * Sets additional_info1
+     * Sets additionalInfo1
      *
-     * @param string|null $additional_info1 More information on the address of the legal company address || Can be NULL
+     * @param string|null $additionalInfo1 More information on the address of the legal company address || Can be NULL
      *
      * @return self
      */
-    public function setAdditionalInfo1($additional_info1)
+    public function setAdditionalInfo1($additionalInfo1)
     {
-        if (is_null($additional_info1)) {
-            throw new \InvalidArgumentException('non-nullable additional_info1 cannot be null');
+        if (is_null($additionalInfo1)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo1 cannot be null');
         }
-        $this->container['additional_info1'] = $additional_info1;
+        $this->container['additionalInfo1'] = $additionalInfo1;
 
         return $this;
     }
 
     /**
-     * Gets additional_info2
+     * Gets additionalInfo2
      *
      * @return string|null
      */
     public function getAdditionalInfo2()
     {
-        return $this->container['additional_info2'];
+        return $this->container['additionalInfo2'];
     }
 
     /**
-     * Sets additional_info2
+     * Sets additionalInfo2
      *
-     * @param string|null $additional_info2 More information on the address of the legal company address || Can be NULL
+     * @param string|null $additionalInfo2 More information on the address of the legal company address || Can be NULL
      *
      * @return self
      */
-    public function setAdditionalInfo2($additional_info2)
+    public function setAdditionalInfo2($additionalInfo2)
     {
-        if (is_null($additional_info2)) {
-            throw new \InvalidArgumentException('non-nullable additional_info2 cannot be null');
+        if (is_null($additionalInfo2)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo2 cannot be null');
         }
-        $this->container['additional_info2'] = $additional_info2;
+        $this->container['additionalInfo2'] = $additionalInfo2;
 
         return $this;
     }
 
     /**
-     * Gets additional_info3
+     * Gets additionalInfo3
      *
      * @return string|null
      */
     public function getAdditionalInfo3()
     {
-        return $this->container['additional_info3'];
+        return $this->container['additionalInfo3'];
     }
 
     /**
-     * Sets additional_info3
+     * Sets additionalInfo3
      *
-     * @param string|null $additional_info3 More information on the address of the legal company address || Can be NULL
+     * @param string|null $additionalInfo3 More information on the address of the legal company address || Can be NULL
      *
      * @return self
      */
-    public function setAdditionalInfo3($additional_info3)
+    public function setAdditionalInfo3($additionalInfo3)
     {
-        if (is_null($additional_info3)) {
-            throw new \InvalidArgumentException('non-nullable additional_info3 cannot be null');
+        if (is_null($additionalInfo3)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo3 cannot be null');
         }
-        $this->container['additional_info3'] = $additional_info3;
+        $this->container['additionalInfo3'] = $additionalInfo3;
 
         return $this;
     }

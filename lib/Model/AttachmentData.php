@@ -57,8 +57,8 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'file_name' => 'string',
-        'file_data' => 'string'
+        'fileName' => 'string',
+        'fileData' => 'string'
     ];
 
     /**
@@ -69,8 +69,8 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'file_name' => null,
-        'file_data' => null
+        'fileName' => null,
+        'fileData' => null
     ];
 
     /**
@@ -79,8 +79,8 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'file_name' => false,
-		'file_data' => false
+        'fileName' => false,
+		'fileData' => false
     ];
 
     /**
@@ -169,8 +169,8 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'file_name' => 'fileName',
-        'file_data' => 'fileData'
+        'fileName' => 'fileName',
+        'fileData' => 'fileData'
     ];
 
     /**
@@ -179,8 +179,8 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'file_name' => 'setFileName',
-        'file_data' => 'setFileData'
+        'fileName' => 'setFileName',
+        'fileData' => 'setFileData'
     ];
 
     /**
@@ -189,8 +189,8 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'file_name' => 'getFileName',
-        'file_data' => 'getFileData'
+        'fileName' => 'getFileName',
+        'fileData' => 'getFileData'
     ];
 
     /**
@@ -250,8 +250,8 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('file_name', $data ?? [], null);
-        $this->setIfExists('file_data', $data ?? [], null);
+        $this->setIfExists('fileName', $data ?? [], null);
+        $this->setIfExists('fileData', $data ?? [], null);
     }
 
     /**
@@ -297,55 +297,55 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets file_name
+     * Gets fileName
      *
      * @return string|null
      */
     public function getFileName()
     {
-        return $this->container['file_name'];
+        return $this->container['fileName'];
     }
 
     /**
-     * Sets file_name
+     * Sets fileName
      *
-     * @param string|null $file_name Name of the attached FILE
+     * @param string|null $fileName Name of the attached FILE
      *
      * @return self
      */
-    public function setFileName($file_name)
+    public function setFileName($fileName)
     {
-        if (is_null($file_name)) {
-            throw new \InvalidArgumentException('non-nullable file_name cannot be null');
+        if (is_null($fileName)) {
+            throw new \InvalidArgumentException('non-nullable fileName cannot be null');
         }
-        $this->container['file_name'] = $file_name;
+        $this->container['fileName'] = $fileName;
 
         return $this;
     }
 
     /**
-     * Gets file_data
+     * Gets fileData
      *
      * @return string|null
      */
     public function getFileData()
     {
-        return $this->container['file_data'];
+        return $this->container['fileData'];
     }
 
     /**
-     * Sets file_data
+     * Sets fileData
      *
-     * @param string|null $file_data Files of all type as Binary / Base64
+     * @param string|null $fileData Files of all type as Binary / Base64
      *
      * @return self
      */
-    public function setFileData($file_data)
+    public function setFileData($fileData)
     {
-        if (is_null($file_data)) {
-            throw new \InvalidArgumentException('non-nullable file_data cannot be null');
+        if (is_null($fileData)) {
+            throw new \InvalidArgumentException('non-nullable fileData cannot be null');
         }
-        $this->container['file_data'] = $file_data;
+        $this->container['fileData'] = $fileData;
 
         return $this;
     }

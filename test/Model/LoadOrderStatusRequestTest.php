@@ -80,7 +80,7 @@ class LoadOrderStatusRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "api_token"
+     * Test attribute "apiToken"
      */
     public function testPropertyApiToken()
     {
@@ -89,7 +89,7 @@ class LoadOrderStatusRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "order_number"
+     * Test attribute "orderNumber"
      */
     public function testPropertyOrderNumber()
     {

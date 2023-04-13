@@ -57,8 +57,8 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'api_token' => 'string',
-        'partner_order_data' => '\OpenAPI\Client\Model\PartnerOrderData'
+        'apiToken' => 'string',
+        'partnerOrderData' => '\OpenAPI\Client\Model\PartnerOrderData'
     ];
 
     /**
@@ -69,8 +69,8 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'api_token' => null,
-        'partner_order_data' => null
+        'apiToken' => null,
+        'partnerOrderData' => null
     ];
 
     /**
@@ -79,8 +79,8 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'api_token' => false,
-		'partner_order_data' => false
+        'apiToken' => false,
+		'partnerOrderData' => false
     ];
 
     /**
@@ -169,8 +169,8 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_token' => 'apiToken',
-        'partner_order_data' => 'partnerOrderData'
+        'apiToken' => 'apiToken',
+        'partnerOrderData' => 'partnerOrderData'
     ];
 
     /**
@@ -179,8 +179,8 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'api_token' => 'setApiToken',
-        'partner_order_data' => 'setPartnerOrderData'
+        'apiToken' => 'setApiToken',
+        'partnerOrderData' => 'setPartnerOrderData'
     ];
 
     /**
@@ -189,8 +189,8 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'api_token' => 'getApiToken',
-        'partner_order_data' => 'getPartnerOrderData'
+        'apiToken' => 'getApiToken',
+        'partnerOrderData' => 'getPartnerOrderData'
     ];
 
     /**
@@ -250,8 +250,8 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('api_token', $data ?? [], null);
-        $this->setIfExists('partner_order_data', $data ?? [], null);
+        $this->setIfExists('apiToken', $data ?? [], null);
+        $this->setIfExists('partnerOrderData', $data ?? [], null);
     }
 
     /**
@@ -297,55 +297,55 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets api_token
+     * Gets apiToken
      *
      * @return string|null
      */
     public function getApiToken()
     {
-        return $this->container['api_token'];
+        return $this->container['apiToken'];
     }
 
     /**
-     * Sets api_token
+     * Sets apiToken
      *
-     * @param string|null $api_token A token, which should be used as a security login
+     * @param string|null $apiToken A token, which should be used as a security login
      *
      * @return self
      */
-    public function setApiToken($api_token)
+    public function setApiToken($apiToken)
     {
-        if (is_null($api_token)) {
-            throw new \InvalidArgumentException('non-nullable api_token cannot be null');
+        if (is_null($apiToken)) {
+            throw new \InvalidArgumentException('non-nullable apiToken cannot be null');
         }
-        $this->container['api_token'] = $api_token;
+        $this->container['apiToken'] = $apiToken;
 
         return $this;
     }
 
     /**
-     * Gets partner_order_data
+     * Gets partnerOrderData
      *
      * @return \OpenAPI\Client\Model\PartnerOrderData|null
      */
     public function getPartnerOrderData()
     {
-        return $this->container['partner_order_data'];
+        return $this->container['partnerOrderData'];
     }
 
     /**
-     * Sets partner_order_data
+     * Sets partnerOrderData
      *
-     * @param \OpenAPI\Client\Model\PartnerOrderData|null $partner_order_data partner_order_data
+     * @param \OpenAPI\Client\Model\PartnerOrderData|null $partnerOrderData partnerOrderData
      *
      * @return self
      */
-    public function setPartnerOrderData($partner_order_data)
+    public function setPartnerOrderData($partnerOrderData)
     {
-        if (is_null($partner_order_data)) {
-            throw new \InvalidArgumentException('non-nullable partner_order_data cannot be null');
+        if (is_null($partnerOrderData)) {
+            throw new \InvalidArgumentException('non-nullable partnerOrderData cannot be null');
         }
-        $this->container['partner_order_data'] = $partner_order_data;
+        $this->container['partnerOrderData'] = $partnerOrderData;
 
         return $this;
     }

@@ -57,9 +57,9 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'invoice_address' => '\OpenAPI\Client\Model\InvoiceAddress',
-        'payment_details' => '\OpenAPI\Client\Model\PaymentDetails',
-        'invoice_contact' => '\OpenAPI\Client\Model\InvoiceContact'
+        'invoiceAddress' => '\OpenAPI\Client\Model\InvoiceAddress',
+        'paymentDetails' => '\OpenAPI\Client\Model\PaymentDetails',
+        'invoiceContact' => '\OpenAPI\Client\Model\InvoiceContact'
     ];
 
     /**
@@ -70,9 +70,9 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'invoice_address' => null,
-        'payment_details' => null,
-        'invoice_contact' => null
+        'invoiceAddress' => null,
+        'paymentDetails' => null,
+        'invoiceContact' => null
     ];
 
     /**
@@ -81,9 +81,9 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'invoice_address' => false,
-		'payment_details' => false,
-		'invoice_contact' => false
+        'invoiceAddress' => false,
+		'paymentDetails' => false,
+		'invoiceContact' => false
     ];
 
     /**
@@ -172,9 +172,9 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'invoice_address' => 'invoiceAddress',
-        'payment_details' => 'paymentDetails',
-        'invoice_contact' => 'invoiceContact'
+        'invoiceAddress' => 'invoiceAddress',
+        'paymentDetails' => 'paymentDetails',
+        'invoiceContact' => 'invoiceContact'
     ];
 
     /**
@@ -183,9 +183,9 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'invoice_address' => 'setInvoiceAddress',
-        'payment_details' => 'setPaymentDetails',
-        'invoice_contact' => 'setInvoiceContact'
+        'invoiceAddress' => 'setInvoiceAddress',
+        'paymentDetails' => 'setPaymentDetails',
+        'invoiceContact' => 'setInvoiceContact'
     ];
 
     /**
@@ -194,9 +194,9 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'invoice_address' => 'getInvoiceAddress',
-        'payment_details' => 'getPaymentDetails',
-        'invoice_contact' => 'getInvoiceContact'
+        'invoiceAddress' => 'getInvoiceAddress',
+        'paymentDetails' => 'getPaymentDetails',
+        'invoiceContact' => 'getInvoiceContact'
     ];
 
     /**
@@ -256,9 +256,9 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('invoice_address', $data ?? [], null);
-        $this->setIfExists('payment_details', $data ?? [], null);
-        $this->setIfExists('invoice_contact', $data ?? [], null);
+        $this->setIfExists('invoiceAddress', $data ?? [], null);
+        $this->setIfExists('paymentDetails', $data ?? [], null);
+        $this->setIfExists('invoiceContact', $data ?? [], null);
     }
 
     /**
@@ -304,82 +304,82 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets invoice_address
+     * Gets invoiceAddress
      *
      * @return \OpenAPI\Client\Model\InvoiceAddress|null
      */
     public function getInvoiceAddress()
     {
-        return $this->container['invoice_address'];
+        return $this->container['invoiceAddress'];
     }
 
     /**
-     * Sets invoice_address
+     * Sets invoiceAddress
      *
-     * @param \OpenAPI\Client\Model\InvoiceAddress|null $invoice_address invoice_address
+     * @param \OpenAPI\Client\Model\InvoiceAddress|null $invoiceAddress invoiceAddress
      *
      * @return self
      */
-    public function setInvoiceAddress($invoice_address)
+    public function setInvoiceAddress($invoiceAddress)
     {
-        if (is_null($invoice_address)) {
-            throw new \InvalidArgumentException('non-nullable invoice_address cannot be null');
+        if (is_null($invoiceAddress)) {
+            throw new \InvalidArgumentException('non-nullable invoiceAddress cannot be null');
         }
-        $this->container['invoice_address'] = $invoice_address;
+        $this->container['invoiceAddress'] = $invoiceAddress;
 
         return $this;
     }
 
     /**
-     * Gets payment_details
+     * Gets paymentDetails
      *
      * @return \OpenAPI\Client\Model\PaymentDetails|null
      */
     public function getPaymentDetails()
     {
-        return $this->container['payment_details'];
+        return $this->container['paymentDetails'];
     }
 
     /**
-     * Sets payment_details
+     * Sets paymentDetails
      *
-     * @param \OpenAPI\Client\Model\PaymentDetails|null $payment_details payment_details
+     * @param \OpenAPI\Client\Model\PaymentDetails|null $paymentDetails paymentDetails
      *
      * @return self
      */
-    public function setPaymentDetails($payment_details)
+    public function setPaymentDetails($paymentDetails)
     {
-        if (is_null($payment_details)) {
-            throw new \InvalidArgumentException('non-nullable payment_details cannot be null');
+        if (is_null($paymentDetails)) {
+            throw new \InvalidArgumentException('non-nullable paymentDetails cannot be null');
         }
-        $this->container['payment_details'] = $payment_details;
+        $this->container['paymentDetails'] = $paymentDetails;
 
         return $this;
     }
 
     /**
-     * Gets invoice_contact
+     * Gets invoiceContact
      *
      * @return \OpenAPI\Client\Model\InvoiceContact|null
      */
     public function getInvoiceContact()
     {
-        return $this->container['invoice_contact'];
+        return $this->container['invoiceContact'];
     }
 
     /**
-     * Sets invoice_contact
+     * Sets invoiceContact
      *
-     * @param \OpenAPI\Client\Model\InvoiceContact|null $invoice_contact invoice_contact
+     * @param \OpenAPI\Client\Model\InvoiceContact|null $invoiceContact invoiceContact
      *
      * @return self
      */
-    public function setInvoiceContact($invoice_contact)
+    public function setInvoiceContact($invoiceContact)
     {
-        if (is_null($invoice_contact)) {
-            throw new \InvalidArgumentException('non-nullable invoice_contact cannot be null');
+        if (is_null($invoiceContact)) {
+            throw new \InvalidArgumentException('non-nullable invoiceContact cannot be null');
         }
-        $this->container['invoice_contact'] = $invoice_contact;
+        $this->container['invoiceContact'] = $invoiceContact;
 
         return $this;
     }

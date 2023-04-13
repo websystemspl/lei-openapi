@@ -1,6 +1,6 @@
 {
     "name": "websystemspl/lei-openapi",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Api for lei.net",
     "keywords": [
         "openapitools",

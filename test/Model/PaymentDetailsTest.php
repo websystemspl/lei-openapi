@@ -80,7 +80,7 @@ class PaymentDetailsTest extends TestCase
     }
 
     /**
-     * Test attribute "payment_price"
+     * Test attribute "paymentPrice"
      */
     public function testPropertyPaymentPrice()
     {
@@ -89,7 +89,7 @@ class PaymentDetailsTest extends TestCase
     }
 
     /**
-     * Test attribute "typ_prepaid"
+     * Test attribute "typPrepaid"
      */
     public function testPropertyTypPrepaid()
     {
@@ -98,7 +98,7 @@ class PaymentDetailsTest extends TestCase
     }
 
     /**
-     * Test attribute "payment_type"
+     * Test attribute "paymentType"
      */
     public function testPropertyPaymentType()
     {
@@ -107,7 +107,7 @@ class PaymentDetailsTest extends TestCase
     }
 
     /**
-     * Test attribute "payment_code"
+     * Test attribute "paymentCode"
      */
     public function testPropertyPaymentCode()
     {
@@ -116,7 +116,7 @@ class PaymentDetailsTest extends TestCase
     }
 
     /**
-     * Test attribute "payment_currency"
+     * Test attribute "paymentCurrency"
      */
     public function testPropertyPaymentCurrency()
     {

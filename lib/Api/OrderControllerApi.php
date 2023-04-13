@@ -131,32 +131,32 @@ class OrderControllerApi
     /**
      * Operation createOrder
      *
-     * @param  \OpenAPI\Client\Model\CreateOrderRequest $create_order_request create_order_request (required)
+     * @param  \OpenAPI\Client\Model\CreateOrderRequest $createOrderRequest createOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ValidationResponseStringLeiOrderValidationError
      */
-    public function createOrder($create_order_request, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrder($createOrderRequest, string $contentType = self::contentTypes['createOrder'][0])
     {
-        list($response) = $this->createOrderWithHttpInfo($create_order_request, $contentType);
+        list($response) = $this->createOrderWithHttpInfo($createOrderRequest, $contentType);
         return $response;
     }
 
     /**
      * Operation createOrderWithHttpInfo
      *
-     * @param  \OpenAPI\Client\Model\CreateOrderRequest $create_order_request (required)
+     * @param  \OpenAPI\Client\Model\CreateOrderRequest $createOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ValidationResponseStringLeiOrderValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOrderWithHttpInfo($create_order_request, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderWithHttpInfo($createOrderRequest, string $contentType = self::contentTypes['createOrder'][0])
     {
-        $request = $this->createOrderRequest($create_order_request, $contentType);
+        $request = $this->createOrderRequest($createOrderRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -245,15 +245,15 @@ class OrderControllerApi
     /**
      * Operation createOrderAsync
      *
-     * @param  \OpenAPI\Client\Model\CreateOrderRequest $create_order_request (required)
+     * @param  \OpenAPI\Client\Model\CreateOrderRequest $createOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrderAsync($create_order_request, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderAsync($createOrderRequest, string $contentType = self::contentTypes['createOrder'][0])
     {
-        return $this->createOrderAsyncWithHttpInfo($create_order_request, $contentType)
+        return $this->createOrderAsyncWithHttpInfo($createOrderRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -264,16 +264,16 @@ class OrderControllerApi
     /**
      * Operation createOrderAsyncWithHttpInfo
      *
-     * @param  \OpenAPI\Client\Model\CreateOrderRequest $create_order_request (required)
+     * @param  \OpenAPI\Client\Model\CreateOrderRequest $createOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrderAsyncWithHttpInfo($create_order_request, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderAsyncWithHttpInfo($createOrderRequest, string $contentType = self::contentTypes['createOrder'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ValidationResponseStringLeiOrderValidationError';
-        $request = $this->createOrderRequest($create_order_request, $contentType);
+        $request = $this->createOrderRequest($createOrderRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -314,19 +314,19 @@ class OrderControllerApi
     /**
      * Create request for operation 'createOrder'
      *
-     * @param  \OpenAPI\Client\Model\CreateOrderRequest $create_order_request (required)
+     * @param  \OpenAPI\Client\Model\CreateOrderRequest $createOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createOrderRequest($create_order_request, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderRequest($createOrderRequest, string $contentType = self::contentTypes['createOrder'][0])
     {
 
-        // verify the required parameter 'create_order_request' is set
-        if ($create_order_request === null || (is_array($create_order_request) && count($create_order_request) === 0)) {
+        // verify the required parameter 'createOrderRequest' is set
+        if ($createOrderRequest === null || (is_array($createOrderRequest) && count($createOrderRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_order_request when calling createOrder'
+                'Missing the required parameter $createOrderRequest when calling createOrder'
             );
         }
 
@@ -349,12 +349,12 @@ class OrderControllerApi
         );
 
         // for model (json/xml)
-        if (isset($create_order_request)) {
+        if (isset($createOrderRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_order_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($createOrderRequest));
             } else {
-                $httpBody = $create_order_request;
+                $httpBody = $createOrderRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -405,32 +405,32 @@ class OrderControllerApi
     /**
      * Operation loadOrderStatus
      *
-     * @param  \OpenAPI\Client\Model\LoadOrderStatusRequest $load_order_status_request load_order_status_request (required)
+     * @param  \OpenAPI\Client\Model\LoadOrderStatusRequest $loadOrderStatusRequest loadOrderStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loadOrderStatus'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ResponseString
      */
-    public function loadOrderStatus($load_order_status_request, string $contentType = self::contentTypes['loadOrderStatus'][0])
+    public function loadOrderStatus($loadOrderStatusRequest, string $contentType = self::contentTypes['loadOrderStatus'][0])
     {
-        list($response) = $this->loadOrderStatusWithHttpInfo($load_order_status_request, $contentType);
+        list($response) = $this->loadOrderStatusWithHttpInfo($loadOrderStatusRequest, $contentType);
         return $response;
     }
 
     /**
      * Operation loadOrderStatusWithHttpInfo
      *
-     * @param  \OpenAPI\Client\Model\LoadOrderStatusRequest $load_order_status_request (required)
+     * @param  \OpenAPI\Client\Model\LoadOrderStatusRequest $loadOrderStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loadOrderStatus'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ResponseString, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loadOrderStatusWithHttpInfo($load_order_status_request, string $contentType = self::contentTypes['loadOrderStatus'][0])
+    public function loadOrderStatusWithHttpInfo($loadOrderStatusRequest, string $contentType = self::contentTypes['loadOrderStatus'][0])
     {
-        $request = $this->loadOrderStatusRequest($load_order_status_request, $contentType);
+        $request = $this->loadOrderStatusRequest($loadOrderStatusRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -519,15 +519,15 @@ class OrderControllerApi
     /**
      * Operation loadOrderStatusAsync
      *
-     * @param  \OpenAPI\Client\Model\LoadOrderStatusRequest $load_order_status_request (required)
+     * @param  \OpenAPI\Client\Model\LoadOrderStatusRequest $loadOrderStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loadOrderStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadOrderStatusAsync($load_order_status_request, string $contentType = self::contentTypes['loadOrderStatus'][0])
+    public function loadOrderStatusAsync($loadOrderStatusRequest, string $contentType = self::contentTypes['loadOrderStatus'][0])
     {
-        return $this->loadOrderStatusAsyncWithHttpInfo($load_order_status_request, $contentType)
+        return $this->loadOrderStatusAsyncWithHttpInfo($loadOrderStatusRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -538,16 +538,16 @@ class OrderControllerApi
     /**
      * Operation loadOrderStatusAsyncWithHttpInfo
      *
-     * @param  \OpenAPI\Client\Model\LoadOrderStatusRequest $load_order_status_request (required)
+     * @param  \OpenAPI\Client\Model\LoadOrderStatusRequest $loadOrderStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loadOrderStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadOrderStatusAsyncWithHttpInfo($load_order_status_request, string $contentType = self::contentTypes['loadOrderStatus'][0])
+    public function loadOrderStatusAsyncWithHttpInfo($loadOrderStatusRequest, string $contentType = self::contentTypes['loadOrderStatus'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ResponseString';
-        $request = $this->loadOrderStatusRequest($load_order_status_request, $contentType);
+        $request = $this->loadOrderStatusRequest($loadOrderStatusRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -588,19 +588,19 @@ class OrderControllerApi
     /**
      * Create request for operation 'loadOrderStatus'
      *
-     * @param  \OpenAPI\Client\Model\LoadOrderStatusRequest $load_order_status_request (required)
+     * @param  \OpenAPI\Client\Model\LoadOrderStatusRequest $loadOrderStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loadOrderStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function loadOrderStatusRequest($load_order_status_request, string $contentType = self::contentTypes['loadOrderStatus'][0])
+    public function loadOrderStatusRequest($loadOrderStatusRequest, string $contentType = self::contentTypes['loadOrderStatus'][0])
     {
 
-        // verify the required parameter 'load_order_status_request' is set
-        if ($load_order_status_request === null || (is_array($load_order_status_request) && count($load_order_status_request) === 0)) {
+        // verify the required parameter 'loadOrderStatusRequest' is set
+        if ($loadOrderStatusRequest === null || (is_array($loadOrderStatusRequest) && count($loadOrderStatusRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $load_order_status_request when calling loadOrderStatus'
+                'Missing the required parameter $loadOrderStatusRequest when calling loadOrderStatus'
             );
         }
 
@@ -623,12 +623,12 @@ class OrderControllerApi
         );
 
         // for model (json/xml)
-        if (isset($load_order_status_request)) {
+        if (isset($loadOrderStatusRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($load_order_status_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loadOrderStatusRequest));
             } else {
-                $httpBody = $load_order_status_request;
+                $httpBody = $loadOrderStatusRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -679,32 +679,32 @@ class OrderControllerApi
     /**
      * Operation uploadFile
      *
-     * @param  \OpenAPI\Client\Model\AppendOrderAttachmentRequest $append_order_attachment_request append_order_attachment_request (required)
+     * @param  \OpenAPI\Client\Model\AppendOrderAttachmentRequest $appendOrderAttachmentRequest appendOrderAttachmentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ValidationResponseBooleanFileUploadValidationError
      */
-    public function uploadFile($append_order_attachment_request, string $contentType = self::contentTypes['uploadFile'][0])
+    public function uploadFile($appendOrderAttachmentRequest, string $contentType = self::contentTypes['uploadFile'][0])
     {
-        list($response) = $this->uploadFileWithHttpInfo($append_order_attachment_request, $contentType);
+        list($response) = $this->uploadFileWithHttpInfo($appendOrderAttachmentRequest, $contentType);
         return $response;
     }
 
     /**
      * Operation uploadFileWithHttpInfo
      *
-     * @param  \OpenAPI\Client\Model\AppendOrderAttachmentRequest $append_order_attachment_request (required)
+     * @param  \OpenAPI\Client\Model\AppendOrderAttachmentRequest $appendOrderAttachmentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ValidationResponseBooleanFileUploadValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadFileWithHttpInfo($append_order_attachment_request, string $contentType = self::contentTypes['uploadFile'][0])
+    public function uploadFileWithHttpInfo($appendOrderAttachmentRequest, string $contentType = self::contentTypes['uploadFile'][0])
     {
-        $request = $this->uploadFileRequest($append_order_attachment_request, $contentType);
+        $request = $this->uploadFileRequest($appendOrderAttachmentRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -793,15 +793,15 @@ class OrderControllerApi
     /**
      * Operation uploadFileAsync
      *
-     * @param  \OpenAPI\Client\Model\AppendOrderAttachmentRequest $append_order_attachment_request (required)
+     * @param  \OpenAPI\Client\Model\AppendOrderAttachmentRequest $appendOrderAttachmentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadFileAsync($append_order_attachment_request, string $contentType = self::contentTypes['uploadFile'][0])
+    public function uploadFileAsync($appendOrderAttachmentRequest, string $contentType = self::contentTypes['uploadFile'][0])
     {
-        return $this->uploadFileAsyncWithHttpInfo($append_order_attachment_request, $contentType)
+        return $this->uploadFileAsyncWithHttpInfo($appendOrderAttachmentRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -812,16 +812,16 @@ class OrderControllerApi
     /**
      * Operation uploadFileAsyncWithHttpInfo
      *
-     * @param  \OpenAPI\Client\Model\AppendOrderAttachmentRequest $append_order_attachment_request (required)
+     * @param  \OpenAPI\Client\Model\AppendOrderAttachmentRequest $appendOrderAttachmentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadFileAsyncWithHttpInfo($append_order_attachment_request, string $contentType = self::contentTypes['uploadFile'][0])
+    public function uploadFileAsyncWithHttpInfo($appendOrderAttachmentRequest, string $contentType = self::contentTypes['uploadFile'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ValidationResponseBooleanFileUploadValidationError';
-        $request = $this->uploadFileRequest($append_order_attachment_request, $contentType);
+        $request = $this->uploadFileRequest($appendOrderAttachmentRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -862,19 +862,19 @@ class OrderControllerApi
     /**
      * Create request for operation 'uploadFile'
      *
-     * @param  \OpenAPI\Client\Model\AppendOrderAttachmentRequest $append_order_attachment_request (required)
+     * @param  \OpenAPI\Client\Model\AppendOrderAttachmentRequest $appendOrderAttachmentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function uploadFileRequest($append_order_attachment_request, string $contentType = self::contentTypes['uploadFile'][0])
+    public function uploadFileRequest($appendOrderAttachmentRequest, string $contentType = self::contentTypes['uploadFile'][0])
     {
 
-        // verify the required parameter 'append_order_attachment_request' is set
-        if ($append_order_attachment_request === null || (is_array($append_order_attachment_request) && count($append_order_attachment_request) === 0)) {
+        // verify the required parameter 'appendOrderAttachmentRequest' is set
+        if ($appendOrderAttachmentRequest === null || (is_array($appendOrderAttachmentRequest) && count($appendOrderAttachmentRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $append_order_attachment_request when calling uploadFile'
+                'Missing the required parameter $appendOrderAttachmentRequest when calling uploadFile'
             );
         }
 
@@ -897,12 +897,12 @@ class OrderControllerApi
         );
 
         // for model (json/xml)
-        if (isset($append_order_attachment_request)) {
+        if (isset($appendOrderAttachmentRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($append_order_attachment_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($appendOrderAttachmentRequest));
             } else {
-                $httpBody = $append_order_attachment_request;
+                $httpBody = $appendOrderAttachmentRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

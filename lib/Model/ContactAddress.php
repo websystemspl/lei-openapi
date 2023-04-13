@@ -61,7 +61,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         'firstname' => 'string',
         'lastname' => 'string',
         'phone' => 'string',
-        'area_code' => 'string',
+        'areaCode' => 'string',
         'mail' => 'string'
     ];
 
@@ -77,7 +77,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         'firstname' => null,
         'lastname' => null,
         'phone' => null,
-        'area_code' => null,
+        'areaCode' => null,
         'mail' => null
     ];
 
@@ -91,7 +91,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 		'firstname' => false,
 		'lastname' => false,
 		'phone' => false,
-		'area_code' => false,
+		'areaCode' => false,
 		'mail' => false
     ];
 
@@ -185,7 +185,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         'firstname' => 'firstname',
         'lastname' => 'lastname',
         'phone' => 'phone',
-        'area_code' => 'areaCode',
+        'areaCode' => 'areaCode',
         'mail' => 'mail'
     ];
 
@@ -199,7 +199,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         'firstname' => 'setFirstname',
         'lastname' => 'setLastname',
         'phone' => 'setPhone',
-        'area_code' => 'setAreaCode',
+        'areaCode' => 'setAreaCode',
         'mail' => 'setMail'
     ];
 
@@ -213,7 +213,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         'firstname' => 'getFirstname',
         'lastname' => 'getLastname',
         'phone' => 'getPhone',
-        'area_code' => 'getAreaCode',
+        'areaCode' => 'getAreaCode',
         'mail' => 'getMail'
     ];
 
@@ -278,7 +278,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('firstname', $data ?? [], null);
         $this->setIfExists('lastname', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
-        $this->setIfExists('area_code', $data ?? [], null);
+        $this->setIfExists('areaCode', $data ?? [], null);
         $this->setIfExists('mail', $data ?? [], null);
     }
 
@@ -433,28 +433,28 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets area_code
+     * Gets areaCode
      *
      * @return string|null
      */
     public function getAreaCode()
     {
-        return $this->container['area_code'];
+        return $this->container['areaCode'];
     }
 
     /**
-     * Sets area_code
+     * Sets areaCode
      *
-     * @param string|null $area_code Telephone area code based on the country's two-digit ISO code
+     * @param string|null $areaCode Telephone area code based on the country's two-digit ISO code
      *
      * @return self
      */
-    public function setAreaCode($area_code)
+    public function setAreaCode($areaCode)
     {
-        if (is_null($area_code)) {
-            throw new \InvalidArgumentException('non-nullable area_code cannot be null');
+        if (is_null($areaCode)) {
+            throw new \InvalidArgumentException('non-nullable areaCode cannot be null');
         }
-        $this->container['area_code'] = $area_code;
+        $this->container['areaCode'] = $areaCode;
 
         return $this;
     }

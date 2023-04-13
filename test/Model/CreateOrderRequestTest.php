@@ -80,7 +80,7 @@ class CreateOrderRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "api_token"
+     * Test attribute "apiToken"
      */
     public function testPropertyApiToken()
     {
@@ -89,7 +89,7 @@ class CreateOrderRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "partner_order_data"
+     * Test attribute "partnerOrderData"
      */
     public function testPropertyPartnerOrderData()
     {

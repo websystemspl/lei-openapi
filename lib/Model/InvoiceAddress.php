@@ -58,7 +58,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'to_legal_address' => 'bool',
+        'toLegalAddress' => 'bool',
         'entity_name' => 'string',
         'country' => 'string',
         'zip' => 'string',
@@ -77,7 +77,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'to_legal_address' => null,
+        'toLegalAddress' => null,
         'entity_name' => null,
         'country' => null,
         'zip' => null,
@@ -94,7 +94,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'to_legal_address' => false,
+        'toLegalAddress' => false,
 		'entity_name' => false,
 		'country' => false,
 		'zip' => false,
@@ -191,7 +191,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'to_legal_address' => 'toLegalAddress',
+        'toLegalAddress' => 'toLegalAddress',
         'entity_name' => 'entity_name',
         'country' => 'country',
         'zip' => 'zip',
@@ -208,15 +208,15 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'to_legal_address' => 'setToLegalAddress',
-        'entity_name' => 'setEntityName',
+        'toLegalAddress' => 'setToLegalAddress',
+        'entity_name' => 'setentity_name',
         'country' => 'setCountry',
         'zip' => 'setZip',
         'city' => 'setCity',
         'postbox' => 'setPostbox',
         'street' => 'setStreet',
-        'street_nr' => 'setStreetNr',
-        'additional_address' => 'setAdditionalAddress'
+        'street_nr' => 'setstreet_nr',
+        'additional_address' => 'setadditional_address'
     ];
 
     /**
@@ -225,15 +225,15 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'to_legal_address' => 'getToLegalAddress',
-        'entity_name' => 'getEntityName',
+        'toLegalAddress' => 'getToLegalAddress',
+        'entity_name' => 'getentity_name',
         'country' => 'getCountry',
         'zip' => 'getZip',
         'city' => 'getCity',
         'postbox' => 'getPostbox',
         'street' => 'getStreet',
-        'street_nr' => 'getStreetNr',
-        'additional_address' => 'getAdditionalAddress'
+        'street_nr' => 'getstreet_nr',
+        'additional_address' => 'getadditional_address'
     ];
 
     /**
@@ -293,7 +293,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('to_legal_address', $data ?? [], null);
+        $this->setIfExists('toLegalAddress', $data ?? [], null);
         $this->setIfExists('entity_name', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('zip', $data ?? [], null);
@@ -347,28 +347,28 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets to_legal_address
+     * Gets toLegalAddress
      *
      * @return bool|null
      */
     public function getToLegalAddress()
     {
-        return $this->container['to_legal_address'];
+        return $this->container['toLegalAddress'];
     }
 
     /**
-     * Sets to_legal_address
+     * Sets toLegalAddress
      *
-     * @param bool|null $to_legal_address If True the other attributes of InvoiceAddress arent necessary and can be NULL
+     * @param bool|null $toLegalAddress If True the other attributes of InvoiceAddress arent necessary and can be NULL
      *
      * @return self
      */
-    public function setToLegalAddress($to_legal_address)
+    public function setToLegalAddress($toLegalAddress)
     {
-        if (is_null($to_legal_address)) {
-            throw new \InvalidArgumentException('non-nullable to_legal_address cannot be null');
+        if (is_null($toLegalAddress)) {
+            throw new \InvalidArgumentException('non-nullable toLegalAddress cannot be null');
         }
-        $this->container['to_legal_address'] = $to_legal_address;
+        $this->container['toLegalAddress'] = $toLegalAddress;
 
         return $this;
     }
@@ -378,7 +378,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getEntityName()
+    public function getentity_name()
     {
         return $this->container['entity_name'];
     }
@@ -390,7 +390,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setEntityName($entity_name)
+    public function setentity_name($entity_name)
     {
         if (is_null($entity_name)) {
             throw new \InvalidArgumentException('non-nullable entity_name cannot be null');
@@ -540,7 +540,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getStreetNr()
+    public function getstreet_nr()
     {
         return $this->container['street_nr'];
     }
@@ -552,7 +552,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setStreetNr($street_nr)
+    public function setstreet_nr($street_nr)
     {
         if (is_null($street_nr)) {
             throw new \InvalidArgumentException('non-nullable street_nr cannot be null');
@@ -567,7 +567,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getAdditionalAddress()
+    public function getadditional_address()
     {
         return $this->container['additional_address'];
     }
@@ -579,7 +579,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setAdditionalAddress($additional_address)
+    public function setadditional_address($additional_address)
     {
         if (is_null($additional_address)) {
             throw new \InvalidArgumentException('non-nullable additional_address cannot be null');

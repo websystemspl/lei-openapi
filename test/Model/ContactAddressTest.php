@@ -116,7 +116,7 @@ class ContactAddressTest extends TestCase
     }
 
     /**
-     * Test attribute "area_code"
+     * Test attribute "areaCode"
      */
     public function testPropertyAreaCode()
     {

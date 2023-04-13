@@ -57,9 +57,9 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attachment_data' => '\OpenAPI\Client\Model\AttachmentData',
-        'api_token' => 'string',
-        'order_number' => 'string'
+        'attachmentData' => '\OpenAPI\Client\Model\AttachmentData',
+        'apiToken' => 'string',
+        'orderNumber' => 'string'
     ];
 
     /**
@@ -70,9 +70,9 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attachment_data' => null,
-        'api_token' => null,
-        'order_number' => null
+        'attachmentData' => null,
+        'apiToken' => null,
+        'orderNumber' => null
     ];
 
     /**
@@ -81,9 +81,9 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'attachment_data' => false,
-		'api_token' => false,
-		'order_number' => false
+        'attachmentData' => false,
+		'apiToken' => false,
+		'orderNumber' => false
     ];
 
     /**
@@ -172,9 +172,9 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'attachment_data' => 'attachmentData',
-        'api_token' => 'apiToken',
-        'order_number' => 'orderNumber'
+        'attachmentData' => 'attachmentData',
+        'apiToken' => 'apiToken',
+        'orderNumber' => 'orderNumber'
     ];
 
     /**
@@ -183,9 +183,9 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'attachment_data' => 'setAttachmentData',
-        'api_token' => 'setApiToken',
-        'order_number' => 'setOrderNumber'
+        'attachmentData' => 'setAttachmentData',
+        'apiToken' => 'setApiToken',
+        'orderNumber' => 'setOrderNumber'
     ];
 
     /**
@@ -194,9 +194,9 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'attachment_data' => 'getAttachmentData',
-        'api_token' => 'getApiToken',
-        'order_number' => 'getOrderNumber'
+        'attachmentData' => 'getAttachmentData',
+        'apiToken' => 'getApiToken',
+        'orderNumber' => 'getOrderNumber'
     ];
 
     /**
@@ -256,9 +256,9 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('attachment_data', $data ?? [], null);
-        $this->setIfExists('api_token', $data ?? [], null);
-        $this->setIfExists('order_number', $data ?? [], null);
+        $this->setIfExists('attachmentData', $data ?? [], null);
+        $this->setIfExists('apiToken', $data ?? [], null);
+        $this->setIfExists('orderNumber', $data ?? [], null);
     }
 
     /**
@@ -304,82 +304,82 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets attachment_data
+     * Gets attachmentData
      *
      * @return \OpenAPI\Client\Model\AttachmentData|null
      */
     public function getAttachmentData()
     {
-        return $this->container['attachment_data'];
+        return $this->container['attachmentData'];
     }
 
     /**
-     * Sets attachment_data
+     * Sets attachmentData
      *
-     * @param \OpenAPI\Client\Model\AttachmentData|null $attachment_data attachment_data
+     * @param \OpenAPI\Client\Model\AttachmentData|null $attachmentData attachmentData
      *
      * @return self
      */
-    public function setAttachmentData($attachment_data)
+    public function setAttachmentData($attachmentData)
     {
-        if (is_null($attachment_data)) {
-            throw new \InvalidArgumentException('non-nullable attachment_data cannot be null');
+        if (is_null($attachmentData)) {
+            throw new \InvalidArgumentException('non-nullable attachmentData cannot be null');
         }
-        $this->container['attachment_data'] = $attachment_data;
+        $this->container['attachmentData'] = $attachmentData;
 
         return $this;
     }
 
     /**
-     * Gets api_token
+     * Gets apiToken
      *
      * @return string|null
      */
     public function getApiToken()
     {
-        return $this->container['api_token'];
+        return $this->container['apiToken'];
     }
 
     /**
-     * Sets api_token
+     * Sets apiToken
      *
-     * @param string|null $api_token A token, which should be used as a security login
+     * @param string|null $apiToken A token, which should be used as a security login
      *
      * @return self
      */
-    public function setApiToken($api_token)
+    public function setApiToken($apiToken)
     {
-        if (is_null($api_token)) {
-            throw new \InvalidArgumentException('non-nullable api_token cannot be null');
+        if (is_null($apiToken)) {
+            throw new \InvalidArgumentException('non-nullable apiToken cannot be null');
         }
-        $this->container['api_token'] = $api_token;
+        $this->container['apiToken'] = $apiToken;
 
         return $this;
     }
 
     /**
-     * Gets order_number
+     * Gets orderNumber
      *
      * @return string|null
      */
     public function getOrderNumber()
     {
-        return $this->container['order_number'];
+        return $this->container['orderNumber'];
     }
 
     /**
-     * Sets order_number
+     * Sets orderNumber
      *
-     * @param string|null $order_number Order number for the current process for the client
+     * @param string|null $orderNumber Order number for the current process for the client
      *
      * @return self
      */
-    public function setOrderNumber($order_number)
+    public function setOrderNumber($orderNumber)
     {
-        if (is_null($order_number)) {
-            throw new \InvalidArgumentException('non-nullable order_number cannot be null');
+        if (is_null($orderNumber)) {
+            throw new \InvalidArgumentException('non-nullable orderNumber cannot be null');
         }
-        $this->container['order_number'] = $order_number;
+        $this->container['orderNumber'] = $orderNumber;
 
         return $this;
     }

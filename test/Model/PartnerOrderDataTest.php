@@ -80,7 +80,7 @@ class PartnerOrderDataTest extends TestCase
     }
 
     /**
-     * Test attribute "partner_lei_data"
+     * Test attribute "partnerLeiData"
      */
     public function testPropertyPartnerLeiData()
     {
@@ -89,7 +89,7 @@ class PartnerOrderDataTest extends TestCase
     }
 
     /**
-     * Test attribute "order_type"
+     * Test attribute "orderType"
      */
     public function testPropertyOrderType()
     {
@@ -98,7 +98,7 @@ class PartnerOrderDataTest extends TestCase
     }
 
     /**
-     * Test attribute "company_type"
+     * Test attribute "companyType"
      */
     public function testPropertyCompanyType()
     {
@@ -116,7 +116,7 @@ class PartnerOrderDataTest extends TestCase
     }
 
     /**
-     * Test attribute "reference_lei"
+     * Test attribute "referenceLei"
      */
     public function testPropertyReferenceLei()
     {

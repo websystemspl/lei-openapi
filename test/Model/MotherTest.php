@@ -80,7 +80,7 @@ class MotherTest extends TestCase
     }
 
     /**
-     * Test attribute "exception_key"
+     * Test attribute "exceptionKey"
      */
     public function testPropertyExceptionKey()
     {
@@ -89,7 +89,7 @@ class MotherTest extends TestCase
     }
 
     /**
-     * Test attribute "exception_reference"
+     * Test attribute "exceptionReference"
      */
     public function testPropertyExceptionReference()
     {

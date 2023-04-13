@@ -80,7 +80,7 @@ class PaymentTest extends TestCase
     }
 
     /**
-     * Test attribute "invoice_address"
+     * Test attribute "invoiceAddress"
      */
     public function testPropertyInvoiceAddress()
     {
@@ -89,7 +89,7 @@ class PaymentTest extends TestCase
     }
 
     /**
-     * Test attribute "payment_details"
+     * Test attribute "paymentDetails"
      */
     public function testPropertyPaymentDetails()
     {
@@ -98,7 +98,7 @@ class PaymentTest extends TestCase
     }
 
     /**
-     * Test attribute "invoice_contact"
+     * Test attribute "invoiceContact"
      */
     public function testPropertyInvoiceContact()
     {

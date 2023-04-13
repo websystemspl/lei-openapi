@@ -98,7 +98,7 @@ class ResponseStringTest extends TestCase
     }
 
     /**
-     * Test attribute "error_message"
+     * Test attribute "errorMessage"
      */
     public function testPropertyErrorMessage()
     {

@@ -58,12 +58,12 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'legal_address_data' => '\OpenAPI\Client\Model\AddressData',
-        'hq_address_data' => '\OpenAPI\Client\Model\AddressData',
-        'entity_data' => '\OpenAPI\Client\Model\EntityData',
-        'relationship_data' => '\OpenAPI\Client\Model\RelationshipData',
-        'auth_person' => 'string[]',
-        'contact_address' => '\OpenAPI\Client\Model\ContactAddress'
+        'legalAddressData' => '\OpenAPI\Client\Model\AddressData',
+        'hqAddressData' => '\OpenAPI\Client\Model\AddressData',
+        'entityData' => '\OpenAPI\Client\Model\EntityData',
+        'relationshipData' => '\OpenAPI\Client\Model\RelationshipData',
+        'authPerson' => 'string[]',
+        'contactAddress' => '\OpenAPI\Client\Model\ContactAddress'
     ];
 
     /**
@@ -74,12 +74,12 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'legal_address_data' => null,
-        'hq_address_data' => null,
-        'entity_data' => null,
-        'relationship_data' => null,
-        'auth_person' => null,
-        'contact_address' => null
+        'legalAddressData' => null,
+        'hqAddressData' => null,
+        'entityData' => null,
+        'relationshipData' => null,
+        'authPerson' => null,
+        'contactAddress' => null
     ];
 
     /**
@@ -88,12 +88,12 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'legal_address_data' => false,
-		'hq_address_data' => false,
-		'entity_data' => false,
-		'relationship_data' => false,
-		'auth_person' => false,
-		'contact_address' => false
+        'legalAddressData' => false,
+		'hqAddressData' => false,
+		'entityData' => false,
+		'relationshipData' => false,
+		'authPerson' => false,
+		'contactAddress' => false
     ];
 
     /**
@@ -182,12 +182,12 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'legal_address_data' => 'legalAddressData',
-        'hq_address_data' => 'hqAddressData',
-        'entity_data' => 'entityData',
-        'relationship_data' => 'relationshipData',
-        'auth_person' => 'authPerson',
-        'contact_address' => 'contactAddress'
+        'legalAddressData' => 'legalAddressData',
+        'hqAddressData' => 'hqAddressData',
+        'entityData' => 'entityData',
+        'relationshipData' => 'relationshipData',
+        'authPerson' => 'authPerson',
+        'contactAddress' => 'contactAddress'
     ];
 
     /**
@@ -196,12 +196,12 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'legal_address_data' => 'setLegalAddressData',
-        'hq_address_data' => 'setHqAddressData',
-        'entity_data' => 'setEntityData',
-        'relationship_data' => 'setRelationshipData',
-        'auth_person' => 'setAuthPerson',
-        'contact_address' => 'setContactAddress'
+        'legalAddressData' => 'setLegalAddressData',
+        'hqAddressData' => 'setHqAddressData',
+        'entityData' => 'setEntityData',
+        'relationshipData' => 'setRelationshipData',
+        'authPerson' => 'setAuthPerson',
+        'contactAddress' => 'setContactAddress'
     ];
 
     /**
@@ -210,12 +210,12 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'legal_address_data' => 'getLegalAddressData',
-        'hq_address_data' => 'getHqAddressData',
-        'entity_data' => 'getEntityData',
-        'relationship_data' => 'getRelationshipData',
-        'auth_person' => 'getAuthPerson',
-        'contact_address' => 'getContactAddress'
+        'legalAddressData' => 'getLegalAddressData',
+        'hqAddressData' => 'getHqAddressData',
+        'entityData' => 'getEntityData',
+        'relationshipData' => 'getRelationshipData',
+        'authPerson' => 'getAuthPerson',
+        'contactAddress' => 'getContactAddress'
     ];
 
     /**
@@ -275,12 +275,12 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('legal_address_data', $data ?? [], null);
-        $this->setIfExists('hq_address_data', $data ?? [], null);
-        $this->setIfExists('entity_data', $data ?? [], null);
-        $this->setIfExists('relationship_data', $data ?? [], null);
-        $this->setIfExists('auth_person', $data ?? [], null);
-        $this->setIfExists('contact_address', $data ?? [], null);
+        $this->setIfExists('legalAddressData', $data ?? [], null);
+        $this->setIfExists('hqAddressData', $data ?? [], null);
+        $this->setIfExists('entityData', $data ?? [], null);
+        $this->setIfExists('relationshipData', $data ?? [], null);
+        $this->setIfExists('authPerson', $data ?? [], null);
+        $this->setIfExists('contactAddress', $data ?? [], null);
     }
 
     /**
@@ -326,163 +326,163 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets legal_address_data
+     * Gets legalAddressData
      *
      * @return \OpenAPI\Client\Model\AddressData|null
      */
     public function getLegalAddressData()
     {
-        return $this->container['legal_address_data'];
+        return $this->container['legalAddressData'];
     }
 
     /**
-     * Sets legal_address_data
+     * Sets legalAddressData
      *
-     * @param \OpenAPI\Client\Model\AddressData|null $legal_address_data legal_address_data
+     * @param \OpenAPI\Client\Model\AddressData|null $legalAddressData legalAddressData
      *
      * @return self
      */
-    public function setLegalAddressData($legal_address_data)
+    public function setLegalAddressData($legalAddressData)
     {
-        if (is_null($legal_address_data)) {
-            throw new \InvalidArgumentException('non-nullable legal_address_data cannot be null');
+        if (is_null($legalAddressData)) {
+            throw new \InvalidArgumentException('non-nullable legalAddressData cannot be null');
         }
-        $this->container['legal_address_data'] = $legal_address_data;
+        $this->container['legalAddressData'] = $legalAddressData;
 
         return $this;
     }
 
     /**
-     * Gets hq_address_data
+     * Gets hqAddressData
      *
      * @return \OpenAPI\Client\Model\AddressData|null
      */
     public function getHqAddressData()
     {
-        return $this->container['hq_address_data'];
+        return $this->container['hqAddressData'];
     }
 
     /**
-     * Sets hq_address_data
+     * Sets hqAddressData
      *
-     * @param \OpenAPI\Client\Model\AddressData|null $hq_address_data hq_address_data
+     * @param \OpenAPI\Client\Model\AddressData|null $hqAddressData hqAddressData
      *
      * @return self
      */
-    public function setHqAddressData($hq_address_data)
+    public function setHqAddressData($hqAddressData)
     {
-        if (is_null($hq_address_data)) {
-            throw new \InvalidArgumentException('non-nullable hq_address_data cannot be null');
+        if (is_null($hqAddressData)) {
+            throw new \InvalidArgumentException('non-nullable hqAddressData cannot be null');
         }
-        $this->container['hq_address_data'] = $hq_address_data;
+        $this->container['hqAddressData'] = $hqAddressData;
 
         return $this;
     }
 
     /**
-     * Gets entity_data
+     * Gets entityData
      *
      * @return \OpenAPI\Client\Model\EntityData|null
      */
     public function getEntityData()
     {
-        return $this->container['entity_data'];
+        return $this->container['entityData'];
     }
 
     /**
-     * Sets entity_data
+     * Sets entityData
      *
-     * @param \OpenAPI\Client\Model\EntityData|null $entity_data entity_data
+     * @param \OpenAPI\Client\Model\EntityData|null $entityData entityData
      *
      * @return self
      */
-    public function setEntityData($entity_data)
+    public function setEntityData($entityData)
     {
-        if (is_null($entity_data)) {
-            throw new \InvalidArgumentException('non-nullable entity_data cannot be null');
+        if (is_null($entityData)) {
+            throw new \InvalidArgumentException('non-nullable entityData cannot be null');
         }
-        $this->container['entity_data'] = $entity_data;
+        $this->container['entityData'] = $entityData;
 
         return $this;
     }
 
     /**
-     * Gets relationship_data
+     * Gets relationshipData
      *
      * @return \OpenAPI\Client\Model\RelationshipData|null
      */
     public function getRelationshipData()
     {
-        return $this->container['relationship_data'];
+        return $this->container['relationshipData'];
     }
 
     /**
-     * Sets relationship_data
+     * Sets relationshipData
      *
-     * @param \OpenAPI\Client\Model\RelationshipData|null $relationship_data relationship_data
+     * @param \OpenAPI\Client\Model\RelationshipData|null $relationshipData relationshipData
      *
      * @return self
      */
-    public function setRelationshipData($relationship_data)
+    public function setRelationshipData($relationshipData)
     {
-        if (is_null($relationship_data)) {
-            throw new \InvalidArgumentException('non-nullable relationship_data cannot be null');
+        if (is_null($relationshipData)) {
+            throw new \InvalidArgumentException('non-nullable relationshipData cannot be null');
         }
-        $this->container['relationship_data'] = $relationship_data;
+        $this->container['relationshipData'] = $relationshipData;
 
         return $this;
     }
 
     /**
-     * Gets auth_person
+     * Gets authPerson
      *
      * @return string[]|null
      */
     public function getAuthPerson()
     {
-        return $this->container['auth_person'];
+        return $this->container['authPerson'];
     }
 
     /**
-     * Sets auth_person
+     * Sets authPerson
      *
-     * @param string[]|null $auth_person auth_person
+     * @param string[]|null $authPerson authPerson
      *
      * @return self
      */
-    public function setAuthPerson($auth_person)
+    public function setAuthPerson($authPerson)
     {
-        if (is_null($auth_person)) {
-            throw new \InvalidArgumentException('non-nullable auth_person cannot be null');
+        if (is_null($authPerson)) {
+            throw new \InvalidArgumentException('non-nullable authPerson cannot be null');
         }
-        $this->container['auth_person'] = $auth_person;
+        $this->container['authPerson'] = $authPerson;
 
         return $this;
     }
 
     /**
-     * Gets contact_address
+     * Gets contactAddress
      *
      * @return \OpenAPI\Client\Model\ContactAddress|null
      */
     public function getContactAddress()
     {
-        return $this->container['contact_address'];
+        return $this->container['contactAddress'];
     }
 
     /**
-     * Sets contact_address
+     * Sets contactAddress
      *
-     * @param \OpenAPI\Client\Model\ContactAddress|null $contact_address contact_address
+     * @param \OpenAPI\Client\Model\ContactAddress|null $contactAddress contactAddress
      *
      * @return self
      */
-    public function setContactAddress($contact_address)
+    public function setContactAddress($contactAddress)
     {
-        if (is_null($contact_address)) {
-            throw new \InvalidArgumentException('non-nullable contact_address cannot be null');
+        if (is_null($contactAddress)) {
+            throw new \InvalidArgumentException('non-nullable contactAddress cannot be null');
         }
-        $this->container['contact_address'] = $contact_address;
+        $this->container['contactAddress'] = $contactAddress;
 
         return $this;
     }

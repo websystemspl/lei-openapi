@@ -57,11 +57,11 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payment_price' => 'string',
-        'typ_prepaid' => 'string',
-        'payment_type' => 'string',
-        'payment_code' => 'string',
-        'payment_currency' => 'string'
+        'paymentPrice' => 'string',
+        'typPrepaid' => 'string',
+        'paymentType' => 'string',
+        'paymentCode' => 'string',
+        'paymentCurrency' => 'string'
     ];
 
     /**
@@ -72,11 +72,11 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'payment_price' => null,
-        'typ_prepaid' => null,
-        'payment_type' => null,
-        'payment_code' => null,
-        'payment_currency' => null
+        'paymentPrice' => null,
+        'typPrepaid' => null,
+        'paymentType' => null,
+        'paymentCode' => null,
+        'paymentCurrency' => null
     ];
 
     /**
@@ -85,11 +85,11 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'payment_price' => false,
-		'typ_prepaid' => false,
-		'payment_type' => false,
-		'payment_code' => false,
-		'payment_currency' => false
+        'paymentPrice' => false,
+		'typPrepaid' => false,
+		'paymentType' => false,
+		'paymentCode' => false,
+		'paymentCurrency' => false
     ];
 
     /**
@@ -178,11 +178,11 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'payment_price' => 'paymentPrice',
-        'typ_prepaid' => 'typPrepaid',
-        'payment_type' => 'paymentType',
-        'payment_code' => 'paymentCode',
-        'payment_currency' => 'paymentCurrency'
+        'paymentPrice' => 'paymentPrice',
+        'typPrepaid' => 'typPrepaid',
+        'paymentType' => 'paymentType',
+        'paymentCode' => 'paymentCode',
+        'paymentCurrency' => 'paymentCurrency'
     ];
 
     /**
@@ -191,11 +191,11 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'payment_price' => 'setPaymentPrice',
-        'typ_prepaid' => 'setTypPrepaid',
-        'payment_type' => 'setPaymentType',
-        'payment_code' => 'setPaymentCode',
-        'payment_currency' => 'setPaymentCurrency'
+        'paymentPrice' => 'setPaymentPrice',
+        'typPrepaid' => 'setTypPrepaid',
+        'paymentType' => 'setPaymentType',
+        'paymentCode' => 'setPaymentCode',
+        'paymentCurrency' => 'setPaymentCurrency'
     ];
 
     /**
@@ -204,11 +204,11 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'payment_price' => 'getPaymentPrice',
-        'typ_prepaid' => 'getTypPrepaid',
-        'payment_type' => 'getPaymentType',
-        'payment_code' => 'getPaymentCode',
-        'payment_currency' => 'getPaymentCurrency'
+        'paymentPrice' => 'getPaymentPrice',
+        'typPrepaid' => 'getTypPrepaid',
+        'paymentType' => 'getPaymentType',
+        'paymentCode' => 'getPaymentCode',
+        'paymentCurrency' => 'getPaymentCurrency'
     ];
 
     /**
@@ -298,11 +298,11 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('payment_price', $data ?? [], null);
-        $this->setIfExists('typ_prepaid', $data ?? [], null);
-        $this->setIfExists('payment_type', $data ?? [], null);
-        $this->setIfExists('payment_code', $data ?? [], null);
-        $this->setIfExists('payment_currency', $data ?? [], null);
+        $this->setIfExists('paymentPrice', $data ?? [], null);
+        $this->setIfExists('typPrepaid', $data ?? [], null);
+        $this->setIfExists('paymentType', $data ?? [], null);
+        $this->setIfExists('paymentCode', $data ?? [], null);
+        $this->setIfExists('paymentCurrency', $data ?? [], null);
     }
 
     /**
@@ -333,19 +333,19 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         $invalidProperties = [];
 
         $allowedValues = $this->getPaymentTypeAllowableValues();
-        if (!is_null($this->container['payment_type']) && !in_array($this->container['payment_type'], $allowedValues, true)) {
+        if (!is_null($this->container['paymentType']) && !in_array($this->container['paymentType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'payment_type', must be one of '%s'",
-                $this->container['payment_type'],
+                "invalid value '%s' for 'paymentType', must be one of '%s'",
+                $this->container['paymentType'],
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getPaymentCurrencyAllowableValues();
-        if (!is_null($this->container['payment_currency']) && !in_array($this->container['payment_currency'], $allowedValues, true)) {
+        if (!is_null($this->container['paymentCurrency']) && !in_array($this->container['paymentCurrency'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'payment_currency', must be one of '%s'",
-                $this->container['payment_currency'],
+                "invalid value '%s' for 'paymentCurrency', must be one of '%s'",
+                $this->container['paymentCurrency'],
                 implode("', '", $allowedValues)
             );
         }
@@ -366,156 +366,156 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets payment_price
+     * Gets paymentPrice
      *
      * @return string|null
      */
     public function getPaymentPrice()
     {
-        return $this->container['payment_price'];
+        return $this->container['paymentPrice'];
     }
 
     /**
-     * Sets payment_price
+     * Sets paymentPrice
      *
-     * @param string|null $payment_price The price paid for the LEI || Price without a comma or point in full number 65.85 -> 6585
+     * @param string|null $paymentPrice The price paid for the LEI || Price without a comma or point in full number 65.85 -> 6585
      *
      * @return self
      */
-    public function setPaymentPrice($payment_price)
+    public function setPaymentPrice($paymentPrice)
     {
-        if (is_null($payment_price)) {
-            throw new \InvalidArgumentException('non-nullable payment_price cannot be null');
+        if (is_null($paymentPrice)) {
+            throw new \InvalidArgumentException('non-nullable paymentPrice cannot be null');
         }
-        $this->container['payment_price'] = $payment_price;
+        $this->container['paymentPrice'] = $paymentPrice;
 
         return $this;
     }
 
     /**
-     * Gets typ_prepaid
+     * Gets typPrepaid
      *
      * @return string|null
      */
     public function getTypPrepaid()
     {
-        return $this->container['typ_prepaid'];
+        return $this->container['typPrepaid'];
     }
 
     /**
-     * Sets typ_prepaid
+     * Sets typPrepaid
      *
-     * @param string|null $typ_prepaid If payment_type = PREPAID | Which payment provider was used
+     * @param string|null $typPrepaid If payment_type = PREPAID | Which payment provider was used
      *
      * @return self
      */
-    public function setTypPrepaid($typ_prepaid)
+    public function setTypPrepaid($typPrepaid)
     {
-        if (is_null($typ_prepaid)) {
-            throw new \InvalidArgumentException('non-nullable typ_prepaid cannot be null');
+        if (is_null($typPrepaid)) {
+            throw new \InvalidArgumentException('non-nullable typPrepaid cannot be null');
         }
-        $this->container['typ_prepaid'] = $typ_prepaid;
+        $this->container['typPrepaid'] = $typPrepaid;
 
         return $this;
     }
 
     /**
-     * Gets payment_type
+     * Gets paymentType
      *
      * @return string|null
      */
     public function getPaymentType()
     {
-        return $this->container['payment_type'];
+        return $this->container['paymentType'];
     }
 
     /**
-     * Sets payment_type
+     * Sets paymentType
      *
-     * @param string|null $payment_type What type of payment was used? There is INVOICE and PREPAID
+     * @param string|null $paymentType What type of payment was used? There is INVOICE and PREPAID
      *
      * @return self
      */
-    public function setPaymentType($payment_type)
+    public function setPaymentType($paymentType)
     {
-        if (is_null($payment_type)) {
-            throw new \InvalidArgumentException('non-nullable payment_type cannot be null');
+        if (is_null($paymentType)) {
+            throw new \InvalidArgumentException('non-nullable paymentType cannot be null');
         }
         $allowedValues = $this->getPaymentTypeAllowableValues();
-        if (!in_array($payment_type, $allowedValues, true)) {
+        if (!in_array($paymentType, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'payment_type', must be one of '%s'",
-                    $payment_type,
+                    "Invalid value '%s' for 'paymentType', must be one of '%s'",
+                    $paymentType,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['payment_type'] = $payment_type;
+        $this->container['paymentType'] = $paymentType;
 
         return $this;
     }
 
     /**
-     * Gets payment_code
+     * Gets paymentCode
      *
      * @return string|null
      */
     public function getPaymentCode()
     {
-        return $this->container['payment_code'];
+        return $this->container['paymentCode'];
     }
 
     /**
-     * Sets payment_code
+     * Sets paymentCode
      *
-     * @param string|null $payment_code The payment code returned by the payment provider
+     * @param string|null $paymentCode The payment code returned by the payment provider
      *
      * @return self
      */
-    public function setPaymentCode($payment_code)
+    public function setPaymentCode($paymentCode)
     {
-        if (is_null($payment_code)) {
-            throw new \InvalidArgumentException('non-nullable payment_code cannot be null');
+        if (is_null($paymentCode)) {
+            throw new \InvalidArgumentException('non-nullable paymentCode cannot be null');
         }
-        $this->container['payment_code'] = $payment_code;
+        $this->container['paymentCode'] = $paymentCode;
 
         return $this;
     }
 
     /**
-     * Gets payment_currency
+     * Gets paymentCurrency
      *
      * @return string|null
      */
     public function getPaymentCurrency()
     {
-        return $this->container['payment_currency'];
+        return $this->container['paymentCurrency'];
     }
 
     /**
-     * Sets payment_currency
+     * Sets paymentCurrency
      *
-     * @param string|null $payment_currency Currency in which the LEI was paid
+     * @param string|null $paymentCurrency Currency in which the LEI was paid
      *
      * @return self
      */
-    public function setPaymentCurrency($payment_currency)
+    public function setPaymentCurrency($paymentCurrency)
     {
-        if (is_null($payment_currency)) {
-            throw new \InvalidArgumentException('non-nullable payment_currency cannot be null');
+        if (is_null($paymentCurrency)) {
+            throw new \InvalidArgumentException('non-nullable paymentCurrency cannot be null');
         }
         $allowedValues = $this->getPaymentCurrencyAllowableValues();
-        if (!in_array($payment_currency, $allowedValues, true)) {
+        if (!in_array($paymentCurrency, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'payment_currency', must be one of '%s'",
-                    $payment_currency,
+                    "Invalid value '%s' for 'paymentCurrency', must be one of '%s'",
+                    $paymentCurrency,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['payment_currency'] = $payment_currency;
+        $this->container['paymentCurrency'] = $paymentCurrency;
 
         return $this;
     }

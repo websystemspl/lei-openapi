@@ -12,7 +12,7 @@ All URIs are relative to https://test1.service.leireg.de, except if the operatio
 ## `createOrder()`
 
 ```php
-createOrder($create_order_request): \OpenAPI\Client\Model\ValidationResponseStringLeiOrderValidationError
+createOrder($createOrderRequest): \OpenAPI\Client\Model\ValidationResponseStringLeiOrderValidationError
 ```
 
 
@@ -30,10 +30,10 @@ $apiInstance = new OpenAPI\Client\Api\OrderControllerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$create_order_request = new \OpenAPI\Client\Model\CreateOrderRequest(); // \OpenAPI\Client\Model\CreateOrderRequest
+$createOrderRequest = new \OpenAPI\Client\Model\CreateOrderRequest(); // \OpenAPI\Client\Model\CreateOrderRequest
 
 try {
-    $result = $apiInstance->createOrder($create_order_request);
+    $result = $apiInstance->createOrder($createOrderRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderControllerApi->createOrder: ', $e->getMessage(), PHP_EOL;
@@ -44,7 +44,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_order_request** | [**\OpenAPI\Client\Model\CreateOrderRequest**](../Model/CreateOrderRequest.md)|  | |
+| **createOrderRequest** | [**\OpenAPI\Client\Model\CreateOrderRequest**](../Model/CreateOrderRequest.md)|  | |
 
 ### Return type
 
@@ -66,7 +66,7 @@ No authorization required
 ## `loadOrderStatus()`
 
 ```php
-loadOrderStatus($load_order_status_request): \OpenAPI\Client\Model\ResponseString
+loadOrderStatus($loadOrderStatusRequest): \OpenAPI\Client\Model\ResponseString
 ```
 
 
@@ -84,10 +84,10 @@ $apiInstance = new OpenAPI\Client\Api\OrderControllerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$load_order_status_request = new \OpenAPI\Client\Model\LoadOrderStatusRequest(); // \OpenAPI\Client\Model\LoadOrderStatusRequest
+$loadOrderStatusRequest = new \OpenAPI\Client\Model\LoadOrderStatusRequest(); // \OpenAPI\Client\Model\LoadOrderStatusRequest
 
 try {
-    $result = $apiInstance->loadOrderStatus($load_order_status_request);
+    $result = $apiInstance->loadOrderStatus($loadOrderStatusRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderControllerApi->loadOrderStatus: ', $e->getMessage(), PHP_EOL;
@@ -98,7 +98,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **load_order_status_request** | [**\OpenAPI\Client\Model\LoadOrderStatusRequest**](../Model/LoadOrderStatusRequest.md)|  | |
+| **loadOrderStatusRequest** | [**\OpenAPI\Client\Model\LoadOrderStatusRequest**](../Model/LoadOrderStatusRequest.md)|  | |
 
 ### Return type
 
@@ -120,7 +120,7 @@ No authorization required
 ## `uploadFile()`
 
 ```php
-uploadFile($append_order_attachment_request): \OpenAPI\Client\Model\ValidationResponseBooleanFileUploadValidationError
+uploadFile($appendOrderAttachmentRequest): \OpenAPI\Client\Model\ValidationResponseBooleanFileUploadValidationError
 ```
 
 
@@ -138,10 +138,10 @@ $apiInstance = new OpenAPI\Client\Api\OrderControllerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$append_order_attachment_request = new \OpenAPI\Client\Model\AppendOrderAttachmentRequest(); // \OpenAPI\Client\Model\AppendOrderAttachmentRequest
+$appendOrderAttachmentRequest = new \OpenAPI\Client\Model\AppendOrderAttachmentRequest(); // \OpenAPI\Client\Model\AppendOrderAttachmentRequest
 
 try {
-    $result = $apiInstance->uploadFile($append_order_attachment_request);
+    $result = $apiInstance->uploadFile($appendOrderAttachmentRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderControllerApi->uploadFile: ', $e->getMessage(), PHP_EOL;
@@ -152,7 +152,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **append_order_attachment_request** | [**\OpenAPI\Client\Model\AppendOrderAttachmentRequest**](../Model/AppendOrderAttachmentRequest.md)|  | |
+| **appendOrderAttachmentRequest** | [**\OpenAPI\Client\Model\AppendOrderAttachmentRequest**](../Model/AppendOrderAttachmentRequest.md)|  | |
 
 ### Return type
 

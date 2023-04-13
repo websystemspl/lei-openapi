@@ -60,13 +60,13 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'name' => 'string',
         'taxid' => 'string',
-        'register_nr' => 'string',
-        'registration_authority_key' => 'string',
-        'registration_authority_text' => 'string',
-        'legal_form_text' => 'string',
-        'legal_form_key' => 'string',
-        'destination_country' => 'string',
-        'creation_date' => '\DateTime'
+        'registerNr' => 'string',
+        'registrationAuthorityKey' => 'string',
+        'registrationAuthorityText' => 'string',
+        'legalFormText' => 'string',
+        'legalFormKey' => 'string',
+        'destinationCountry' => 'string',
+        'creationDate' => '\DateTime'
     ];
 
     /**
@@ -79,13 +79,13 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'name' => null,
         'taxid' => null,
-        'register_nr' => null,
-        'registration_authority_key' => null,
-        'registration_authority_text' => null,
-        'legal_form_text' => null,
-        'legal_form_key' => null,
-        'destination_country' => null,
-        'creation_date' => 'date'
+        'registerNr' => null,
+        'registrationAuthorityKey' => null,
+        'registrationAuthorityText' => null,
+        'legalFormText' => null,
+        'legalFormKey' => null,
+        'destinationCountry' => null,
+        'creationDate' => 'date'
     ];
 
     /**
@@ -96,13 +96,13 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'name' => false,
 		'taxid' => false,
-		'register_nr' => false,
-		'registration_authority_key' => false,
-		'registration_authority_text' => false,
-		'legal_form_text' => false,
-		'legal_form_key' => false,
-		'destination_country' => false,
-		'creation_date' => false
+		'registerNr' => false,
+		'registrationAuthorityKey' => false,
+		'registrationAuthorityText' => false,
+		'legalFormText' => false,
+		'legalFormKey' => false,
+		'destinationCountry' => false,
+		'creationDate' => false
     ];
 
     /**
@@ -193,13 +193,13 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'name' => 'name',
         'taxid' => 'taxid',
-        'register_nr' => 'registerNr',
-        'registration_authority_key' => 'registrationAuthorityKey',
-        'registration_authority_text' => 'registrationAuthorityText',
-        'legal_form_text' => 'legalFormText',
-        'legal_form_key' => 'legalFormKey',
-        'destination_country' => 'destinationCountry',
-        'creation_date' => 'creationDate'
+        'registerNr' => 'registerNr',
+        'registrationAuthorityKey' => 'registrationAuthorityKey',
+        'registrationAuthorityText' => 'registrationAuthorityText',
+        'legalFormText' => 'legalFormText',
+        'legalFormKey' => 'legalFormKey',
+        'destinationCountry' => 'destinationCountry',
+        'creationDate' => 'creationDate'
     ];
 
     /**
@@ -210,13 +210,13 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'name' => 'setName',
         'taxid' => 'setTaxid',
-        'register_nr' => 'setRegisterNr',
-        'registration_authority_key' => 'setRegistrationAuthorityKey',
-        'registration_authority_text' => 'setRegistrationAuthorityText',
-        'legal_form_text' => 'setLegalFormText',
-        'legal_form_key' => 'setLegalFormKey',
-        'destination_country' => 'setDestinationCountry',
-        'creation_date' => 'setCreationDate'
+        'registerNr' => 'setRegisterNr',
+        'registrationAuthorityKey' => 'setRegistrationAuthorityKey',
+        'registrationAuthorityText' => 'setRegistrationAuthorityText',
+        'legalFormText' => 'setLegalFormText',
+        'legalFormKey' => 'setLegalFormKey',
+        'destinationCountry' => 'setDestinationCountry',
+        'creationDate' => 'setCreationDate'
     ];
 
     /**
@@ -227,13 +227,13 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'name' => 'getName',
         'taxid' => 'getTaxid',
-        'register_nr' => 'getRegisterNr',
-        'registration_authority_key' => 'getRegistrationAuthorityKey',
-        'registration_authority_text' => 'getRegistrationAuthorityText',
-        'legal_form_text' => 'getLegalFormText',
-        'legal_form_key' => 'getLegalFormKey',
-        'destination_country' => 'getDestinationCountry',
-        'creation_date' => 'getCreationDate'
+        'registerNr' => 'getRegisterNr',
+        'registrationAuthorityKey' => 'getRegistrationAuthorityKey',
+        'registrationAuthorityText' => 'getRegistrationAuthorityText',
+        'legalFormText' => 'getLegalFormText',
+        'legalFormKey' => 'getLegalFormKey',
+        'destinationCountry' => 'getDestinationCountry',
+        'creationDate' => 'getCreationDate'
     ];
 
     /**
@@ -295,13 +295,13 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('taxid', $data ?? [], null);
-        $this->setIfExists('register_nr', $data ?? [], null);
-        $this->setIfExists('registration_authority_key', $data ?? [], null);
-        $this->setIfExists('registration_authority_text', $data ?? [], null);
-        $this->setIfExists('legal_form_text', $data ?? [], null);
-        $this->setIfExists('legal_form_key', $data ?? [], null);
-        $this->setIfExists('destination_country', $data ?? [], null);
-        $this->setIfExists('creation_date', $data ?? [], null);
+        $this->setIfExists('registerNr', $data ?? [], null);
+        $this->setIfExists('registrationAuthorityKey', $data ?? [], null);
+        $this->setIfExists('registrationAuthorityText', $data ?? [], null);
+        $this->setIfExists('legalFormText', $data ?? [], null);
+        $this->setIfExists('legalFormKey', $data ?? [], null);
+        $this->setIfExists('destinationCountry', $data ?? [], null);
+        $this->setIfExists('creationDate', $data ?? [], null);
     }
 
     /**
@@ -401,190 +401,190 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets register_nr
+     * Gets registerNr
      *
      * @return string|null
      */
     public function getRegisterNr()
     {
-        return $this->container['register_nr'];
+        return $this->container['registerNr'];
     }
 
     /**
-     * Sets register_nr
+     * Sets registerNr
      *
-     * @param string|null $register_nr Registration number of the company for which the LEI is created
+     * @param string|null $registerNr Registration number of the company for which the LEI is created
      *
      * @return self
      */
-    public function setRegisterNr($register_nr)
+    public function setRegisterNr($registerNr)
     {
-        if (is_null($register_nr)) {
-            throw new \InvalidArgumentException('non-nullable register_nr cannot be null');
+        if (is_null($registerNr)) {
+            throw new \InvalidArgumentException('non-nullable registerNr cannot be null');
         }
-        $this->container['register_nr'] = $register_nr;
+        $this->container['registerNr'] = $registerNr;
 
         return $this;
     }
 
     /**
-     * Gets registration_authority_key
+     * Gets registrationAuthorityKey
      *
      * @return string|null
      */
     public function getRegistrationAuthorityKey()
     {
-        return $this->container['registration_authority_key'];
+        return $this->container['registrationAuthorityKey'];
     }
 
     /**
-     * Sets registration_authority_key
+     * Sets registrationAuthorityKey
      *
-     * @param string|null $registration_authority_key RA000709', -> Registration authority of the company for which the LEI is created | Use GLEIF RA Code from LIST -> https://api.gleif.org/api/v1/registration-authorities || The RA code RA777777 is used for General Government Entities and International Organizations only in case there is no information available in any regular registration authority and Public Legal Documents are used for validation instead. RA code RA888888 is used as an interim code. This indicates that a Registration/Validation Authority is not available on the RA list. The RA code RA999999 refers to situations when no Registration Authority can be defined for a Legal Entity.
+     * @param string|null $registrationAuthorityKey RA000709', -> Registration authority of the company for which the LEI is created | Use GLEIF RA Code from LIST -> https://api.gleif.org/api/v1/registration-authorities || The RA code RA777777 is used for General Government Entities and International Organizations only in case there is no information available in any regular registration authority and Public Legal Documents are used for validation instead. RA code RA888888 is used as an interim code. This indicates that a Registration/Validation Authority is not available on the RA list. The RA code RA999999 refers to situations when no Registration Authority can be defined for a Legal Entity.
      *
      * @return self
      */
-    public function setRegistrationAuthorityKey($registration_authority_key)
+    public function setRegistrationAuthorityKey($registrationAuthorityKey)
     {
-        if (is_null($registration_authority_key)) {
-            throw new \InvalidArgumentException('non-nullable registration_authority_key cannot be null');
+        if (is_null($registrationAuthorityKey)) {
+            throw new \InvalidArgumentException('non-nullable registrationAuthorityKey cannot be null');
         }
-        $this->container['registration_authority_key'] = $registration_authority_key;
+        $this->container['registrationAuthorityKey'] = $registrationAuthorityKey;
 
         return $this;
     }
 
     /**
-     * Gets registration_authority_text
+     * Gets registrationAuthorityText
      *
      * @return string|null
      */
     public function getRegistrationAuthorityText()
     {
-        return $this->container['registration_authority_text'];
+        return $this->container['registrationAuthorityText'];
     }
 
     /**
-     * Sets registration_authority_text
+     * Sets registrationAuthorityText
      *
-     * @param string|null $registration_authority_text Free text exception if GLEIF code for entity_registration_authority_key is RA777777, RA888888 or RA999999.
+     * @param string|null $registrationAuthorityText Free text exception if GLEIF code for entity_registration_authority_key is RA777777, RA888888 or RA999999.
      *
      * @return self
      */
-    public function setRegistrationAuthorityText($registration_authority_text)
+    public function setRegistrationAuthorityText($registrationAuthorityText)
     {
-        if (is_null($registration_authority_text)) {
-            throw new \InvalidArgumentException('non-nullable registration_authority_text cannot be null');
+        if (is_null($registrationAuthorityText)) {
+            throw new \InvalidArgumentException('non-nullable registrationAuthorityText cannot be null');
         }
-        $this->container['registration_authority_text'] = $registration_authority_text;
+        $this->container['registrationAuthorityText'] = $registrationAuthorityText;
 
         return $this;
     }
 
     /**
-     * Gets legal_form_text
+     * Gets legalFormText
      *
      * @return string|null
      */
     public function getLegalFormText()
     {
-        return $this->container['legal_form_text'];
+        return $this->container['legalFormText'];
     }
 
     /**
-     * Sets legal_form_text
+     * Sets legalFormText
      *
-     * @param string|null $legal_form_text SHALL include the correct name of the entity's legal form where no ELF code exists (if GLEIF code for entity_legal_form_key is 8888 or 9999).
+     * @param string|null $legalFormText SHALL include the correct name of the entity's legal form where no ELF code exists (if GLEIF code for entity_legal_form_key is 8888 or 9999).
      *
      * @return self
      */
-    public function setLegalFormText($legal_form_text)
+    public function setLegalFormText($legalFormText)
     {
-        if (is_null($legal_form_text)) {
-            throw new \InvalidArgumentException('non-nullable legal_form_text cannot be null');
+        if (is_null($legalFormText)) {
+            throw new \InvalidArgumentException('non-nullable legalFormText cannot be null');
         }
-        $this->container['legal_form_text'] = $legal_form_text;
+        $this->container['legalFormText'] = $legalFormText;
 
         return $this;
     }
 
     /**
-     * Gets legal_form_key
+     * Gets legalFormKey
      *
      * @return string|null
      */
     public function getLegalFormKey()
     {
-        return $this->container['legal_form_key'];
+        return $this->container['legalFormKey'];
     }
 
     /**
-     * Sets legal_form_key
+     * Sets legalFormKey
      *
-     * @param string|null $legal_form_key Legal form of the company for which the LEI is created | Use GLEIF ELF CODE from LIST -> https://api.gleif.org/api/v1/entity-legal-forms || ELF code 8888 is to be used when a new ELF code (for a legal form not yet on the list) is requested by an LEI issuer from GLEIF for a jurisdiction which is on the ELF code list. ELF code 9999 is to be used for LEIs from a jurisdiction which is not on the ELF code list yet
+     * @param string|null $legalFormKey Legal form of the company for which the LEI is created | Use GLEIF ELF CODE from LIST -> https://api.gleif.org/api/v1/entity-legal-forms || ELF code 8888 is to be used when a new ELF code (for a legal form not yet on the list) is requested by an LEI issuer from GLEIF for a jurisdiction which is on the ELF code list. ELF code 9999 is to be used for LEIs from a jurisdiction which is not on the ELF code list yet
      *
      * @return self
      */
-    public function setLegalFormKey($legal_form_key)
+    public function setLegalFormKey($legalFormKey)
     {
-        if (is_null($legal_form_key)) {
-            throw new \InvalidArgumentException('non-nullable legal_form_key cannot be null');
+        if (is_null($legalFormKey)) {
+            throw new \InvalidArgumentException('non-nullable legalFormKey cannot be null');
         }
-        $this->container['legal_form_key'] = $legal_form_key;
+        $this->container['legalFormKey'] = $legalFormKey;
 
         return $this;
     }
 
     /**
-     * Gets destination_country
+     * Gets destinationCountry
      *
      * @return string|null
      */
     public function getDestinationCountry()
     {
-        return $this->container['destination_country'];
+        return $this->container['destinationCountry'];
     }
 
     /**
-     * Sets destination_country
+     * Sets destinationCountry
      *
-     * @param string|null $destination_country Country of the company for which the LEI is created
+     * @param string|null $destinationCountry Country of the company for which the LEI is created
      *
      * @return self
      */
-    public function setDestinationCountry($destination_country)
+    public function setDestinationCountry($destinationCountry)
     {
-        if (is_null($destination_country)) {
-            throw new \InvalidArgumentException('non-nullable destination_country cannot be null');
+        if (is_null($destinationCountry)) {
+            throw new \InvalidArgumentException('non-nullable destinationCountry cannot be null');
         }
-        $this->container['destination_country'] = $destination_country;
+        $this->container['destinationCountry'] = $destinationCountry;
 
         return $this;
     }
 
     /**
-     * Gets creation_date
+     * Gets creationDate
      *
      * @return \DateTime|null
      */
     public function getCreationDate()
     {
-        return $this->container['creation_date'];
+        return $this->container['creationDate'];
     }
 
     /**
-     * Sets creation_date
+     * Sets creationDate
      *
-     * @param \DateTime|null $creation_date Foundation date of the company for which the LEI is created | DateTimeFormat.ISO.DATE
+     * @param \DateTime|null $creationDate Foundation date of the company for which the LEI is created | DateTimeFormat.ISO.DATE
      *
      * @return self
      */
-    public function setCreationDate($creation_date)
+    public function setCreationDate($creationDate)
     {
-        if (is_null($creation_date)) {
-            throw new \InvalidArgumentException('non-nullable creation_date cannot be null');
+        if (is_null($creationDate)) {
+            throw new \InvalidArgumentException('non-nullable creationDate cannot be null');
         }
-        $this->container['creation_date'] = $creation_date;
+        $this->container['creationDate'] = $creationDate;
 
         return $this;
     }

@@ -98,7 +98,7 @@ class EntityDataTest extends TestCase
     }
 
     /**
-     * Test attribute "register_nr"
+     * Test attribute "registerNr"
      */
     public function testPropertyRegisterNr()
     {
@@ -107,7 +107,7 @@ class EntityDataTest extends TestCase
     }
 
     /**
-     * Test attribute "registration_authority_key"
+     * Test attribute "registrationAuthorityKey"
      */
     public function testPropertyRegistrationAuthorityKey()
     {
@@ -116,7 +116,7 @@ class EntityDataTest extends TestCase
     }
 
     /**
-     * Test attribute "registration_authority_text"
+     * Test attribute "registrationAuthorityText"
      */
     public function testPropertyRegistrationAuthorityText()
     {
@@ -125,7 +125,7 @@ class EntityDataTest extends TestCase
     }
 
     /**
-     * Test attribute "legal_form_text"
+     * Test attribute "legalFormText"
      */
     public function testPropertyLegalFormText()
     {
@@ -134,7 +134,7 @@ class EntityDataTest extends TestCase
     }
 
     /**
-     * Test attribute "legal_form_key"
+     * Test attribute "legalFormKey"
      */
     public function testPropertyLegalFormKey()
     {
@@ -143,7 +143,7 @@ class EntityDataTest extends TestCase
     }
 
     /**
-     * Test attribute "destination_country"
+     * Test attribute "destinationCountry"
      */
     public function testPropertyDestinationCountry()
     {
@@ -152,7 +152,7 @@ class EntityDataTest extends TestCase
     }
 
     /**
-     * Test attribute "creation_date"
+     * Test attribute "creationDate"
      */
     public function testPropertyCreationDate()
     {

@@ -80,7 +80,7 @@ class RelationshipDataTest extends TestCase
     }
 
     /**
-     * Test attribute "ultimate_mother"
+     * Test attribute "ultimateMother"
      */
     public function testPropertyUltimateMother()
     {
@@ -89,7 +89,7 @@ class RelationshipDataTest extends TestCase
     }
 
     /**
-     * Test attribute "no_mother"
+     * Test attribute "noMother"
      */
     public function testPropertyNoMother()
     {
@@ -98,7 +98,7 @@ class RelationshipDataTest extends TestCase
     }
 
     /**
-     * Test attribute "direct_mother"
+     * Test attribute "directMother"
      */
     public function testPropertyDirectMother()
     {

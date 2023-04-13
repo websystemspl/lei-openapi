@@ -58,8 +58,8 @@ class Mother implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exception_key' => 'string',
-        'exception_reference' => 'string',
+        'exceptionKey' => 'string',
+        'exceptionReference' => 'string',
         'lei' => 'string'
     ];
 
@@ -71,8 +71,8 @@ class Mother implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'exception_key' => null,
-        'exception_reference' => null,
+        'exceptionKey' => null,
+        'exceptionReference' => null,
         'lei' => null
     ];
 
@@ -82,8 +82,8 @@ class Mother implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'exception_key' => false,
-		'exception_reference' => false,
+        'exceptionKey' => false,
+		'exceptionReference' => false,
 		'lei' => false
     ];
 
@@ -173,8 +173,8 @@ class Mother implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'exception_key' => 'exceptionKey',
-        'exception_reference' => 'exceptionReference',
+        'exceptionKey' => 'exceptionKey',
+        'exceptionReference' => 'exceptionReference',
         'lei' => 'lei'
     ];
 
@@ -184,8 +184,8 @@ class Mother implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'exception_key' => 'setExceptionKey',
-        'exception_reference' => 'setExceptionReference',
+        'exceptionKey' => 'setExceptionKey',
+        'exceptionReference' => 'setExceptionReference',
         'lei' => 'setLei'
     ];
 
@@ -195,8 +195,8 @@ class Mother implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'exception_key' => 'getExceptionKey',
-        'exception_reference' => 'getExceptionReference',
+        'exceptionKey' => 'getExceptionKey',
+        'exceptionReference' => 'getExceptionReference',
         'lei' => 'getLei'
     ];
 
@@ -278,8 +278,8 @@ class Mother implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('exception_key', $data ?? [], null);
-        $this->setIfExists('exception_reference', $data ?? [], null);
+        $this->setIfExists('exceptionKey', $data ?? [], null);
+        $this->setIfExists('exceptionReference', $data ?? [], null);
         $this->setIfExists('lei', $data ?? [], null);
     }
 
@@ -311,10 +311,10 @@ class Mother implements ModelInterface, ArrayAccess, \JsonSerializable
         $invalidProperties = [];
 
         $allowedValues = $this->getExceptionKeyAllowableValues();
-        if (!is_null($this->container['exception_key']) && !in_array($this->container['exception_key'], $allowedValues, true)) {
+        if (!is_null($this->container['exceptionKey']) && !in_array($this->container['exceptionKey'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'exception_key', must be one of '%s'",
-                $this->container['exception_key'],
+                "invalid value '%s' for 'exceptionKey', must be one of '%s'",
+                $this->container['exceptionKey'],
                 implode("', '", $allowedValues)
             );
         }
@@ -335,65 +335,65 @@ class Mother implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets exception_key
+     * Gets exceptionKey
      *
      * @return string|null
      */
     public function getExceptionKey()
     {
-        return $this->container['exception_key'];
+        return $this->container['exceptionKey'];
     }
 
     /**
-     * Sets exception_key
+     * Sets exceptionKey
      *
-     * @param string|null $exception_key Exception to not naming the parent company || NULL if rr_lei SET || Options: 'NO_LEI', 'NO_KNOWN_PERSON', 'NON_PUBLIC', 'NATURAL_PERSON
+     * @param string|null $exceptionKey Exception to not naming the parent company || NULL if rr_lei SET || Options: 'NO_LEI', 'NO_KNOWN_PERSON', 'NON_PUBLIC', 'NATURAL_PERSON
      *
      * @return self
      */
-    public function setExceptionKey($exception_key)
+    public function setExceptionKey($exceptionKey)
     {
-        if (is_null($exception_key)) {
-            throw new \InvalidArgumentException('non-nullable exception_key cannot be null');
+        if (is_null($exceptionKey)) {
+            throw new \InvalidArgumentException('non-nullable exceptionKey cannot be null');
         }
         $allowedValues = $this->getExceptionKeyAllowableValues();
-        if (!in_array($exception_key, $allowedValues, true)) {
+        if (!in_array($exceptionKey, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'exception_key', must be one of '%s'",
-                    $exception_key,
+                    "Invalid value '%s' for 'exceptionKey', must be one of '%s'",
+                    $exceptionKey,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['exception_key'] = $exception_key;
+        $this->container['exceptionKey'] = $exceptionKey;
 
         return $this;
     }
 
     /**
-     * Gets exception_reference
+     * Gets exceptionReference
      *
      * @return string|null
      */
     public function getExceptionReference()
     {
-        return $this->container['exception_reference'];
+        return $this->container['exceptionReference'];
     }
 
     /**
-     * Sets exception_reference
+     * Sets exceptionReference
      *
-     * @param string|null $exception_reference A reference to the exception to not naming the parent company || Can be NULL
+     * @param string|null $exceptionReference A reference to the exception to not naming the parent company || Can be NULL
      *
      * @return self
      */
-    public function setExceptionReference($exception_reference)
+    public function setExceptionReference($exceptionReference)
     {
-        if (is_null($exception_reference)) {
-            throw new \InvalidArgumentException('non-nullable exception_reference cannot be null');
+        if (is_null($exceptionReference)) {
+            throw new \InvalidArgumentException('non-nullable exceptionReference cannot be null');
         }
-        $this->container['exception_reference'] = $exception_reference;
+        $this->container['exceptionReference'] = $exceptionReference;
 
         return $this;
     }

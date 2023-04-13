@@ -57,11 +57,11 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'partner_lei_data' => '\OpenAPI\Client\Model\PartnerLeiData',
-        'order_type' => 'string',
-        'company_type' => 'string',
+        'partnerLeiData' => '\OpenAPI\Client\Model\PartnerLeiData',
+        'orderType' => 'string',
+        'companyType' => 'string',
         'payment' => '\OpenAPI\Client\Model\Payment',
-        'reference_lei' => 'string'
+        'referenceLei' => 'string'
     ];
 
     /**
@@ -72,11 +72,11 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'partner_lei_data' => null,
-        'order_type' => null,
-        'company_type' => null,
+        'partnerLeiData' => null,
+        'orderType' => null,
+        'companyType' => null,
         'payment' => null,
-        'reference_lei' => null
+        'referenceLei' => null
     ];
 
     /**
@@ -85,11 +85,11 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'partner_lei_data' => false,
-		'order_type' => false,
-		'company_type' => false,
+        'partnerLeiData' => false,
+		'orderType' => false,
+		'companyType' => false,
 		'payment' => false,
-		'reference_lei' => false
+		'referenceLei' => false
     ];
 
     /**
@@ -178,11 +178,11 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'partner_lei_data' => 'partnerLeiData',
-        'order_type' => 'orderType',
-        'company_type' => 'companyType',
+        'partnerLeiData' => 'partnerLeiData',
+        'orderType' => 'orderType',
+        'companyType' => 'companyType',
         'payment' => 'payment',
-        'reference_lei' => 'referenceLei'
+        'referenceLei' => 'referenceLei'
     ];
 
     /**
@@ -191,11 +191,11 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'partner_lei_data' => 'setPartnerLeiData',
-        'order_type' => 'setOrderType',
-        'company_type' => 'setCompanyType',
+        'partnerLeiData' => 'setPartnerLeiData',
+        'orderType' => 'setOrderType',
+        'companyType' => 'setCompanyType',
         'payment' => 'setPayment',
-        'reference_lei' => 'setReferenceLei'
+        'referenceLei' => 'setReferenceLei'
     ];
 
     /**
@@ -204,11 +204,11 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'partner_lei_data' => 'getPartnerLeiData',
-        'order_type' => 'getOrderType',
-        'company_type' => 'getCompanyType',
+        'partnerLeiData' => 'getPartnerLeiData',
+        'orderType' => 'getOrderType',
+        'companyType' => 'getCompanyType',
         'payment' => 'getPayment',
-        'reference_lei' => 'getReferenceLei'
+        'referenceLei' => 'getReferenceLei'
     ];
 
     /**
@@ -298,11 +298,11 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('partner_lei_data', $data ?? [], null);
-        $this->setIfExists('order_type', $data ?? [], null);
-        $this->setIfExists('company_type', $data ?? [], null);
+        $this->setIfExists('partnerLeiData', $data ?? [], null);
+        $this->setIfExists('orderType', $data ?? [], null);
+        $this->setIfExists('companyType', $data ?? [], null);
         $this->setIfExists('payment', $data ?? [], null);
-        $this->setIfExists('reference_lei', $data ?? [], null);
+        $this->setIfExists('referenceLei', $data ?? [], null);
     }
 
     /**
@@ -333,19 +333,19 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
         $invalidProperties = [];
 
         $allowedValues = $this->getOrderTypeAllowableValues();
-        if (!is_null($this->container['order_type']) && !in_array($this->container['order_type'], $allowedValues, true)) {
+        if (!is_null($this->container['orderType']) && !in_array($this->container['orderType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'order_type', must be one of '%s'",
-                $this->container['order_type'],
+                "invalid value '%s' for 'orderType', must be one of '%s'",
+                $this->container['orderType'],
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getCompanyTypeAllowableValues();
-        if (!is_null($this->container['company_type']) && !in_array($this->container['company_type'], $allowedValues, true)) {
+        if (!is_null($this->container['companyType']) && !in_array($this->container['companyType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'company_type', must be one of '%s'",
-                $this->container['company_type'],
+                "invalid value '%s' for 'companyType', must be one of '%s'",
+                $this->container['companyType'],
                 implode("', '", $allowedValues)
             );
         }
@@ -366,102 +366,102 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets partner_lei_data
+     * Gets partnerLeiData
      *
      * @return \OpenAPI\Client\Model\PartnerLeiData|null
      */
     public function getPartnerLeiData()
     {
-        return $this->container['partner_lei_data'];
+        return $this->container['partnerLeiData'];
     }
 
     /**
-     * Sets partner_lei_data
+     * Sets partnerLeiData
      *
-     * @param \OpenAPI\Client\Model\PartnerLeiData|null $partner_lei_data partner_lei_data
+     * @param \OpenAPI\Client\Model\PartnerLeiData|null $partnerLeiData partnerLeiData
      *
      * @return self
      */
-    public function setPartnerLeiData($partner_lei_data)
+    public function setPartnerLeiData($partnerLeiData)
     {
-        if (is_null($partner_lei_data)) {
-            throw new \InvalidArgumentException('non-nullable partner_lei_data cannot be null');
+        if (is_null($partnerLeiData)) {
+            throw new \InvalidArgumentException('non-nullable partnerLeiData cannot be null');
         }
-        $this->container['partner_lei_data'] = $partner_lei_data;
+        $this->container['partnerLeiData'] = $partnerLeiData;
 
         return $this;
     }
 
     /**
-     * Gets order_type
+     * Gets orderType
      *
      * @return string|null
      */
     public function getOrderType()
     {
-        return $this->container['order_type'];
+        return $this->container['orderType'];
     }
 
     /**
-     * Sets order_type
+     * Sets orderType
      *
-     * @param string|null $order_type The type of order which was submitted by the customer || LEI = New LEI Order, TR_IN = TRANSFER A LEI, RENEW = RENEW A LEI
+     * @param string|null $orderType The type of order which was submitted by the customer || LEI = New LEI Order, TR_IN = TRANSFER A LEI, RENEW = RENEW A LEI
      *
      * @return self
      */
-    public function setOrderType($order_type)
+    public function setOrderType($orderType)
     {
-        if (is_null($order_type)) {
-            throw new \InvalidArgumentException('non-nullable order_type cannot be null');
+        if (is_null($orderType)) {
+            throw new \InvalidArgumentException('non-nullable orderType cannot be null');
         }
         $allowedValues = $this->getOrderTypeAllowableValues();
-        if (!in_array($order_type, $allowedValues, true)) {
+        if (!in_array($orderType, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'order_type', must be one of '%s'",
-                    $order_type,
+                    "Invalid value '%s' for 'orderType', must be one of '%s'",
+                    $orderType,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['order_type'] = $order_type;
+        $this->container['orderType'] = $orderType;
 
         return $this;
     }
 
     /**
-     * Gets company_type
+     * Gets companyType
      *
      * @return string|null
      */
     public function getCompanyType()
     {
-        return $this->container['company_type'];
+        return $this->container['companyType'];
     }
 
     /**
-     * Sets company_type
+     * Sets companyType
      *
-     * @param string|null $company_type The type of company for which the LEI is to be issued || CURRENTLY ONLY COMPANY POSSIBLE
+     * @param string|null $companyType The type of company for which the LEI is to be issued || CURRENTLY ONLY COMPANY POSSIBLE
      *
      * @return self
      */
-    public function setCompanyType($company_type)
+    public function setCompanyType($companyType)
     {
-        if (is_null($company_type)) {
-            throw new \InvalidArgumentException('non-nullable company_type cannot be null');
+        if (is_null($companyType)) {
+            throw new \InvalidArgumentException('non-nullable companyType cannot be null');
         }
         $allowedValues = $this->getCompanyTypeAllowableValues();
-        if (!in_array($company_type, $allowedValues, true)) {
+        if (!in_array($companyType, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'company_type', must be one of '%s'",
-                    $company_type,
+                    "Invalid value '%s' for 'companyType', must be one of '%s'",
+                    $companyType,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['company_type'] = $company_type;
+        $this->container['companyType'] = $companyType;
 
         return $this;
     }
@@ -494,28 +494,28 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets reference_lei
+     * Gets referenceLei
      *
      * @return string|null
      */
     public function getReferenceLei()
     {
-        return $this->container['reference_lei'];
+        return $this->container['referenceLei'];
     }
 
     /**
-     * Sets reference_lei
+     * Sets referenceLei
      *
-     * @param string|null $reference_lei LEI number in case of ReNewal or Transfer || NULL if job_type = NEW_LEI
+     * @param string|null $referenceLei LEI number in case of ReNewal or Transfer || NULL if job_type = NEW_LEI
      *
      * @return self
      */
-    public function setReferenceLei($reference_lei)
+    public function setReferenceLei($referenceLei)
     {
-        if (is_null($reference_lei)) {
-            throw new \InvalidArgumentException('non-nullable reference_lei cannot be null');
+        if (is_null($referenceLei)) {
+            throw new \InvalidArgumentException('non-nullable referenceLei cannot be null');
         }
-        $this->container['reference_lei'] = $reference_lei;
+        $this->container['referenceLei'] = $referenceLei;
 
         return $this;
     }

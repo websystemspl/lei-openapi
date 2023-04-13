@@ -80,7 +80,7 @@ class AppendOrderAttachmentRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "attachment_data"
+     * Test attribute "attachmentData"
      */
     public function testPropertyAttachmentData()
     {
@@ -89,7 +89,7 @@ class AppendOrderAttachmentRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "api_token"
+     * Test attribute "apiToken"
      */
     public function testPropertyApiToken()
     {
@@ -98,7 +98,7 @@ class AppendOrderAttachmentRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "order_number"
+     * Test attribute "orderNumber"
      */
     public function testPropertyOrderNumber()
     {

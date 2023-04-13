@@ -80,7 +80,7 @@ class PartnerLeiDataTest extends TestCase
     }
 
     /**
-     * Test attribute "legal_address_data"
+     * Test attribute "legalAddressData"
      */
     public function testPropertyLegalAddressData()
     {
@@ -89,7 +89,7 @@ class PartnerLeiDataTest extends TestCase
     }
 
     /**
-     * Test attribute "hq_address_data"
+     * Test attribute "hqAddressData"
      */
     public function testPropertyHqAddressData()
     {
@@ -98,7 +98,7 @@ class PartnerLeiDataTest extends TestCase
     }
 
     /**
-     * Test attribute "entity_data"
+     * Test attribute "entityData"
      */
     public function testPropertyEntityData()
     {
@@ -107,7 +107,7 @@ class PartnerLeiDataTest extends TestCase
     }
 
     /**
-     * Test attribute "relationship_data"
+     * Test attribute "relationshipData"
      */
     public function testPropertyRelationshipData()
     {
@@ -116,7 +116,7 @@ class PartnerLeiDataTest extends TestCase
     }
 
     /**
-     * Test attribute "auth_person"
+     * Test attribute "authPerson"
      */
     public function testPropertyAuthPerson()
     {
@@ -125,7 +125,7 @@ class PartnerLeiDataTest extends TestCase
     }
 
     /**
-     * Test attribute "contact_address"
+     * Test attribute "contactAddress"
      */
     public function testPropertyContactAddress()
     {

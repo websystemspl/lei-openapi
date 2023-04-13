@@ -80,7 +80,7 @@ class AttachmentDataTest extends TestCase
     }
 
     /**
-     * Test attribute "file_name"
+     * Test attribute "fileName"
      */
     public function testPropertyFileName()
     {
@@ -89,7 +89,7 @@ class AttachmentDataTest extends TestCase
     }
 
     /**
-     * Test attribute "file_data"
+     * Test attribute "fileData"
      */
     public function testPropertyFileData()
     {
