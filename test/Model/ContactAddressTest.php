@@ -80,9 +80,9 @@ class ContactAddressTest extends TestCase
     }
 
     /**
-     * Test attribute "salution"
+     * Test attribute "salutation"
      */
-    public function testPropertySalution()
+    public function testPropertySalutation()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

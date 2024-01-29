@@ -61,7 +61,9 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
         'orderType' => 'string',
         'companyType' => 'string',
         'payment' => '\OpenAPI\Client\Model\Payment',
-        'referenceLei' => 'string'
+        'referenceLei' => 'string',
+        'transferLou' => 'string',
+        'transferLei' => 'string'
     ];
 
     /**
@@ -76,7 +78,9 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
         'orderType' => null,
         'companyType' => null,
         'payment' => null,
-        'referenceLei' => null
+        'referenceLei' => null,
+        'transferLou' => null,
+        'transferLei' => null
     ];
 
     /**
@@ -89,7 +93,9 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
 		'orderType' => false,
 		'companyType' => false,
 		'payment' => false,
-		'referenceLei' => false
+		'referenceLei' => false,
+		'transferLou' => false,
+		'transferLei' => false
     ];
 
     /**
@@ -182,7 +188,9 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
         'orderType' => 'orderType',
         'companyType' => 'companyType',
         'payment' => 'payment',
-        'referenceLei' => 'referenceLei'
+        'referenceLei' => 'referenceLei',
+        'transferLou' => 'transferLou',
+        'transferLei' => 'transferLei'
     ];
 
     /**
@@ -195,7 +203,9 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
         'orderType' => 'setOrderType',
         'companyType' => 'setCompanyType',
         'payment' => 'setPayment',
-        'referenceLei' => 'setReferenceLei'
+        'referenceLei' => 'setReferenceLei',
+        'transferLou' => 'setTransferLou',
+        'transferLei' => 'setTransferLei'
     ];
 
     /**
@@ -208,7 +218,9 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
         'orderType' => 'getOrderType',
         'companyType' => 'getCompanyType',
         'payment' => 'getPayment',
-        'referenceLei' => 'getReferenceLei'
+        'referenceLei' => 'getReferenceLei',
+        'transferLou' => 'getTransferLou',
+        'transferLei' => 'getTransferLei'
     ];
 
     /**
@@ -303,6 +315,8 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('companyType', $data ?? [], null);
         $this->setIfExists('payment', $data ?? [], null);
         $this->setIfExists('referenceLei', $data ?? [], null);
+        $this->setIfExists('transferLou', $data ?? [], null);
+        $this->setIfExists('transferLei', $data ?? [], null);
     }
 
     /**
@@ -332,6 +346,12 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['partnerLeiData'] === null) {
+            $invalidProperties[] = "'partnerLeiData' can't be null";
+        }
+        if ($this->container['orderType'] === null) {
+            $invalidProperties[] = "'orderType' can't be null";
+        }
         $allowedValues = $this->getOrderTypeAllowableValues();
         if (!is_null($this->container['orderType']) && !in_array($this->container['orderType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -341,6 +361,9 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['companyType'] === null) {
+            $invalidProperties[] = "'companyType' can't be null";
+        }
         $allowedValues = $this->getCompanyTypeAllowableValues();
         if (!is_null($this->container['companyType']) && !in_array($this->container['companyType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -348,6 +371,17 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->container['companyType'],
                 implode("', '", $allowedValues)
             );
+        }
+
+        if ($this->container['payment'] === null) {
+            $invalidProperties[] = "'payment' can't be null";
+        }
+        if (!is_null($this->container['transferLou']) && !preg_match("/^(?:([0-9A-Z]){18}[0-9]{2})?$/", $this->container['transferLou'])) {
+            $invalidProperties[] = "invalid value for 'transferLou', must be conform to the pattern /^(?:([0-9A-Z]){18}[0-9]{2})?$/.";
+        }
+
+        if (!is_null($this->container['transferLei']) && !preg_match("/^(?:([0-9A-Z]){18}[0-9]{2})?$/", $this->container['transferLei'])) {
+            $invalidProperties[] = "invalid value for 'transferLei', must be conform to the pattern /^(?:([0-9A-Z]){18}[0-9]{2})?$/.";
         }
 
         return $invalidProperties;
@@ -368,7 +402,7 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets partnerLeiData
      *
-     * @return \OpenAPI\Client\Model\PartnerLeiData|null
+     * @return \OpenAPI\Client\Model\PartnerLeiData
      */
     public function getPartnerLeiData()
     {
@@ -378,7 +412,7 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets partnerLeiData
      *
-     * @param \OpenAPI\Client\Model\PartnerLeiData|null $partnerLeiData partnerLeiData
+     * @param \OpenAPI\Client\Model\PartnerLeiData $partnerLeiData partnerLeiData
      *
      * @return self
      */
@@ -395,7 +429,7 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets orderType
      *
-     * @return string|null
+     * @return string
      */
     public function getOrderType()
     {
@@ -405,7 +439,7 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets orderType
      *
-     * @param string|null $orderType The type of order which was submitted by the customer || LEI = New LEI Order, TR_IN = TRANSFER A LEI, RENEW = RENEW A LEI
+     * @param string $orderType The type of order which was submitted by the customer || LEI = New LEI Order, TR_IN = TRANSFER A LEI, RENEW = RENEW A LEI
      *
      * @return self
      */
@@ -432,7 +466,7 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets companyType
      *
-     * @return string|null
+     * @return string
      */
     public function getCompanyType()
     {
@@ -442,7 +476,7 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets companyType
      *
-     * @param string|null $companyType The type of company for which the LEI is to be issued || CURRENTLY ONLY COMPANY POSSIBLE
+     * @param string $companyType The type of company for which the LEI is to be issued || CURRENTLY ONLY COMPANY POSSIBLE
      *
      * @return self
      */
@@ -469,7 +503,7 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets payment
      *
-     * @return \OpenAPI\Client\Model\Payment|null
+     * @return \OpenAPI\Client\Model\Payment
      */
     public function getPayment()
     {
@@ -479,7 +513,7 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment
      *
-     * @param \OpenAPI\Client\Model\Payment|null $payment payment
+     * @param \OpenAPI\Client\Model\Payment $payment payment
      *
      * @return self
      */
@@ -516,6 +550,70 @@ class PartnerOrderData implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable referenceLei cannot be null');
         }
         $this->container['referenceLei'] = $referenceLei;
+
+        return $this;
+    }
+
+    /**
+     * Gets transferLou
+     *
+     * @return string|null
+     */
+    public function getTransferLou()
+    {
+        return $this->container['transferLou'];
+    }
+
+    /**
+     * Sets transferLou
+     *
+     * @param string|null $transferLou If the order OrderType is 'LEI' transferLou and referenceLei must be empty || if orderType is 'TR-IN' transferLou and referenceLei must contain a value
+     *
+     * @return self
+     */
+    public function setTransferLou($transferLou)
+    {
+        if (is_null($transferLou)) {
+            throw new \InvalidArgumentException('non-nullable transferLou cannot be null');
+        }
+
+        if ((!preg_match("/^(?:([0-9A-Z]){18}[0-9]{2})?$/", $transferLou))) {
+            throw new \InvalidArgumentException("invalid value for \$transferLou when calling PartnerOrderData., must conform to the pattern /^(?:([0-9A-Z]){18}[0-9]{2})?$/.");
+        }
+
+        $this->container['transferLou'] = $transferLou;
+
+        return $this;
+    }
+
+    /**
+     * Gets transferLei
+     *
+     * @return string|null
+     */
+    public function getTransferLei()
+    {
+        return $this->container['transferLei'];
+    }
+
+    /**
+     * Sets transferLei
+     *
+     * @param string|null $transferLei If the order OrderType is 'LEI' transferLou and transferLei must be empty || if orderType is 'TR-IN' transferLou and transferLei must contain a value
+     *
+     * @return self
+     */
+    public function setTransferLei($transferLei)
+    {
+        if (is_null($transferLei)) {
+            throw new \InvalidArgumentException('non-nullable transferLei cannot be null');
+        }
+
+        if ((!preg_match("/^(?:([0-9A-Z]){18}[0-9]{2})?$/", $transferLei))) {
+            throw new \InvalidArgumentException("invalid value for \$transferLei when calling PartnerOrderData., must conform to the pattern /^(?:([0-9A-Z]){18}[0-9]{2})?$/.");
+        }
+
+        $this->container['transferLei'] = $transferLei;
 
         return $this;
     }

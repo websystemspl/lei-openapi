@@ -69,7 +69,7 @@ class LoadOrderStatusRequest implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'apiToken' => null,
+        'apiToken' => 'uuid',
         'orderNumber' => null
     ];
 

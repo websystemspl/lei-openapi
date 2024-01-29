@@ -89,9 +89,9 @@ class PaymentDetailsTest extends TestCase
     }
 
     /**
-     * Test attribute "typPrepaid"
+     * Test attribute "typePrepaid"
      */
-    public function testPropertyTypPrepaid()
+    public function testPropertyTypePrepaid()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

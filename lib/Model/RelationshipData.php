@@ -288,6 +288,9 @@ class RelationshipData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['noMother'] === null) {
+            $invalidProperties[] = "'noMother' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -333,7 +336,7 @@ class RelationshipData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets noMother
      *
-     * @return bool|null
+     * @return bool
      */
     public function getNoMother()
     {
@@ -343,7 +346,7 @@ class RelationshipData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets noMother
      *
-     * @param bool|null $noMother Set to TRUE if no MOTHER information is available.
+     * @param bool $noMother Set to TRUE if no MOTHER information is available.
      *
      * @return self
      */

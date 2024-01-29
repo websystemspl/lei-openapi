@@ -319,6 +319,10 @@ class Mother implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if (!is_null($this->container['lei']) && !preg_match("/^([0-9A-Z]){18}[0-9]{2}$/", $this->container['lei'])) {
+            $invalidProperties[] = "invalid value for 'lei', must be conform to the pattern /^([0-9A-Z]){18}[0-9]{2}$/.";
+        }
+
         return $invalidProperties;
     }
 
@@ -420,6 +424,11 @@ class Mother implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($lei)) {
             throw new \InvalidArgumentException('non-nullable lei cannot be null');
         }
+
+        if ((!preg_match("/^([0-9A-Z]){18}[0-9]{2}$/", $lei))) {
+            throw new \InvalidArgumentException("invalid value for \$lei when calling Mother., must conform to the pattern /^([0-9A-Z]){18}[0-9]{2}$/.");
+        }
+
         $this->container['lei'] = $lei;
 
         return $this;

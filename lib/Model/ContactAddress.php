@@ -57,7 +57,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'salution' => 'string',
+        'salutation' => 'string',
         'firstname' => 'string',
         'lastname' => 'string',
         'phone' => 'string',
@@ -73,7 +73,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'salution' => null,
+        'salutation' => null,
         'firstname' => null,
         'lastname' => null,
         'phone' => null,
@@ -87,7 +87,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'salution' => false,
+        'salutation' => false,
 		'firstname' => false,
 		'lastname' => false,
 		'phone' => false,
@@ -181,7 +181,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'salution' => 'salution',
+        'salutation' => 'salutation',
         'firstname' => 'firstname',
         'lastname' => 'lastname',
         'phone' => 'phone',
@@ -195,7 +195,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'salution' => 'setSalution',
+        'salutation' => 'setSalutation',
         'firstname' => 'setFirstname',
         'lastname' => 'setLastname',
         'phone' => 'setPhone',
@@ -209,7 +209,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'salution' => 'getSalution',
+        'salutation' => 'getSalutation',
         'firstname' => 'getFirstname',
         'lastname' => 'getLastname',
         'phone' => 'getPhone',
@@ -258,6 +258,21 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const SALUTATION_M = 'Salutation.M';
+    public const SALUTATION_F = 'Salutation.F';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSalutationAllowableValues()
+    {
+        return [
+            self::SALUTATION_M,
+            self::SALUTATION_F,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -274,7 +289,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('salution', $data ?? [], null);
+        $this->setIfExists('salutation', $data ?? [], null);
         $this->setIfExists('firstname', $data ?? [], null);
         $this->setIfExists('lastname', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
@@ -309,6 +324,45 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['salutation'] === null) {
+            $invalidProperties[] = "'salutation' can't be null";
+        }
+        $allowedValues = $this->getSalutationAllowableValues();
+        if (!is_null($this->container['salutation']) && !in_array($this->container['salutation'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'salutation', must be one of '%s'",
+                $this->container['salutation'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['firstname'] === null) {
+            $invalidProperties[] = "'firstname' can't be null";
+        }
+        if ($this->container['lastname'] === null) {
+            $invalidProperties[] = "'lastname' can't be null";
+        }
+        if ($this->container['phone'] === null) {
+            $invalidProperties[] = "'phone' can't be null";
+        }
+        if (!preg_match("/^[0-9]+$/", $this->container['phone'])) {
+            $invalidProperties[] = "invalid value for 'phone', must be conform to the pattern /^[0-9]+$/.";
+        }
+
+        if ($this->container['areaCode'] === null) {
+            $invalidProperties[] = "'areaCode' can't be null";
+        }
+        if (!preg_match("/^[A-Z]{2}$/", $this->container['areaCode'])) {
+            $invalidProperties[] = "invalid value for 'areaCode', must be conform to the pattern /^[A-Z]{2}$/.";
+        }
+
+        if ($this->container['mail'] === null) {
+            $invalidProperties[] = "'mail' can't be null";
+        }
+        if (!preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)?$/", $this->container['mail'])) {
+            $invalidProperties[] = "invalid value for 'mail', must be conform to the pattern /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)?$/.";
+        }
+
         return $invalidProperties;
     }
 
@@ -325,28 +379,38 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets salution
+     * Gets salutation
      *
-     * @return string|null
+     * @return string
      */
-    public function getSalution()
+    public function getSalutation()
     {
-        return $this->container['salution'];
+        return $this->container['salutation'];
     }
 
     /**
-     * Sets salution
+     * Sets salutation
      *
-     * @param string|null $salution Salutation of the contact person
+     * @param string $salutation Salutation of the contact person
      *
      * @return self
      */
-    public function setSalution($salution)
+    public function setSalutation($salutation)
     {
-        if (is_null($salution)) {
-            throw new \InvalidArgumentException('non-nullable salution cannot be null');
+        if (is_null($salutation)) {
+            throw new \InvalidArgumentException('non-nullable salutation cannot be null');
         }
-        $this->container['salution'] = $salution;
+        $allowedValues = $this->getSalutationAllowableValues();
+        if (!in_array($salutation, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'salutation', must be one of '%s'",
+                    $salutation,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['salutation'] = $salutation;
 
         return $this;
     }
@@ -354,7 +418,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets firstname
      *
-     * @return string|null
+     * @return string
      */
     public function getFirstname()
     {
@@ -364,7 +428,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets firstname
      *
-     * @param string|null $firstname First name of the contact person
+     * @param string $firstname First name of the contact person
      *
      * @return self
      */
@@ -381,7 +445,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets lastname
      *
-     * @return string|null
+     * @return string
      */
     public function getLastname()
     {
@@ -391,7 +455,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets lastname
      *
-     * @param string|null $lastname Last name of the contact person
+     * @param string $lastname Last name of the contact person
      *
      * @return self
      */
@@ -408,7 +472,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets phone
      *
-     * @return string|null
+     * @return string
      */
     public function getPhone()
     {
@@ -418,7 +482,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phone
      *
-     * @param string|null $phone Telephone number of the contact person
+     * @param string $phone Telephone number of the contact person
      *
      * @return self
      */
@@ -427,6 +491,11 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($phone)) {
             throw new \InvalidArgumentException('non-nullable phone cannot be null');
         }
+
+        if ((!preg_match("/^[0-9]+$/", $phone))) {
+            throw new \InvalidArgumentException("invalid value for \$phone when calling ContactAddress., must conform to the pattern /^[0-9]+$/.");
+        }
+
         $this->container['phone'] = $phone;
 
         return $this;
@@ -435,7 +504,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets areaCode
      *
-     * @return string|null
+     * @return string
      */
     public function getAreaCode()
     {
@@ -445,7 +514,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets areaCode
      *
-     * @param string|null $areaCode Telephone area code based on the country's two-digit ISO code
+     * @param string $areaCode Telephone area code based on the country's two-digit ISO code
      *
      * @return self
      */
@@ -454,6 +523,11 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($areaCode)) {
             throw new \InvalidArgumentException('non-nullable areaCode cannot be null');
         }
+
+        if ((!preg_match("/^[A-Z]{2}$/", $areaCode))) {
+            throw new \InvalidArgumentException("invalid value for \$areaCode when calling ContactAddress., must conform to the pattern /^[A-Z]{2}$/.");
+        }
+
         $this->container['areaCode'] = $areaCode;
 
         return $this;
@@ -462,7 +536,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets mail
      *
-     * @return string|null
+     * @return string
      */
     public function getMail()
     {
@@ -472,7 +546,7 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mail
      *
-     * @param string|null $mail Mail address of the contact person
+     * @param string $mail Mail address of the contact person
      *
      * @return self
      */
@@ -481,6 +555,11 @@ class ContactAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($mail)) {
             throw new \InvalidArgumentException('non-nullable mail cannot be null');
         }
+
+        if ((!preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)?$/", $mail))) {
+            throw new \InvalidArgumentException("invalid value for \$mail when calling ContactAddress., must conform to the pattern /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)?$/.");
+        }
+
         $this->container['mail'] = $mail;
 
         return $this;

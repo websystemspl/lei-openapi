@@ -281,6 +281,12 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['fileName'] === null) {
+            $invalidProperties[] = "'fileName' can't be null";
+        }
+        if ($this->container['fileData'] === null) {
+            $invalidProperties[] = "'fileData' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -299,7 +305,7 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets fileName
      *
-     * @return string|null
+     * @return string
      */
     public function getFileName()
     {
@@ -309,7 +315,7 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fileName
      *
-     * @param string|null $fileName Name of the attached FILE
+     * @param string $fileName Name of the attached FILE.  Accepted file types are .pdf, .doc, .docx, .jpg, .jpeg, .png, .txt, .xlsx
      *
      * @return self
      */
@@ -326,7 +332,7 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets fileData
      *
-     * @return string|null
+     * @return string
      */
     public function getFileData()
     {
@@ -336,7 +342,7 @@ class AttachmentData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fileData
      *
-     * @param string|null $fileData Files of all type as Binary / Base64
+     * @param string $fileData Files of all type as Binary / Base64.
      *
      * @return self
      */
