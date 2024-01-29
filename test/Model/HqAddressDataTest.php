@@ -1,6 +1,6 @@
 <?php
 /**
- * PartnerOrderDataTest
+ * HqAddressDataTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PartnerOrderDataTest Class Doc Comment
+ * HqAddressDataTest Class Doc Comment
  *
  * @category    Class
- * @description PartnerOrderData
+ * @description Headquarters address information. This is optional but if sent has to have the minimum values
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PartnerOrderDataTest extends TestCase
+class HqAddressDataTest extends TestCase
 {
 
     /**
@@ -71,72 +71,99 @@ class PartnerOrderDataTest extends TestCase
     }
 
     /**
-     * Test "PartnerOrderData"
+     * Test "HqAddressData"
      */
-    public function testPartnerOrderData()
+    public function testHqAddressData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "partnerLeiData"
+     * Test attribute "country"
      */
-    public function testPropertyPartnerLeiData()
+    public function testPropertyCountry()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "orderType"
+     * Test attribute "state"
      */
-    public function testPropertyOrderType()
+    public function testPropertyState()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "companyType"
+     * Test attribute "city"
      */
-    public function testPropertyCompanyType()
+    public function testPropertyCity()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "payment"
+     * Test attribute "zip"
      */
-    public function testPropertyPayment()
+    public function testPropertyZip()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "referenceLei"
+     * Test attribute "firstAddressLine"
      */
-    public function testPropertyReferenceLei()
+    public function testPropertyFirstAddressLine()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "transferLou"
+     * Test attribute "nrInBuilding"
      */
-    public function testPropertyTransferLou()
+    public function testPropertyNrInBuilding()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "transferLei"
+     * Test attribute "mailRoute"
      */
-    public function testPropertyTransferLei()
+    public function testPropertyMailRoute()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "additionalInfo1"
+     */
+    public function testPropertyAdditionalInfo1()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "additionalInfo2"
+     */
+    public function testPropertyAdditionalInfo2()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "additionalInfo3"
+     */
+    public function testPropertyAdditionalInfo3()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

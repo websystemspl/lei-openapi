@@ -331,6 +331,33 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['registerNr'] === null) {
+            $invalidProperties[] = "'registerNr' can't be null";
+        }
+        if ($this->container['registrationAuthorityKey'] === null) {
+            $invalidProperties[] = "'registrationAuthorityKey' can't be null";
+        }
+        if (!preg_match("/^RA\\d{6}$/", $this->container['registrationAuthorityKey'])) {
+            $invalidProperties[] = "invalid value for 'registrationAuthorityKey', must be conform to the pattern /^RA\\d{6}$/.";
+        }
+
+        if (!is_null($this->container['legalFormKey']) && !preg_match("/^[A-Za-z0-9]{4}$/", $this->container['legalFormKey'])) {
+            $invalidProperties[] = "invalid value for 'legalFormKey', must be conform to the pattern /^[A-Za-z0-9]{4}$/.";
+        }
+
+        if ($this->container['destinationCountry'] === null) {
+            $invalidProperties[] = "'destinationCountry' can't be null";
+        }
+        if (!preg_match("/^[A-Z]{2}$/", $this->container['destinationCountry'])) {
+            $invalidProperties[] = "invalid value for 'destinationCountry', must be conform to the pattern /^[A-Z]{2}$/.";
+        }
+
+        if ($this->container['creationDate'] === null) {
+            $invalidProperties[] = "'creationDate' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -349,7 +376,7 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -359,7 +386,7 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string|null $name Company name of the company for which the LEI is created
+     * @param string $name Company name of the company for which the LEI is created
      *
      * @return self
      */
@@ -403,7 +430,7 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets registerNr
      *
-     * @return string|null
+     * @return string
      */
     public function getRegisterNr()
     {
@@ -413,7 +440,7 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets registerNr
      *
-     * @param string|null $registerNr Registration number of the company for which the LEI is created
+     * @param string $registerNr Registration number of the company for which the LEI is created
      *
      * @return self
      */
@@ -430,7 +457,7 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets registrationAuthorityKey
      *
-     * @return string|null
+     * @return string
      */
     public function getRegistrationAuthorityKey()
     {
@@ -440,7 +467,7 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets registrationAuthorityKey
      *
-     * @param string|null $registrationAuthorityKey RA000709', -> Registration authority of the company for which the LEI is created | Use GLEIF RA Code from LIST -> https://api.gleif.org/api/v1/registration-authorities || The RA code RA777777 is used for General Government Entities and International Organizations only in case there is no information available in any regular registration authority and Public Legal Documents are used for validation instead. RA code RA888888 is used as an interim code. This indicates that a Registration/Validation Authority is not available on the RA list. The RA code RA999999 refers to situations when no Registration Authority can be defined for a Legal Entity.
+     * @param string $registrationAuthorityKey RA000709', -> Registration authority of the company for which the LEI is created | Use GLEIF RA Code from LIST -> https://api.gleif.org/api/v1/registration-authorities || The RA code RA777777 is used for General Government Entities and International Organizations only in case there is no information available in any regular registration authority and Public Legal Documents are used for validation instead. RA code RA888888 is used as an interim code. This indicates that a Registration/Validation Authority is not available on the RA list. The RA code RA999999 refers to situations when no Registration Authority can be defined for a Legal Entity.
      *
      * @return self
      */
@@ -449,6 +476,11 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($registrationAuthorityKey)) {
             throw new \InvalidArgumentException('non-nullable registrationAuthorityKey cannot be null');
         }
+
+        if ((!preg_match("/^RA\\d{6}$/", $registrationAuthorityKey))) {
+            throw new \InvalidArgumentException("invalid value for \$registrationAuthorityKey when calling EntityData., must conform to the pattern /^RA\\d{6}$/.");
+        }
+
         $this->container['registrationAuthorityKey'] = $registrationAuthorityKey;
 
         return $this;
@@ -530,6 +562,11 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($legalFormKey)) {
             throw new \InvalidArgumentException('non-nullable legalFormKey cannot be null');
         }
+
+        if ((!preg_match("/^[A-Za-z0-9]{4}$/", $legalFormKey))) {
+            throw new \InvalidArgumentException("invalid value for \$legalFormKey when calling EntityData., must conform to the pattern /^[A-Za-z0-9]{4}$/.");
+        }
+
         $this->container['legalFormKey'] = $legalFormKey;
 
         return $this;
@@ -538,7 +575,7 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets destinationCountry
      *
-     * @return string|null
+     * @return string
      */
     public function getDestinationCountry()
     {
@@ -548,7 +585,7 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets destinationCountry
      *
-     * @param string|null $destinationCountry Country of the company for which the LEI is created
+     * @param string $destinationCountry Country of the company for which the LEI is created
      *
      * @return self
      */
@@ -557,6 +594,11 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($destinationCountry)) {
             throw new \InvalidArgumentException('non-nullable destinationCountry cannot be null');
         }
+
+        if ((!preg_match("/^[A-Z]{2}$/", $destinationCountry))) {
+            throw new \InvalidArgumentException("invalid value for \$destinationCountry when calling EntityData., must conform to the pattern /^[A-Z]{2}$/.");
+        }
+
         $this->container['destinationCountry'] = $destinationCountry;
 
         return $this;
@@ -565,7 +607,7 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets creationDate
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getCreationDate()
     {
@@ -575,7 +617,7 @@ class EntityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets creationDate
      *
-     * @param \DateTime|null $creationDate Foundation date of the company for which the LEI is created | DateTimeFormat.ISO.DATE
+     * @param \DateTime $creationDate Foundation date of the company for which the LEI is created | DateTimeFormat.ISO.DATE
      *
      * @return self
      */

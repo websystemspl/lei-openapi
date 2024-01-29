@@ -134,18 +134,9 @@ class InvoiceAddressTest extends TestCase
     }
 
     /**
-     * Test attribute "street"
+     * Test attribute "firstAddressLine"
      */
-    public function testPropertyStreet()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "streetNr"
-     */
-    public function testPropertyStreetNr()
+    public function testPropertyFirstAddressLine()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

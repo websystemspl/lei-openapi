@@ -288,6 +288,15 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['invoiceAddress'] === null) {
+            $invalidProperties[] = "'invoiceAddress' can't be null";
+        }
+        if ($this->container['paymentDetails'] === null) {
+            $invalidProperties[] = "'paymentDetails' can't be null";
+        }
+        if ($this->container['invoiceContact'] === null) {
+            $invalidProperties[] = "'invoiceContact' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -306,7 +315,7 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets invoiceAddress
      *
-     * @return \OpenAPI\Client\Model\InvoiceAddress|null
+     * @return \OpenAPI\Client\Model\InvoiceAddress
      */
     public function getInvoiceAddress()
     {
@@ -316,7 +325,7 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets invoiceAddress
      *
-     * @param \OpenAPI\Client\Model\InvoiceAddress|null $invoiceAddress invoiceAddress
+     * @param \OpenAPI\Client\Model\InvoiceAddress $invoiceAddress invoiceAddress
      *
      * @return self
      */
@@ -333,7 +342,7 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets paymentDetails
      *
-     * @return \OpenAPI\Client\Model\PaymentDetails|null
+     * @return \OpenAPI\Client\Model\PaymentDetails
      */
     public function getPaymentDetails()
     {
@@ -343,7 +352,7 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets paymentDetails
      *
-     * @param \OpenAPI\Client\Model\PaymentDetails|null $paymentDetails paymentDetails
+     * @param \OpenAPI\Client\Model\PaymentDetails $paymentDetails paymentDetails
      *
      * @return self
      */
@@ -360,7 +369,7 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets invoiceContact
      *
-     * @return \OpenAPI\Client\Model\InvoiceContact|null
+     * @return \OpenAPI\Client\Model\InvoiceContact
      */
     public function getInvoiceContact()
     {
@@ -370,7 +379,7 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets invoiceContact
      *
-     * @param \OpenAPI\Client\Model\InvoiceContact|null $invoiceContact invoiceContact
+     * @param \OpenAPI\Client\Model\InvoiceContact $invoiceContact invoiceContact
      *
      * @return self
      */

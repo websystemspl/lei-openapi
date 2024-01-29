@@ -71,6 +71,8 @@ loadOrderStatus($loadOrderStatusRequest): \OpenAPI\Client\Model\ResponseString
 
 
 
+The following Error-Codes in the field 'data' are: S0, S1 = 'Receipt' || S2, S3 = 'In progress' || S4, S5 = 'Feedback required' || S6 = 'In progress' || S7, S8, S9, S10, S11 = 'Under review' || S12, S13 = 'Cancelled customer' || S14 = 'Completed' || S15, S16 = 'Under review' || E0 = 'Payment method selection pending'
+
 ### Example
 
 ```php

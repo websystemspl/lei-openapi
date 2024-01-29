@@ -69,7 +69,7 @@ class CreateOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'apiToken' => null,
+        'apiToken' => 'uuid',
         'partnerOrderData' => null
     ];
 

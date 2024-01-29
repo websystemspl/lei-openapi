@@ -1,6 +1,6 @@
 <?php
 /**
- * InvoiceAddress
+ * HqAddressData
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * InvoiceAddress Class Doc Comment
+ * HqAddressData Class Doc Comment
  *
  * @category Class
- * @description Can be used to send the invoice to a different address
+ * @description Headquarters address information. This is optional but if sent has to have the minimum values
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
+class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'InvoiceAddress';
+    protected static $openAPIModelName = 'HqAddressData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,16 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'toLegalAddress' => 'bool',
-        'entityName' => 'string',
         'country' => 'string',
-        'zip' => 'string',
+        'state' => 'string',
         'city' => 'string',
-        'postbox' => 'string',
+        'zip' => 'string',
         'firstAddressLine' => 'string',
-        'additionalAddress' => 'string'
+        'nrInBuilding' => 'string',
+        'mailRoute' => 'string',
+        'additionalInfo1' => 'string',
+        'additionalInfo2' => 'string',
+        'additionalInfo3' => 'string'
     ];
 
     /**
@@ -76,14 +78,16 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'toLegalAddress' => null,
-        'entityName' => null,
         'country' => null,
-        'zip' => null,
+        'state' => null,
         'city' => null,
-        'postbox' => null,
+        'zip' => null,
         'firstAddressLine' => null,
-        'additionalAddress' => null
+        'nrInBuilding' => null,
+        'mailRoute' => null,
+        'additionalInfo1' => null,
+        'additionalInfo2' => null,
+        'additionalInfo3' => null
     ];
 
     /**
@@ -92,14 +96,16 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'toLegalAddress' => false,
-		'entityName' => false,
-		'country' => false,
-		'zip' => false,
+        'country' => false,
+		'state' => false,
 		'city' => false,
-		'postbox' => false,
+		'zip' => false,
 		'firstAddressLine' => false,
-		'additionalAddress' => false
+		'nrInBuilding' => false,
+		'mailRoute' => false,
+		'additionalInfo1' => false,
+		'additionalInfo2' => false,
+		'additionalInfo3' => false
     ];
 
     /**
@@ -188,14 +194,16 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'toLegalAddress' => 'toLegalAddress',
-        'entityName' => 'entity_name',
         'country' => 'country',
-        'zip' => 'zip',
+        'state' => 'state',
         'city' => 'city',
-        'postbox' => 'postbox',
+        'zip' => 'zip',
         'firstAddressLine' => 'first_address_line',
-        'additionalAddress' => 'additional_address'
+        'nrInBuilding' => 'nrInBuilding',
+        'mailRoute' => 'mailRoute',
+        'additionalInfo1' => 'additionalInfo1',
+        'additionalInfo2' => 'additionalInfo2',
+        'additionalInfo3' => 'additionalInfo3'
     ];
 
     /**
@@ -204,14 +212,16 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'toLegalAddress' => 'setToLegalAddress',
-        'entityName' => 'setEntityName',
         'country' => 'setCountry',
-        'zip' => 'setZip',
+        'state' => 'setState',
         'city' => 'setCity',
-        'postbox' => 'setPostbox',
+        'zip' => 'setZip',
         'firstAddressLine' => 'setFirstAddressLine',
-        'additionalAddress' => 'setAdditionalAddress'
+        'nrInBuilding' => 'setNrInBuilding',
+        'mailRoute' => 'setMailRoute',
+        'additionalInfo1' => 'setAdditionalInfo1',
+        'additionalInfo2' => 'setAdditionalInfo2',
+        'additionalInfo3' => 'setAdditionalInfo3'
     ];
 
     /**
@@ -220,14 +230,16 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'toLegalAddress' => 'getToLegalAddress',
-        'entityName' => 'getEntityName',
         'country' => 'getCountry',
-        'zip' => 'getZip',
+        'state' => 'getState',
         'city' => 'getCity',
-        'postbox' => 'getPostbox',
+        'zip' => 'getZip',
         'firstAddressLine' => 'getFirstAddressLine',
-        'additionalAddress' => 'getAdditionalAddress'
+        'nrInBuilding' => 'getNrInBuilding',
+        'mailRoute' => 'getMailRoute',
+        'additionalInfo1' => 'getAdditionalInfo1',
+        'additionalInfo2' => 'getAdditionalInfo2',
+        'additionalInfo3' => 'getAdditionalInfo3'
     ];
 
     /**
@@ -287,14 +299,16 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('toLegalAddress', $data ?? [], null);
-        $this->setIfExists('entityName', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('zip', $data ?? [], null);
+        $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('city', $data ?? [], null);
-        $this->setIfExists('postbox', $data ?? [], null);
+        $this->setIfExists('zip', $data ?? [], null);
         $this->setIfExists('firstAddressLine', $data ?? [], null);
-        $this->setIfExists('additionalAddress', $data ?? [], null);
+        $this->setIfExists('nrInBuilding', $data ?? [], null);
+        $this->setIfExists('mailRoute', $data ?? [], null);
+        $this->setIfExists('additionalInfo1', $data ?? [], null);
+        $this->setIfExists('additionalInfo2', $data ?? [], null);
+        $this->setIfExists('additionalInfo3', $data ?? [], null);
     }
 
     /**
@@ -324,11 +338,16 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['toLegalAddress'] === null) {
-            $invalidProperties[] = "'toLegalAddress' can't be null";
-        }
         if (!is_null($this->container['country']) && !preg_match("/^[A-Z]{2}$/", $this->container['country'])) {
             $invalidProperties[] = "invalid value for 'country', must be conform to the pattern /^[A-Z]{2}$/.";
+        }
+
+        if (!is_null($this->container['state']) && !preg_match("/^[A-Z]{2}(-[A-Z0-9]{1,3})?$/", $this->container['state'])) {
+            $invalidProperties[] = "invalid value for 'state', must be conform to the pattern /^[A-Z]{2}(-[A-Z0-9]{1,3})?$/.";
+        }
+
+        if (!is_null($this->container['nrInBuilding']) && !preg_match("/^(.*[0-9].*)?$/", $this->container['nrInBuilding'])) {
+            $invalidProperties[] = "invalid value for 'nrInBuilding', must be conform to the pattern /^(.*[0-9].*)?$/.";
         }
 
         return $invalidProperties;
@@ -347,60 +366,6 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets toLegalAddress
-     *
-     * @return bool
-     */
-    public function getToLegalAddress()
-    {
-        return $this->container['toLegalAddress'];
-    }
-
-    /**
-     * Sets toLegalAddress
-     *
-     * @param bool $toLegalAddress If True the other attributes of InvoiceAddress arent necessary and can be NULL
-     *
-     * @return self
-     */
-    public function setToLegalAddress($toLegalAddress)
-    {
-        if (is_null($toLegalAddress)) {
-            throw new \InvalidArgumentException('non-nullable toLegalAddress cannot be null');
-        }
-        $this->container['toLegalAddress'] = $toLegalAddress;
-
-        return $this;
-    }
-
-    /**
-     * Gets entityName
-     *
-     * @return string|null
-     */
-    public function getEntityName()
-    {
-        return $this->container['entityName'];
-    }
-
-    /**
-     * Sets entityName
-     *
-     * @param string|null $entityName Name of the company to which the invoice is to be sent
-     *
-     * @return self
-     */
-    public function setEntityName($entityName)
-    {
-        if (is_null($entityName)) {
-            throw new \InvalidArgumentException('non-nullable entityName cannot be null');
-        }
-        $this->container['entityName'] = $entityName;
-
-        return $this;
-    }
-
-    /**
      * Gets country
      *
      * @return string|null
@@ -413,7 +378,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country
      *
-     * @param string|null $country Country of the company to which the invoice is to be sent
+     * @param string|null $country Country of legal company address || ISO 3166
      *
      * @return self
      */
@@ -424,7 +389,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         if ((!preg_match("/^[A-Z]{2}$/", $country))) {
-            throw new \InvalidArgumentException("invalid value for \$country when calling InvoiceAddress., must conform to the pattern /^[A-Z]{2}$/.");
+            throw new \InvalidArgumentException("invalid value for \$country when calling HqAddressData., must conform to the pattern /^[A-Z]{2}$/.");
         }
 
         $this->container['country'] = $country;
@@ -433,28 +398,33 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets zip
+     * Gets state
      *
      * @return string|null
      */
-    public function getZip()
+    public function getState()
     {
-        return $this->container['zip'];
+        return $this->container['state'];
     }
 
     /**
-     * Sets zip
+     * Sets state
      *
-     * @param string|null $zip Zip code of the company to which the invoice is to be sent
+     * @param string|null $state State of the legal company address || ISO 3166
      *
      * @return self
      */
-    public function setZip($zip)
+    public function setState($state)
     {
-        if (is_null($zip)) {
-            throw new \InvalidArgumentException('non-nullable zip cannot be null');
+        if (is_null($state)) {
+            throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
-        $this->container['zip'] = $zip;
+
+        if ((!preg_match("/^[A-Z]{2}(-[A-Z0-9]{1,3})?$/", $state))) {
+            throw new \InvalidArgumentException("invalid value for \$state when calling HqAddressData., must conform to the pattern /^[A-Z]{2}(-[A-Z0-9]{1,3})?$/.");
+        }
+
+        $this->container['state'] = $state;
 
         return $this;
     }
@@ -472,7 +442,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets city
      *
-     * @param string|null $city City of the company to which the invoice is to be sent
+     * @param string|null $city City of legal company address
      *
      * @return self
      */
@@ -487,28 +457,28 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets postbox
+     * Gets zip
      *
      * @return string|null
      */
-    public function getPostbox()
+    public function getZip()
     {
-        return $this->container['postbox'];
+        return $this->container['zip'];
     }
 
     /**
-     * Sets postbox
+     * Sets zip
      *
-     * @param string|null $postbox P.O. box of the company to which the invoice is to be sent || Can be NULL
+     * @param string|null $zip Zip code of the legal company address
      *
      * @return self
      */
-    public function setPostbox($postbox)
+    public function setZip($zip)
     {
-        if (is_null($postbox)) {
-            throw new \InvalidArgumentException('non-nullable postbox cannot be null');
+        if (is_null($zip)) {
+            throw new \InvalidArgumentException('non-nullable zip cannot be null');
         }
-        $this->container['postbox'] = $postbox;
+        $this->container['zip'] = $zip;
 
         return $this;
     }
@@ -526,7 +496,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets firstAddressLine
      *
-     * @param string|null $firstAddressLine Street and street number  of the company to which the invoice is to be sent
+     * @param string|null $firstAddressLine Street and street number of legal company address
      *
      * @return self
      */
@@ -541,28 +511,141 @@ class InvoiceAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets additionalAddress
+     * Gets nrInBuilding
      *
      * @return string|null
      */
-    public function getAdditionalAddress()
+    public function getNrInBuilding()
     {
-        return $this->container['additionalAddress'];
+        return $this->container['nrInBuilding'];
     }
 
     /**
-     * Sets additionalAddress
+     * Sets nrInBuilding
      *
-     * @param string|null $additionalAddress Additional Adress of the company to which the invoice is to be sent
+     * @param string|null $nrInBuilding Number within the building of the legal company address || Can be NULL
      *
      * @return self
      */
-    public function setAdditionalAddress($additionalAddress)
+    public function setNrInBuilding($nrInBuilding)
     {
-        if (is_null($additionalAddress)) {
-            throw new \InvalidArgumentException('non-nullable additionalAddress cannot be null');
+        if (is_null($nrInBuilding)) {
+            throw new \InvalidArgumentException('non-nullable nrInBuilding cannot be null');
         }
-        $this->container['additionalAddress'] = $additionalAddress;
+
+        if ((!preg_match("/^(.*[0-9].*)?$/", $nrInBuilding))) {
+            throw new \InvalidArgumentException("invalid value for \$nrInBuilding when calling HqAddressData., must conform to the pattern /^(.*[0-9].*)?$/.");
+        }
+
+        $this->container['nrInBuilding'] = $nrInBuilding;
+
+        return $this;
+    }
+
+    /**
+     * Gets mailRoute
+     *
+     * @return string|null
+     */
+    public function getMailRoute()
+    {
+        return $this->container['mailRoute'];
+    }
+
+    /**
+     * Sets mailRoute
+     *
+     * @param string|null $mailRoute Mail routing of the legal company address || Can be NULL
+     *
+     * @return self
+     */
+    public function setMailRoute($mailRoute)
+    {
+        if (is_null($mailRoute)) {
+            throw new \InvalidArgumentException('non-nullable mailRoute cannot be null');
+        }
+        $this->container['mailRoute'] = $mailRoute;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionalInfo1
+     *
+     * @return string|null
+     */
+    public function getAdditionalInfo1()
+    {
+        return $this->container['additionalInfo1'];
+    }
+
+    /**
+     * Sets additionalInfo1
+     *
+     * @param string|null $additionalInfo1 More information on the address of the legal company address || Can be NULL
+     *
+     * @return self
+     */
+    public function setAdditionalInfo1($additionalInfo1)
+    {
+        if (is_null($additionalInfo1)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo1 cannot be null');
+        }
+        $this->container['additionalInfo1'] = $additionalInfo1;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionalInfo2
+     *
+     * @return string|null
+     */
+    public function getAdditionalInfo2()
+    {
+        return $this->container['additionalInfo2'];
+    }
+
+    /**
+     * Sets additionalInfo2
+     *
+     * @param string|null $additionalInfo2 More information on the address of the legal company address || Can be NULL
+     *
+     * @return self
+     */
+    public function setAdditionalInfo2($additionalInfo2)
+    {
+        if (is_null($additionalInfo2)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo2 cannot be null');
+        }
+        $this->container['additionalInfo2'] = $additionalInfo2;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionalInfo3
+     *
+     * @return string|null
+     */
+    public function getAdditionalInfo3()
+    {
+        return $this->container['additionalInfo3'];
+    }
+
+    /**
+     * Sets additionalInfo3
+     *
+     * @param string|null $additionalInfo3 More information on the address of the legal company address || Can be NULL
+     *
+     * @return self
+     */
+    public function setAdditionalInfo3($additionalInfo3)
+    {
+        if (is_null($additionalInfo3)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo3 cannot be null');
+        }
+        $this->container['additionalInfo3'] = $additionalInfo3;
 
         return $this;
     }

@@ -71,7 +71,7 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPIFormats = [
         'attachmentData' => null,
-        'apiToken' => null,
+        'apiToken' => 'uuid',
         'orderNumber' => null
     ];
 
@@ -288,6 +288,15 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
+        if ($this->container['attachmentData'] === null) {
+            $invalidProperties[] = "'attachmentData' can't be null";
+        }
+        if ($this->container['apiToken'] === null) {
+            $invalidProperties[] = "'apiToken' can't be null";
+        }
+        if ($this->container['orderNumber'] === null) {
+            $invalidProperties[] = "'orderNumber' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -306,7 +315,7 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets attachmentData
      *
-     * @return \OpenAPI\Client\Model\AttachmentData|null
+     * @return \OpenAPI\Client\Model\AttachmentData
      */
     public function getAttachmentData()
     {
@@ -316,7 +325,7 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets attachmentData
      *
-     * @param \OpenAPI\Client\Model\AttachmentData|null $attachmentData attachmentData
+     * @param \OpenAPI\Client\Model\AttachmentData $attachmentData attachmentData
      *
      * @return self
      */
@@ -333,7 +342,7 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets apiToken
      *
-     * @return string|null
+     * @return string
      */
     public function getApiToken()
     {
@@ -343,7 +352,7 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets apiToken
      *
-     * @param string|null $apiToken A token, which should be used as a security login
+     * @param string $apiToken A token, which should be used as a security login
      *
      * @return self
      */
@@ -360,7 +369,7 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets orderNumber
      *
-     * @return string|null
+     * @return string
      */
     public function getOrderNumber()
     {
@@ -370,7 +379,7 @@ class AppendOrderAttachmentRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets orderNumber
      *
-     * @param string|null $orderNumber Order number for the current process for the client
+     * @param string $orderNumber Order number for the current process for the client
      *
      * @return self
      */

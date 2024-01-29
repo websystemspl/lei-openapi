@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**invoiceToContactAddress** | **bool** | If True the other attributes of InvoiceContact arent necessary and can be NULL | [optional]
+**invoiceToContactAddress** | **bool** | If True the other attributes of InvoiceContact arent necessary and can be NULL |
 **salutation** | **string** | Salutation of the contact person of the company to which the invoice is to be sent  || Can be NULL | [optional]
 **firstname** | **string** | First name of the contact person of the company to which the invoice is to be sent || Can be NULL | [optional]
 **lastname** | **string** | Surname of the contact person of the company to which the invoice is to be sent || Can be NULL | [optional]

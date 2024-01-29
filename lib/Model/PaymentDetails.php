@@ -58,7 +58,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'paymentPrice' => 'string',
-        'typPrepaid' => 'string',
+        'typePrepaid' => 'string',
         'paymentType' => 'string',
         'paymentCode' => 'string',
         'paymentCurrency' => 'string'
@@ -73,7 +73,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'paymentPrice' => null,
-        'typPrepaid' => null,
+        'typePrepaid' => null,
         'paymentType' => null,
         'paymentCode' => null,
         'paymentCurrency' => null
@@ -86,7 +86,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'paymentPrice' => false,
-		'typPrepaid' => false,
+		'typePrepaid' => false,
 		'paymentType' => false,
 		'paymentCode' => false,
 		'paymentCurrency' => false
@@ -179,7 +179,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'paymentPrice' => 'paymentPrice',
-        'typPrepaid' => 'typPrepaid',
+        'typePrepaid' => 'typePrepaid',
         'paymentType' => 'paymentType',
         'paymentCode' => 'paymentCode',
         'paymentCurrency' => 'paymentCurrency'
@@ -192,7 +192,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'paymentPrice' => 'setPaymentPrice',
-        'typPrepaid' => 'setTypPrepaid',
+        'typePrepaid' => 'setTypePrepaid',
         'paymentType' => 'setPaymentType',
         'paymentCode' => 'setPaymentCode',
         'paymentCurrency' => 'setPaymentCurrency'
@@ -205,7 +205,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'paymentPrice' => 'getPaymentPrice',
-        'typPrepaid' => 'getTypPrepaid',
+        'typePrepaid' => 'getTypePrepaid',
         'paymentType' => 'getPaymentType',
         'paymentCode' => 'getPaymentCode',
         'paymentCurrency' => 'getPaymentCurrency'
@@ -299,7 +299,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('paymentPrice', $data ?? [], null);
-        $this->setIfExists('typPrepaid', $data ?? [], null);
+        $this->setIfExists('typePrepaid', $data ?? [], null);
         $this->setIfExists('paymentType', $data ?? [], null);
         $this->setIfExists('paymentCode', $data ?? [], null);
         $this->setIfExists('paymentCurrency', $data ?? [], null);
@@ -332,6 +332,16 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['paymentPrice'] === null) {
+            $invalidProperties[] = "'paymentPrice' can't be null";
+        }
+        if (!preg_match("/^[0-9]+$/", $this->container['paymentPrice'])) {
+            $invalidProperties[] = "invalid value for 'paymentPrice', must be conform to the pattern /^[0-9]+$/.";
+        }
+
+        if ($this->container['paymentType'] === null) {
+            $invalidProperties[] = "'paymentType' can't be null";
+        }
         $allowedValues = $this->getPaymentTypeAllowableValues();
         if (!is_null($this->container['paymentType']) && !in_array($this->container['paymentType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -341,6 +351,9 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['paymentCurrency'] === null) {
+            $invalidProperties[] = "'paymentCurrency' can't be null";
+        }
         $allowedValues = $this->getPaymentCurrencyAllowableValues();
         if (!is_null($this->container['paymentCurrency']) && !in_array($this->container['paymentCurrency'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -368,7 +381,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets paymentPrice
      *
-     * @return string|null
+     * @return string
      */
     public function getPaymentPrice()
     {
@@ -378,7 +391,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets paymentPrice
      *
-     * @param string|null $paymentPrice The price paid for the LEI || Price without a comma or point in full number 65.85 -> 6585
+     * @param string $paymentPrice The price paid for the LEI || Price without a comma or point in full number 65.85 -> 6585
      *
      * @return self
      */
@@ -387,34 +400,39 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($paymentPrice)) {
             throw new \InvalidArgumentException('non-nullable paymentPrice cannot be null');
         }
+
+        if ((!preg_match("/^[0-9]+$/", $paymentPrice))) {
+            throw new \InvalidArgumentException("invalid value for \$paymentPrice when calling PaymentDetails., must conform to the pattern /^[0-9]+$/.");
+        }
+
         $this->container['paymentPrice'] = $paymentPrice;
 
         return $this;
     }
 
     /**
-     * Gets typPrepaid
+     * Gets typePrepaid
      *
      * @return string|null
      */
-    public function getTypPrepaid()
+    public function getTypePrepaid()
     {
-        return $this->container['typPrepaid'];
+        return $this->container['typePrepaid'];
     }
 
     /**
-     * Sets typPrepaid
+     * Sets typePrepaid
      *
-     * @param string|null $typPrepaid If payment_type = PREPAID | Which payment provider was used
+     * @param string|null $typePrepaid If payment_type = PREPAID | Which payment provider was used
      *
      * @return self
      */
-    public function setTypPrepaid($typPrepaid)
+    public function setTypePrepaid($typePrepaid)
     {
-        if (is_null($typPrepaid)) {
-            throw new \InvalidArgumentException('non-nullable typPrepaid cannot be null');
+        if (is_null($typePrepaid)) {
+            throw new \InvalidArgumentException('non-nullable typePrepaid cannot be null');
         }
-        $this->container['typPrepaid'] = $typPrepaid;
+        $this->container['typePrepaid'] = $typePrepaid;
 
         return $this;
     }
@@ -422,7 +440,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets paymentType
      *
-     * @return string|null
+     * @return string
      */
     public function getPaymentType()
     {
@@ -432,7 +450,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets paymentType
      *
-     * @param string|null $paymentType What type of payment was used? There is INVOICE and PREPAID
+     * @param string $paymentType What type of payment was used? There is INVOICE and PREPAID
      *
      * @return self
      */
@@ -486,7 +504,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets paymentCurrency
      *
-     * @return string|null
+     * @return string
      */
     public function getPaymentCurrency()
     {
@@ -496,7 +514,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets paymentCurrency
      *
-     * @param string|null $paymentCurrency Currency in which the LEI was paid
+     * @param string $paymentCurrency Currency in which the LEI was paid
      *
      * @return self
      */

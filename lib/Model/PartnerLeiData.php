@@ -58,8 +58,8 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'legalAddressData' => '\OpenAPI\Client\Model\AddressData',
-        'hqAddressData' => '\OpenAPI\Client\Model\AddressData',
+        'legalAddressData' => '\OpenAPI\Client\Model\LegalAddressData',
+        'hqAddressData' => '\OpenAPI\Client\Model\HqAddressData',
         'entityData' => '\OpenAPI\Client\Model\EntityData',
         'relationshipData' => '\OpenAPI\Client\Model\RelationshipData',
         'authPerson' => 'string[]',
@@ -310,6 +310,21 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['legalAddressData'] === null) {
+            $invalidProperties[] = "'legalAddressData' can't be null";
+        }
+        if ($this->container['entityData'] === null) {
+            $invalidProperties[] = "'entityData' can't be null";
+        }
+        if ($this->container['relationshipData'] === null) {
+            $invalidProperties[] = "'relationshipData' can't be null";
+        }
+        if ($this->container['authPerson'] === null) {
+            $invalidProperties[] = "'authPerson' can't be null";
+        }
+        if ($this->container['contactAddress'] === null) {
+            $invalidProperties[] = "'contactAddress' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -328,7 +343,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets legalAddressData
      *
-     * @return \OpenAPI\Client\Model\AddressData|null
+     * @return \OpenAPI\Client\Model\LegalAddressData
      */
     public function getLegalAddressData()
     {
@@ -338,7 +353,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets legalAddressData
      *
-     * @param \OpenAPI\Client\Model\AddressData|null $legalAddressData legalAddressData
+     * @param \OpenAPI\Client\Model\LegalAddressData $legalAddressData legalAddressData
      *
      * @return self
      */
@@ -355,7 +370,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets hqAddressData
      *
-     * @return \OpenAPI\Client\Model\AddressData|null
+     * @return \OpenAPI\Client\Model\HqAddressData|null
      */
     public function getHqAddressData()
     {
@@ -365,7 +380,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets hqAddressData
      *
-     * @param \OpenAPI\Client\Model\AddressData|null $hqAddressData hqAddressData
+     * @param \OpenAPI\Client\Model\HqAddressData|null $hqAddressData hqAddressData
      *
      * @return self
      */
@@ -382,7 +397,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets entityData
      *
-     * @return \OpenAPI\Client\Model\EntityData|null
+     * @return \OpenAPI\Client\Model\EntityData
      */
     public function getEntityData()
     {
@@ -392,7 +407,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets entityData
      *
-     * @param \OpenAPI\Client\Model\EntityData|null $entityData entityData
+     * @param \OpenAPI\Client\Model\EntityData $entityData entityData
      *
      * @return self
      */
@@ -409,7 +424,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets relationshipData
      *
-     * @return \OpenAPI\Client\Model\RelationshipData|null
+     * @return \OpenAPI\Client\Model\RelationshipData
      */
     public function getRelationshipData()
     {
@@ -419,7 +434,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets relationshipData
      *
-     * @param \OpenAPI\Client\Model\RelationshipData|null $relationshipData relationshipData
+     * @param \OpenAPI\Client\Model\RelationshipData $relationshipData relationshipData
      *
      * @return self
      */
@@ -436,7 +451,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets authPerson
      *
-     * @return string[]|null
+     * @return string[]
      */
     public function getAuthPerson()
     {
@@ -446,7 +461,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets authPerson
      *
-     * @param string[]|null $authPerson authPerson
+     * @param string[] $authPerson authPerson
      *
      * @return self
      */
@@ -463,7 +478,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets contactAddress
      *
-     * @return \OpenAPI\Client\Model\ContactAddress|null
+     * @return \OpenAPI\Client\Model\ContactAddress
      */
     public function getContactAddress()
     {
@@ -473,7 +488,7 @@ class PartnerLeiData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets contactAddress
      *
-     * @param \OpenAPI\Client\Model\ContactAddress|null $contactAddress contactAddress
+     * @param \OpenAPI\Client\Model\ContactAddress $contactAddress contactAddress
      *
      * @return self
      */
