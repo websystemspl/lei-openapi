@@ -23,7 +23,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
     }
   ],
   "require": {
-    "websystemspl/lei-openapi": "^v0.0.3"
+    "websystemspl/lei-openapi": "^v0.0.4"
   }
 }
 ```
