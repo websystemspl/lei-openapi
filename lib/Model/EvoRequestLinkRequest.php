@@ -1,6 +1,6 @@
 <?php
 /**
- * HqAddressData
+ * EvoRequestLinkRequest
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * HqAddressData Class Doc Comment
+ * EvoRequestLinkRequest Class Doc Comment
  *
  * @category Class
- * @description Headquarters address information. This is optional but if sent has to have the minimum values
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
+class EvoRequestLinkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'HqAddressData';
+    protected static $openAPIModelName = 'EvoRequestLinkRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,16 +57,14 @@ class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'country' => 'string',
-        'state' => 'string',
-        'city' => 'string',
-        'zip' => 'string',
-        'firstAddressLine' => 'string',
-        'nrInBuilding' => 'string',
-        'mailRoute' => 'string',
-        'additionalInfo1' => 'string',
-        'additionalInfo2' => 'string',
-        'additionalInfo3' => 'string'
+        'apiToken' => 'string',
+        'sessionID' => 'string',
+        'languageKey' => 'string',
+        'orderNumber' => 'string',
+        'callbackPathSuccess' => 'string',
+        'callbackPathFailure' => 'string',
+        'callbackPathNotify' => 'string',
+        'callbackPathBack' => 'string'
     ];
 
     /**
@@ -78,16 +75,14 @@ class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'country' => null,
-        'state' => null,
-        'city' => null,
-        'zip' => null,
-        'firstAddressLine' => null,
-        'nrInBuilding' => null,
-        'mailRoute' => null,
-        'additionalInfo1' => null,
-        'additionalInfo2' => null,
-        'additionalInfo3' => null
+        'apiToken' => 'uuid',
+        'sessionID' => null,
+        'languageKey' => null,
+        'orderNumber' => null,
+        'callbackPathSuccess' => null,
+        'callbackPathFailure' => null,
+        'callbackPathNotify' => null,
+        'callbackPathBack' => null
     ];
 
     /**
@@ -96,16 +91,14 @@ class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'country' => false,
-		'state' => false,
-		'city' => false,
-		'zip' => false,
-		'firstAddressLine' => false,
-		'nrInBuilding' => false,
-		'mailRoute' => false,
-		'additionalInfo1' => false,
-		'additionalInfo2' => false,
-		'additionalInfo3' => false
+        'apiToken' => false,
+		'sessionID' => false,
+		'languageKey' => false,
+		'orderNumber' => false,
+		'callbackPathSuccess' => false,
+		'callbackPathFailure' => false,
+		'callbackPathNotify' => false,
+		'callbackPathBack' => false
     ];
 
     /**
@@ -194,16 +187,14 @@ class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'country' => 'country',
-        'state' => 'state',
-        'city' => 'city',
-        'zip' => 'zip',
-        'firstAddressLine' => 'first_address_line',
-        'nrInBuilding' => 'nrInBuilding',
-        'mailRoute' => 'mailRoute',
-        'additionalInfo1' => 'additionalInfo1',
-        'additionalInfo2' => 'additionalInfo2',
-        'additionalInfo3' => 'additionalInfo3'
+        'apiToken' => 'apiToken',
+        'sessionID' => 'sessionID',
+        'languageKey' => 'languageKey',
+        'orderNumber' => 'orderNumber',
+        'callbackPathSuccess' => 'callbackPathSuccess',
+        'callbackPathFailure' => 'callbackPathFailure',
+        'callbackPathNotify' => 'callbackPathNotify',
+        'callbackPathBack' => 'callbackPathBack'
     ];
 
     /**
@@ -212,16 +203,14 @@ class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'country' => 'setCountry',
-        'state' => 'setState',
-        'city' => 'setCity',
-        'zip' => 'setZip',
-        'firstAddressLine' => 'setFirstAddressLine',
-        'nrInBuilding' => 'setNrInBuilding',
-        'mailRoute' => 'setMailRoute',
-        'additionalInfo1' => 'setAdditionalInfo1',
-        'additionalInfo2' => 'setAdditionalInfo2',
-        'additionalInfo3' => 'setAdditionalInfo3'
+        'apiToken' => 'setApiToken',
+        'sessionID' => 'setSessionID',
+        'languageKey' => 'setLanguageKey',
+        'orderNumber' => 'setOrderNumber',
+        'callbackPathSuccess' => 'setCallbackPathSuccess',
+        'callbackPathFailure' => 'setCallbackPathFailure',
+        'callbackPathNotify' => 'setCallbackPathNotify',
+        'callbackPathBack' => 'setCallbackPathBack'
     ];
 
     /**
@@ -230,16 +219,14 @@ class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'country' => 'getCountry',
-        'state' => 'getState',
-        'city' => 'getCity',
-        'zip' => 'getZip',
-        'firstAddressLine' => 'getFirstAddressLine',
-        'nrInBuilding' => 'getNrInBuilding',
-        'mailRoute' => 'getMailRoute',
-        'additionalInfo1' => 'getAdditionalInfo1',
-        'additionalInfo2' => 'getAdditionalInfo2',
-        'additionalInfo3' => 'getAdditionalInfo3'
+        'apiToken' => 'getApiToken',
+        'sessionID' => 'getSessionID',
+        'languageKey' => 'getLanguageKey',
+        'orderNumber' => 'getOrderNumber',
+        'callbackPathSuccess' => 'getCallbackPathSuccess',
+        'callbackPathFailure' => 'getCallbackPathFailure',
+        'callbackPathNotify' => 'getCallbackPathNotify',
+        'callbackPathBack' => 'getCallbackPathBack'
     ];
 
     /**
@@ -299,16 +286,14 @@ class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('state', $data ?? [], null);
-        $this->setIfExists('city', $data ?? [], null);
-        $this->setIfExists('zip', $data ?? [], null);
-        $this->setIfExists('firstAddressLine', $data ?? [], null);
-        $this->setIfExists('nrInBuilding', $data ?? [], null);
-        $this->setIfExists('mailRoute', $data ?? [], null);
-        $this->setIfExists('additionalInfo1', $data ?? [], null);
-        $this->setIfExists('additionalInfo2', $data ?? [], null);
-        $this->setIfExists('additionalInfo3', $data ?? [], null);
+        $this->setIfExists('apiToken', $data ?? [], null);
+        $this->setIfExists('sessionID', $data ?? [], null);
+        $this->setIfExists('languageKey', $data ?? [], null);
+        $this->setIfExists('orderNumber', $data ?? [], null);
+        $this->setIfExists('callbackPathSuccess', $data ?? [], null);
+        $this->setIfExists('callbackPathFailure', $data ?? [], null);
+        $this->setIfExists('callbackPathNotify', $data ?? [], null);
+        $this->setIfExists('callbackPathBack', $data ?? [], null);
     }
 
     /**
@@ -338,18 +323,6 @@ class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['country']) && !preg_match("/^[A-Z]{2}$/", $this->container['country'])) {
-            $invalidProperties[] = "invalid value for 'country', must be conform to the pattern /^[A-Z]{2}$/.";
-        }
-
-        if (!is_null($this->container['state']) && !preg_match("/^([A-Z]{2}(-[A-Z0-9]{1,3})?|(?!.*\\S))$/", $this->container['state'])) {
-            $invalidProperties[] = "invalid value for 'state', must be conform to the pattern /^([A-Z]{2}(-[A-Z0-9]{1,3})?|(?!.*\\S))$/.";
-        }
-
-        if (!is_null($this->container['nrInBuilding']) && !preg_match("/^(.*[0-9].*)?$/", $this->container['nrInBuilding'])) {
-            $invalidProperties[] = "invalid value for 'nrInBuilding', must be conform to the pattern /^(.*[0-9].*)?$/.";
-        }
-
         return $invalidProperties;
     }
 
@@ -366,286 +339,217 @@ class HqAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets country
+     * Gets apiToken
      *
      * @return string|null
      */
-    public function getCountry()
+    public function getApiToken()
     {
-        return $this->container['country'];
+        return $this->container['apiToken'];
     }
 
     /**
-     * Sets country
+     * Sets apiToken
      *
-     * @param string|null $country Country of legal company address || ISO 3166
+     * @param string|null $apiToken A token, which should be used as a security login
      *
      * @return self
      */
-    public function setCountry($country)
+    public function setApiToken($apiToken)
     {
-        if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
+        if (is_null($apiToken)) {
+            throw new \InvalidArgumentException('non-nullable apiToken cannot be null');
         }
-
-        if ((!preg_match("/^[A-Z]{2}$/", $country))) {
-            throw new \InvalidArgumentException("invalid value for \$country when calling HqAddressData., must conform to the pattern /^[A-Z]{2}$/.");
-        }
-
-        $this->container['country'] = $country;
+        $this->container['apiToken'] = $apiToken;
 
         return $this;
     }
 
     /**
-     * Gets state
+     * Gets sessionID
      *
      * @return string|null
      */
-    public function getState()
+    public function getSessionID()
     {
-        return $this->container['state'];
+        return $this->container['sessionID'];
     }
 
     /**
-     * Sets state
+     * Sets sessionID
      *
-     * @param string|null $state State of the legal company address || ISO 3166
+     * @param string|null $sessionID ID of the Websession
      *
      * @return self
      */
-    public function setState($state)
+    public function setSessionID($sessionID)
     {
-        if (is_null($state)) {
-            throw new \InvalidArgumentException('non-nullable state cannot be null');
+        if (is_null($sessionID)) {
+            throw new \InvalidArgumentException('non-nullable sessionID cannot be null');
         }
-
-        if ((!preg_match("/^([A-Z]{2}(-[A-Z0-9]{1,3})?|(?!.*\\S))$/", $state))) {
-            throw new \InvalidArgumentException("invalid value for \$state when calling HqAddressData., must conform to the pattern /^([A-Z]{2}(-[A-Z0-9]{1,3})?|(?!.*\\S))$/.");
-        }
-
-        $this->container['state'] = $state;
+        $this->container['sessionID'] = $sessionID;
 
         return $this;
     }
 
     /**
-     * Gets city
+     * Gets languageKey
      *
      * @return string|null
      */
-    public function getCity()
+    public function getLanguageKey()
     {
-        return $this->container['city'];
+        return $this->container['languageKey'];
     }
 
     /**
-     * Sets city
+     * Sets languageKey
      *
-     * @param string|null $city City of legal company address
+     * @param string|null $languageKey Language
      *
      * @return self
      */
-    public function setCity($city)
+    public function setLanguageKey($languageKey)
     {
-        if (is_null($city)) {
-            throw new \InvalidArgumentException('non-nullable city cannot be null');
+        if (is_null($languageKey)) {
+            throw new \InvalidArgumentException('non-nullable languageKey cannot be null');
         }
-        $this->container['city'] = $city;
+        $this->container['languageKey'] = $languageKey;
 
         return $this;
     }
 
     /**
-     * Gets zip
+     * Gets orderNumber
      *
      * @return string|null
      */
-    public function getZip()
+    public function getOrderNumber()
     {
-        return $this->container['zip'];
+        return $this->container['orderNumber'];
     }
 
     /**
-     * Sets zip
+     * Sets orderNumber
      *
-     * @param string|null $zip Zip code of the legal company address
+     * @param string|null $orderNumber Order number for the current process for the client
      *
      * @return self
      */
-    public function setZip($zip)
+    public function setOrderNumber($orderNumber)
     {
-        if (is_null($zip)) {
-            throw new \InvalidArgumentException('non-nullable zip cannot be null');
+        if (is_null($orderNumber)) {
+            throw new \InvalidArgumentException('non-nullable orderNumber cannot be null');
         }
-        $this->container['zip'] = $zip;
+        $this->container['orderNumber'] = $orderNumber;
 
         return $this;
     }
 
     /**
-     * Gets firstAddressLine
+     * Gets callbackPathSuccess
      *
      * @return string|null
      */
-    public function getFirstAddressLine()
+    public function getCallbackPathSuccess()
     {
-        return $this->container['firstAddressLine'];
+        return $this->container['callbackPathSuccess'];
     }
 
     /**
-     * Sets firstAddressLine
+     * Sets callbackPathSuccess
      *
-     * @param string|null $firstAddressLine Street and street number of legal company address
+     * @param string|null $callbackPathSuccess Callback path success
      *
      * @return self
      */
-    public function setFirstAddressLine($firstAddressLine)
+    public function setCallbackPathSuccess($callbackPathSuccess)
     {
-        if (is_null($firstAddressLine)) {
-            throw new \InvalidArgumentException('non-nullable firstAddressLine cannot be null');
+        if (is_null($callbackPathSuccess)) {
+            throw new \InvalidArgumentException('non-nullable callbackPathSuccess cannot be null');
         }
-        $this->container['firstAddressLine'] = $firstAddressLine;
+        $this->container['callbackPathSuccess'] = $callbackPathSuccess;
 
         return $this;
     }
 
     /**
-     * Gets nrInBuilding
+     * Gets callbackPathFailure
      *
      * @return string|null
      */
-    public function getNrInBuilding()
+    public function getCallbackPathFailure()
     {
-        return $this->container['nrInBuilding'];
+        return $this->container['callbackPathFailure'];
     }
 
     /**
-     * Sets nrInBuilding
+     * Sets callbackPathFailure
      *
-     * @param string|null $nrInBuilding Number within the building of the legal company address || Can be NULL
+     * @param string|null $callbackPathFailure Callback path failure
      *
      * @return self
      */
-    public function setNrInBuilding($nrInBuilding)
+    public function setCallbackPathFailure($callbackPathFailure)
     {
-        if (is_null($nrInBuilding)) {
-            throw new \InvalidArgumentException('non-nullable nrInBuilding cannot be null');
+        if (is_null($callbackPathFailure)) {
+            throw new \InvalidArgumentException('non-nullable callbackPathFailure cannot be null');
         }
-
-        if ((!preg_match("/^(.*[0-9].*)?$/", $nrInBuilding))) {
-            throw new \InvalidArgumentException("invalid value for \$nrInBuilding when calling HqAddressData., must conform to the pattern /^(.*[0-9].*)?$/.");
-        }
-
-        $this->container['nrInBuilding'] = $nrInBuilding;
+        $this->container['callbackPathFailure'] = $callbackPathFailure;
 
         return $this;
     }
 
     /**
-     * Gets mailRoute
+     * Gets callbackPathNotify
      *
      * @return string|null
      */
-    public function getMailRoute()
+    public function getCallbackPathNotify()
     {
-        return $this->container['mailRoute'];
+        return $this->container['callbackPathNotify'];
     }
 
     /**
-     * Sets mailRoute
+     * Sets callbackPathNotify
      *
-     * @param string|null $mailRoute Mail routing of the legal company address || Can be NULL
+     * @param string|null $callbackPathNotify Callback path notify
      *
      * @return self
      */
-    public function setMailRoute($mailRoute)
+    public function setCallbackPathNotify($callbackPathNotify)
     {
-        if (is_null($mailRoute)) {
-            throw new \InvalidArgumentException('non-nullable mailRoute cannot be null');
+        if (is_null($callbackPathNotify)) {
+            throw new \InvalidArgumentException('non-nullable callbackPathNotify cannot be null');
         }
-        $this->container['mailRoute'] = $mailRoute;
+        $this->container['callbackPathNotify'] = $callbackPathNotify;
 
         return $this;
     }
 
     /**
-     * Gets additionalInfo1
+     * Gets callbackPathBack
      *
      * @return string|null
      */
-    public function getAdditionalInfo1()
+    public function getCallbackPathBack()
     {
-        return $this->container['additionalInfo1'];
+        return $this->container['callbackPathBack'];
     }
 
     /**
-     * Sets additionalInfo1
+     * Sets callbackPathBack
      *
-     * @param string|null $additionalInfo1 More information on the address of the legal company address || Can be NULL
+     * @param string|null $callbackPathBack Callback path back
      *
      * @return self
      */
-    public function setAdditionalInfo1($additionalInfo1)
+    public function setCallbackPathBack($callbackPathBack)
     {
-        if (is_null($additionalInfo1)) {
-            throw new \InvalidArgumentException('non-nullable additionalInfo1 cannot be null');
+        if (is_null($callbackPathBack)) {
+            throw new \InvalidArgumentException('non-nullable callbackPathBack cannot be null');
         }
-        $this->container['additionalInfo1'] = $additionalInfo1;
-
-        return $this;
-    }
-
-    /**
-     * Gets additionalInfo2
-     *
-     * @return string|null
-     */
-    public function getAdditionalInfo2()
-    {
-        return $this->container['additionalInfo2'];
-    }
-
-    /**
-     * Sets additionalInfo2
-     *
-     * @param string|null $additionalInfo2 More information on the address of the legal company address || Can be NULL
-     *
-     * @return self
-     */
-    public function setAdditionalInfo2($additionalInfo2)
-    {
-        if (is_null($additionalInfo2)) {
-            throw new \InvalidArgumentException('non-nullable additionalInfo2 cannot be null');
-        }
-        $this->container['additionalInfo2'] = $additionalInfo2;
-
-        return $this;
-    }
-
-    /**
-     * Gets additionalInfo3
-     *
-     * @return string|null
-     */
-    public function getAdditionalInfo3()
-    {
-        return $this->container['additionalInfo3'];
-    }
-
-    /**
-     * Sets additionalInfo3
-     *
-     * @param string|null $additionalInfo3 More information on the address of the legal company address || Can be NULL
-     *
-     * @return self
-     */
-    public function setAdditionalInfo3($additionalInfo3)
-    {
-        if (is_null($additionalInfo3)) {
-            throw new \InvalidArgumentException('non-nullable additionalInfo3 cannot be null');
-        }
-        $this->container['additionalInfo3'] = $additionalInfo3;
+        $this->container['callbackPathBack'] = $callbackPathBack;
 
         return $this;
     }

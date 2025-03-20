@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **country** | **string** | Country of legal company address || ISO 3166 |
-**state** | **string** | State of the legal company address || ISO 3166 |
+**state** | **string** | State of the legal company address || ISO 3166 | [optional]
 **city** | **string** | City of legal company address |
 **zip** | **string** | Zip code of the legal company address |
 **firstAddressLine** | **string** | Street and street number of legal company address |

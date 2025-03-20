@@ -345,11 +345,8 @@ class LegalAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'country', must be conform to the pattern /^[A-Z]{2}$/.";
         }
 
-        if ($this->container['state'] === null) {
-            $invalidProperties[] = "'state' can't be null";
-        }
-        if (!preg_match("/^[A-Z]{2}(-[A-Z0-9]{1,3})?$/", $this->container['state'])) {
-            $invalidProperties[] = "invalid value for 'state', must be conform to the pattern /^[A-Z]{2}(-[A-Z0-9]{1,3})?$/.";
+        if (!is_null($this->container['state']) && !preg_match("/^([A-Z]{2}(-[A-Z0-9]{1,3})?|(?!.*\\S))$/", $this->container['state'])) {
+            $invalidProperties[] = "invalid value for 'state', must be conform to the pattern /^([A-Z]{2}(-[A-Z0-9]{1,3})?|(?!.*\\S))$/.";
         }
 
         if ($this->container['city'] === null) {
@@ -415,7 +412,7 @@ class LegalAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets state
      *
-     * @return string
+     * @return string|null
      */
     public function getState()
     {
@@ -425,7 +422,7 @@ class LegalAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state
      *
-     * @param string $state State of the legal company address || ISO 3166
+     * @param string|null $state State of the legal company address || ISO 3166
      *
      * @return self
      */
@@ -435,8 +432,8 @@ class LegalAddressData implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
 
-        if ((!preg_match("/^[A-Z]{2}(-[A-Z0-9]{1,3})?$/", $state))) {
-            throw new \InvalidArgumentException("invalid value for \$state when calling LegalAddressData., must conform to the pattern /^[A-Z]{2}(-[A-Z0-9]{1,3})?$/.");
+        if ((!preg_match("/^([A-Z]{2}(-[A-Z0-9]{1,3})?|(?!.*\\S))$/", $state))) {
+            throw new \InvalidArgumentException("invalid value for \$state when calling LegalAddressData., must conform to the pattern /^([A-Z]{2}(-[A-Z0-9]{1,3})?|(?!.*\\S))$/.");
         }
 
         $this->container['state'] = $state;

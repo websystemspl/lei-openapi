@@ -19,11 +19,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/websystemspl/lei-openapi.git"
+      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
     }
   ],
   "require": {
-    "websystemspl/lei-openapi": "^v0.0.3"
+    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
   }
 }
 ```
@@ -55,10 +55,10 @@ $apiInstance = new OpenAPI\Client\Api\OrderControllerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$create_order_request = new \OpenAPI\Client\Model\CreateOrderRequest(); // \OpenAPI\Client\Model\CreateOrderRequest
+$createOrderRequest = new \OpenAPI\Client\Model\CreateOrderRequest(); // \OpenAPI\Client\Model\CreateOrderRequest
 
 try {
-    $result = $apiInstance->createOrder($create_order_request);
+    $result = $apiInstance->createOrder($createOrderRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderControllerApi->createOrder: ', $e->getMessage(), PHP_EOL;
@@ -73,19 +73,26 @@ All URIs are relative to *https://test1.service.leireg.de*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OrderControllerApi* | [**createOrder**](docs/Api/OrderControllerApi.md#createorder) | **POST** /api/externalorder/createorder | 
+*OrderControllerApi* | [**getEvoRequestLink**](docs/Api/OrderControllerApi.md#getevorequestlink) | **POST** /api/externalorder/getevorequestlink | 
 *OrderControllerApi* | [**loadOrderStatus**](docs/Api/OrderControllerApi.md#loadorderstatus) | **POST** /api/externalorder/status | 
+*OrderControllerApi* | [**submitEvoPaymentFailure**](docs/Api/OrderControllerApi.md#submitevopaymentfailure) | **POST** /api/externalorder/submitevopaymentfailure | 
+*OrderControllerApi* | [**submitEvoPaymentNotify**](docs/Api/OrderControllerApi.md#submitevopaymentnotify) | **POST** /api/externalorder/submitevopaymentnotify | 
+*OrderControllerApi* | [**submitEvoPaymentSuccess**](docs/Api/OrderControllerApi.md#submitevopaymentsuccess) | **POST** /api/externalorder/submitevopaymentsuccess | 
 *OrderControllerApi* | [**uploadFile**](docs/Api/OrderControllerApi.md#uploadfile) | **POST** /api/externalorder/fileupload | 
 
 ## Models
 
-- [AddressData](docs/Model/AddressData.md)
 - [AppendOrderAttachmentRequest](docs/Model/AppendOrderAttachmentRequest.md)
 - [AttachmentData](docs/Model/AttachmentData.md)
 - [ContactAddress](docs/Model/ContactAddress.md)
 - [CreateOrderRequest](docs/Model/CreateOrderRequest.md)
 - [EntityData](docs/Model/EntityData.md)
+- [EvoPaymentDataRequest](docs/Model/EvoPaymentDataRequest.md)
+- [EvoRequestLinkRequest](docs/Model/EvoRequestLinkRequest.md)
+- [HqAddressData](docs/Model/HqAddressData.md)
 - [InvoiceAddress](docs/Model/InvoiceAddress.md)
 - [InvoiceContact](docs/Model/InvoiceContact.md)
+- [LegalAddressData](docs/Model/LegalAddressData.md)
 - [LoadOrderStatusRequest](docs/Model/LoadOrderStatusRequest.md)
 - [Mother](docs/Model/Mother.md)
 - [PartnerLeiData](docs/Model/PartnerLeiData.md)
@@ -93,6 +100,7 @@ Class | Method | HTTP request | Description
 - [Payment](docs/Model/Payment.md)
 - [PaymentDetails](docs/Model/PaymentDetails.md)
 - [RelationshipData](docs/Model/RelationshipData.md)
+- [ResponseBoolean](docs/Model/ResponseBoolean.md)
 - [ResponseString](docs/Model/ResponseString.md)
 - [ValidationResponseBooleanFileUploadValidationError](docs/Model/ValidationResponseBooleanFileUploadValidationError.md)
 - [ValidationResponseStringLeiOrderValidationError](docs/Model/ValidationResponseStringLeiOrderValidationError.md)

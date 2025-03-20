@@ -9,6 +9,8 @@ docs/Model/AttachmentData.md
 docs/Model/ContactAddress.md
 docs/Model/CreateOrderRequest.md
 docs/Model/EntityData.md
+docs/Model/EvoPaymentDataRequest.md
+docs/Model/EvoRequestLinkRequest.md
 docs/Model/HqAddressData.md
 docs/Model/InvoiceAddress.md
 docs/Model/InvoiceContact.md
@@ -20,6 +22,7 @@ docs/Model/PartnerOrderData.md
 docs/Model/Payment.md
 docs/Model/PaymentDetails.md
 docs/Model/RelationshipData.md
+docs/Model/ResponseBoolean.md
 docs/Model/ResponseString.md
 docs/Model/ValidationResponseBooleanFileUploadValidationError.md
 docs/Model/ValidationResponseStringLeiOrderValidationError.md
@@ -33,6 +36,8 @@ lib/Model/AttachmentData.php
 lib/Model/ContactAddress.php
 lib/Model/CreateOrderRequest.php
 lib/Model/EntityData.php
+lib/Model/EvoPaymentDataRequest.php
+lib/Model/EvoRequestLinkRequest.php
 lib/Model/HqAddressData.php
 lib/Model/InvoiceAddress.php
 lib/Model/InvoiceContact.php
@@ -45,8 +50,12 @@ lib/Model/PartnerOrderData.php
 lib/Model/Payment.php
 lib/Model/PaymentDetails.php
 lib/Model/RelationshipData.php
+lib/Model/ResponseBoolean.php
 lib/Model/ResponseString.php
 lib/Model/ValidationResponseBooleanFileUploadValidationError.php
 lib/Model/ValidationResponseStringLeiOrderValidationError.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/EvoPaymentDataRequestTest.php
+test/Model/EvoRequestLinkRequestTest.php
+test/Model/ResponseBooleanTest.php
