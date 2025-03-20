@@ -74,7 +74,19 @@ class OrderControllerApi
         'createOrder' => [
             'application/json',
         ],
+        'getEvoRequestLink' => [
+            'application/json',
+        ],
         'loadOrderStatus' => [
+            'application/json',
+        ],
+        'submitEvoPaymentFailure' => [
+            'application/json',
+        ],
+        'submitEvoPaymentNotify' => [
+            'application/json',
+        ],
+        'submitEvoPaymentSuccess' => [
             'application/json',
         ],
         'uploadFile' => [
@@ -403,6 +415,280 @@ class OrderControllerApi
     }
 
     /**
+     * Operation getEvoRequestLink
+     *
+     * @param  \OpenAPI\Client\Model\EvoRequestLinkRequest $evoRequestLinkRequest evoRequestLinkRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvoRequestLink'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ResponseString
+     */
+    public function getEvoRequestLink($evoRequestLinkRequest, string $contentType = self::contentTypes['getEvoRequestLink'][0])
+    {
+        list($response) = $this->getEvoRequestLinkWithHttpInfo($evoRequestLinkRequest, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getEvoRequestLinkWithHttpInfo
+     *
+     * @param  \OpenAPI\Client\Model\EvoRequestLinkRequest $evoRequestLinkRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvoRequestLink'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ResponseString, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEvoRequestLinkWithHttpInfo($evoRequestLinkRequest, string $contentType = self::contentTypes['getEvoRequestLink'][0])
+    {
+        $request = $this->getEvoRequestLinkRequest($evoRequestLinkRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\ResponseString' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ResponseString' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ResponseString', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ResponseString';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ResponseString',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getEvoRequestLinkAsync
+     *
+     * @param  \OpenAPI\Client\Model\EvoRequestLinkRequest $evoRequestLinkRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvoRequestLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEvoRequestLinkAsync($evoRequestLinkRequest, string $contentType = self::contentTypes['getEvoRequestLink'][0])
+    {
+        return $this->getEvoRequestLinkAsyncWithHttpInfo($evoRequestLinkRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getEvoRequestLinkAsyncWithHttpInfo
+     *
+     * @param  \OpenAPI\Client\Model\EvoRequestLinkRequest $evoRequestLinkRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvoRequestLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEvoRequestLinkAsyncWithHttpInfo($evoRequestLinkRequest, string $contentType = self::contentTypes['getEvoRequestLink'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\ResponseString';
+        $request = $this->getEvoRequestLinkRequest($evoRequestLinkRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getEvoRequestLink'
+     *
+     * @param  \OpenAPI\Client\Model\EvoRequestLinkRequest $evoRequestLinkRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvoRequestLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getEvoRequestLinkRequest($evoRequestLinkRequest, string $contentType = self::contentTypes['getEvoRequestLink'][0])
+    {
+
+        // verify the required parameter 'evoRequestLinkRequest' is set
+        if ($evoRequestLinkRequest === null || (is_array($evoRequestLinkRequest) && count($evoRequestLinkRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $evoRequestLinkRequest when calling getEvoRequestLink'
+            );
+        }
+
+
+        $resourcePath = '/api/externalorder/getevorequestlink';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($evoRequestLinkRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($evoRequestLinkRequest));
+            } else {
+                $httpBody = $evoRequestLinkRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation loadOrderStatus
      *
      * @param  \OpenAPI\Client\Model\LoadOrderStatusRequest $loadOrderStatusRequest loadOrderStatusRequest (required)
@@ -629,6 +915,828 @@ class OrderControllerApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loadOrderStatusRequest));
             } else {
                 $httpBody = $loadOrderStatusRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation submitEvoPaymentFailure
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentFailure'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ResponseString
+     */
+    public function submitEvoPaymentFailure($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentFailure'][0])
+    {
+        list($response) = $this->submitEvoPaymentFailureWithHttpInfo($evoPaymentDataRequest, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation submitEvoPaymentFailureWithHttpInfo
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentFailure'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ResponseString, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function submitEvoPaymentFailureWithHttpInfo($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentFailure'][0])
+    {
+        $request = $this->submitEvoPaymentFailureRequest($evoPaymentDataRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\ResponseString' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ResponseString' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ResponseString', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ResponseString';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ResponseString',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation submitEvoPaymentFailureAsync
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentFailure'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitEvoPaymentFailureAsync($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentFailure'][0])
+    {
+        return $this->submitEvoPaymentFailureAsyncWithHttpInfo($evoPaymentDataRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation submitEvoPaymentFailureAsyncWithHttpInfo
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentFailure'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitEvoPaymentFailureAsyncWithHttpInfo($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentFailure'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\ResponseString';
+        $request = $this->submitEvoPaymentFailureRequest($evoPaymentDataRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'submitEvoPaymentFailure'
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentFailure'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function submitEvoPaymentFailureRequest($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentFailure'][0])
+    {
+
+        // verify the required parameter 'evoPaymentDataRequest' is set
+        if ($evoPaymentDataRequest === null || (is_array($evoPaymentDataRequest) && count($evoPaymentDataRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $evoPaymentDataRequest when calling submitEvoPaymentFailure'
+            );
+        }
+
+
+        $resourcePath = '/api/externalorder/submitevopaymentfailure';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($evoPaymentDataRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($evoPaymentDataRequest));
+            } else {
+                $httpBody = $evoPaymentDataRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation submitEvoPaymentNotify
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentNotify'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ResponseBoolean
+     */
+    public function submitEvoPaymentNotify($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentNotify'][0])
+    {
+        list($response) = $this->submitEvoPaymentNotifyWithHttpInfo($evoPaymentDataRequest, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation submitEvoPaymentNotifyWithHttpInfo
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentNotify'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ResponseBoolean, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function submitEvoPaymentNotifyWithHttpInfo($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentNotify'][0])
+    {
+        $request = $this->submitEvoPaymentNotifyRequest($evoPaymentDataRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\ResponseBoolean' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ResponseBoolean' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ResponseBoolean', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ResponseBoolean';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ResponseBoolean',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation submitEvoPaymentNotifyAsync
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentNotify'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitEvoPaymentNotifyAsync($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentNotify'][0])
+    {
+        return $this->submitEvoPaymentNotifyAsyncWithHttpInfo($evoPaymentDataRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation submitEvoPaymentNotifyAsyncWithHttpInfo
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentNotify'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitEvoPaymentNotifyAsyncWithHttpInfo($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentNotify'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\ResponseBoolean';
+        $request = $this->submitEvoPaymentNotifyRequest($evoPaymentDataRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'submitEvoPaymentNotify'
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentNotify'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function submitEvoPaymentNotifyRequest($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentNotify'][0])
+    {
+
+        // verify the required parameter 'evoPaymentDataRequest' is set
+        if ($evoPaymentDataRequest === null || (is_array($evoPaymentDataRequest) && count($evoPaymentDataRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $evoPaymentDataRequest when calling submitEvoPaymentNotify'
+            );
+        }
+
+
+        $resourcePath = '/api/externalorder/submitevopaymentnotify';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($evoPaymentDataRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($evoPaymentDataRequest));
+            } else {
+                $httpBody = $evoPaymentDataRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation submitEvoPaymentSuccess
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentSuccess'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ResponseString
+     */
+    public function submitEvoPaymentSuccess($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentSuccess'][0])
+    {
+        list($response) = $this->submitEvoPaymentSuccessWithHttpInfo($evoPaymentDataRequest, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation submitEvoPaymentSuccessWithHttpInfo
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentSuccess'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ResponseString, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function submitEvoPaymentSuccessWithHttpInfo($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentSuccess'][0])
+    {
+        $request = $this->submitEvoPaymentSuccessRequest($evoPaymentDataRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\ResponseString' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ResponseString' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ResponseString', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ResponseString';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ResponseString',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation submitEvoPaymentSuccessAsync
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentSuccess'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitEvoPaymentSuccessAsync($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentSuccess'][0])
+    {
+        return $this->submitEvoPaymentSuccessAsyncWithHttpInfo($evoPaymentDataRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation submitEvoPaymentSuccessAsyncWithHttpInfo
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentSuccess'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitEvoPaymentSuccessAsyncWithHttpInfo($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentSuccess'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\ResponseString';
+        $request = $this->submitEvoPaymentSuccessRequest($evoPaymentDataRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'submitEvoPaymentSuccess'
+     *
+     * @param  \OpenAPI\Client\Model\EvoPaymentDataRequest $evoPaymentDataRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitEvoPaymentSuccess'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function submitEvoPaymentSuccessRequest($evoPaymentDataRequest, string $contentType = self::contentTypes['submitEvoPaymentSuccess'][0])
+    {
+
+        // verify the required parameter 'evoPaymentDataRequest' is set
+        if ($evoPaymentDataRequest === null || (is_array($evoPaymentDataRequest) && count($evoPaymentDataRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $evoPaymentDataRequest when calling submitEvoPaymentSuccess'
+            );
+        }
+
+
+        $resourcePath = '/api/externalorder/submitevopaymentsuccess';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($evoPaymentDataRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($evoPaymentDataRequest));
+            } else {
+                $httpBody = $evoPaymentDataRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
