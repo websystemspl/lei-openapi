@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **callbackPathFailure** | **string** | Callback path failure | [optional]
 **callbackPathNotify** | **string** | Callback path notify | [optional]
 **callbackPathBack** | **string** | Callback path back | [optional]
+**paymentType** | **string** | Payment type | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

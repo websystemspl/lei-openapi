@@ -150,4 +150,13 @@ class EvoRequestLinkRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "paymentType"
+     */
+    public function testPropertypaymentType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

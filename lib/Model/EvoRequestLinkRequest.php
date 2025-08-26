@@ -64,7 +64,8 @@ class EvoRequestLinkRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'callbackPathSuccess' => 'string',
         'callbackPathFailure' => 'string',
         'callbackPathNotify' => 'string',
-        'callbackPathBack' => 'string'
+        'callbackPathBack' => 'string',
+        'paymentType' => 'string'
     ];
 
     /**
@@ -82,7 +83,8 @@ class EvoRequestLinkRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'callbackPathSuccess' => null,
         'callbackPathFailure' => null,
         'callbackPathNotify' => null,
-        'callbackPathBack' => null
+        'callbackPathBack' => null,
+        'paymentType' => null
     ];
 
     /**
@@ -98,7 +100,8 @@ class EvoRequestLinkRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 		'callbackPathSuccess' => false,
 		'callbackPathFailure' => false,
 		'callbackPathNotify' => false,
-		'callbackPathBack' => false
+		'callbackPathBack' => false,
+        'paymentType' => false
     ];
 
     /**
@@ -194,7 +197,8 @@ class EvoRequestLinkRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'callbackPathSuccess' => 'callbackPathSuccess',
         'callbackPathFailure' => 'callbackPathFailure',
         'callbackPathNotify' => 'callbackPathNotify',
-        'callbackPathBack' => 'callbackPathBack'
+        'callbackPathBack' => 'callbackPathBack',
+        'paymentType' => 'paymentType'
     ];
 
     /**
@@ -210,7 +214,8 @@ class EvoRequestLinkRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'callbackPathSuccess' => 'setCallbackPathSuccess',
         'callbackPathFailure' => 'setCallbackPathFailure',
         'callbackPathNotify' => 'setCallbackPathNotify',
-        'callbackPathBack' => 'setCallbackPathBack'
+        'callbackPathBack' => 'setCallbackPathBack',
+        'paymentType' => 'setPaymentType'
     ];
 
     /**
@@ -226,7 +231,8 @@ class EvoRequestLinkRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'callbackPathSuccess' => 'getCallbackPathSuccess',
         'callbackPathFailure' => 'getCallbackPathFailure',
         'callbackPathNotify' => 'getCallbackPathNotify',
-        'callbackPathBack' => 'getCallbackPathBack'
+        'callbackPathBack' => 'getCallbackPathBack',
+        'paymentType' => 'getPaymentType'
     ];
 
     /**
@@ -294,6 +300,7 @@ class EvoRequestLinkRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('callbackPathFailure', $data ?? [], null);
         $this->setIfExists('callbackPathNotify', $data ?? [], null);
         $this->setIfExists('callbackPathBack', $data ?? [], null);
+        $this->setIfExists('paymentType', $data ?? [], null);
     }
 
     /**
@@ -553,6 +560,34 @@ class EvoRequestLinkRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
         return $this;
     }
+
+    /**
+     * Gets paymentType
+     *
+     * @return string|null
+     */
+    public function getPaymentType()
+    {
+        return $this->container['paymentType'];
+    }
+
+    /**
+     * Sets paymentType
+     *
+     * @param string|null $paymentType Payment type
+     *
+     * @return self
+     */
+    public function setPaymentType($paymentType)
+    {
+        if (is_null($paymentType)) {
+            throw new \InvalidArgumentException('non-nullable paymentType cannot be null');
+        }
+        $this->container['paymentType'] = $paymentType;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
